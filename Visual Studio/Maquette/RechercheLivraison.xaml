@@ -1,0 +1,48 @@
+﻿<Window x:Class="Maquette.RechercheLivraison"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Maquette"
+        mc:Ignorable="d"
+        Title="RechercheLivraison" Height="480" Width="720">
+    <Grid>
+        <Image x:Name="logo" Margin="0,0,673,391" Source="Z-VG_logo_mini.jpg" Stretch="Fill"/>
+        <Label x:Name="label1" Content="Recherche d'une livraison" HorizontalAlignment="Left" Margin="72,47,0,0" VerticalAlignment="Top" FontSize="32"/>
+        <Button x:Name="btn_quitter" Content="Quitter" HorizontalAlignment="Left" Margin="37,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_quitter_Click"/>
+        <Label x:Name="label2" Content="Par sa référence :" HorizontalAlignment="Left" Margin="146,113,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_suivant" Content="Suivant" HorizontalAlignment="Left" Margin="505,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_suivant_Click"/>
+        <Button x:Name="btn_annuler" Content="Annuler" HorizontalAlignment="Left" Margin="605,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_annuler_Click"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="22" Margin="260,183,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156"/>
+        <Label x:Name="label" Content="Par le nom du client :" HorizontalAlignment="Left" Margin="125,181,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="24" Margin="260,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156"/>
+        <Label x:Name="label3" Content="Résultat de la recherche" HorizontalAlignment="Left" Margin="82,251,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_visualiser" Content="Visualiser" HorizontalAlignment="Left" Margin="557,252,0,0" VerticalAlignment="Top" Width="75"/>
+        <DataGrid HorizontalAlignment="Left" Height="101" Margin="81,276,0,0" VerticalAlignment="Top" Width="552" Name="DataGridPoint" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="N° livraison" Binding="{Binding Référence}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="N° commande" Binding="{Binding Référence}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="      Date      " Binding="{Binding Nom}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="             Etat             " Binding="{Binding Catégorie}" IsReadOnly="True"/>
+                <DataGridTextColumn Header=" Réf Client " Binding="{Binding Adresse}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="                 Nom                " Binding="{Binding Adresse}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="label4" Content="Par la référence du client :" HorizontalAlignment="Left" Margin="100,213,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="24" Margin="260,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156"/>
+        <Button x:Name="button" HorizontalAlignment="Left" Margin="423,149,0,0" VerticalAlignment="Top" Width="20" Height="24">
+            <Image x:Name="recherche1" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
+        </Button>
+        <Button x:Name="button2" HorizontalAlignment="Left" Margin="423,183,0,0" VerticalAlignment="Top" Width="20" Height="22">
+            <Image x:Name="recherche2" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
+        </Button>
+        <Button x:Name="button3" HorizontalAlignment="Left" Margin="423,215,0,0" VerticalAlignment="Top" Width="20" Height="24">
+            <Image x:Name="recherche3" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
+        </Button>
+        <Label x:Name="label5" Content="Par le numéro de commande :" HorizontalAlignment="Left" Margin="77,147,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="24" Margin="260,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156"/>
+        <Button x:Name="button2_Copy" HorizontalAlignment="Left" Margin="423,115,0,0" VerticalAlignment="Top" Width="20" Height="24">
+            <Image x:Name="recherche4" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
+        </Button>
+    </Grid>
+</Window>

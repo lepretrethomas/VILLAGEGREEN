@@ -1,0 +1,60 @@
+﻿<Window x:Class="Maquette.CreationCommande4"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+        xmlns:local="clr-namespace:Maquette"
+        mc:Ignorable="d"
+        Title="CreationCommande4" Height="480" Width="720">
+    <Grid>
+        <Image x:Name="logo" Margin="0,0,673,391" Source="Z-VG_logo_mini.jpg" Stretch="Fill"/>
+        <Label x:Name="label1" Content="Création de commande" HorizontalAlignment="Left" Margin="72,47,0,0" VerticalAlignment="Top" FontSize="32"/>
+        <Button x:Name="btn_quitter" Content="Quitter" HorizontalAlignment="Left" Margin="37,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_quitter_Click"/>
+        <Label x:Name="label2" Content="Référence du produit :" HorizontalAlignment="Left" Margin="81,326,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_terminer" Content="Terminer" HorizontalAlignment="Left" Margin="505,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_terminer_Click"/>
+        <Button x:Name="btn_annuler" Content="Annuler" HorizontalAlignment="Left" Margin="605,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_annuler_Click"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="20" Margin="214,329,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70"/>
+        <Label x:Name="label" Content="Quantité :" HorizontalAlignment="Left" Margin="146,348,0,0" VerticalAlignment="Top"/>
+        <xctk:IntegerUpDown Value="0" Increment="1" Maximum="5000" Minimum="50" Margin="214,352,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70"/>
+        <DataGrid HorizontalAlignment="Left" Height="119" Margin="81,181,0,0" VerticalAlignment="Top" Width="559" Name="DataGridPoint" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" Reférence " Binding="{Binding Référence}" IsReadOnly="True"/>
+                <DataGridTextColumn Header=" Type " Binding="{Binding Adresse}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="                              Désignation                              " Binding="{Binding Nom}" IsReadOnly="True"/>
+                <DataGridTextColumn Header=" Quantité " Binding="{Binding CodePostal}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="     Prix     " Binding="{Binding CodePostal}" IsReadOnly="True"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="label4" Content="Bon de commande" HorizontalAlignment="Left" Margin="33,92,0,0" VerticalAlignment="Top" FontSize="21.333"/>
+        <ScrollBar x:Name="scrollBar" HorizontalAlignment="Left" Height="113" Margin="64,206,0,0" VerticalAlignment="Top" Width="14"/>
+        <Button x:Name="button" HorizontalAlignment="Left" Margin="321,331,0,0" VerticalAlignment="Top" Width="35" Height="35">
+            <Image x:Name="ajouter_jpg" Height="33" Source="Z-ajouter.jpg" Stretch="Fill" Width="31"/>
+        </Button>
+        <Button x:Name="button1" HorizontalAlignment="Left" Margin="366,331,0,0" VerticalAlignment="Top" Width="35" Height="35">
+            <Image x:Name="retirer_jpg" Height="33" Source="Z-retirer.jpg" Stretch="Fill" Width="31"/>
+        </Button>
+        <GroupBox x:Name="groupBox" Header="Client" HorizontalAlignment="Left" Height="105" Margin="500,66,0,0" VerticalAlignment="Top" Width="180">
+            <Label x:Name="label8" Content="Référence" HorizontalAlignment="Left" Margin="11,6,0,0" VerticalAlignment="Top"/>
+        </GroupBox>
+        <Label x:Name="label7" Content="Nom" HorizontalAlignment="Left" Margin="543,110,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label9" Content="Prénom" HorizontalAlignment="Left" Margin="528,131,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="20" Margin="579,91,0,0" TextWrapping="Wrap" Text="#####" VerticalAlignment="Top" Width="78"/>
+        <TextBox x:Name="textBox5" HorizontalAlignment="Left" Height="20" Margin="579,135,0,0" TextWrapping="Wrap" Text="DEVLOG" VerticalAlignment="Top" Width="78"/>
+        <TextBox x:Name="textBox6" HorizontalAlignment="Left" Height="20" Margin="579,113,0,0" TextWrapping="Wrap" Text="AFPA" VerticalAlignment="Top" Width="78"/>
+        <DatePicker HorizontalAlignment="Left" Margin="40,131,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button2" HorizontalAlignment="Left" Margin="410,331,0,0" VerticalAlignment="Top" Width="35" Height="35">
+            <Image x:Name="supprimer_jpg" Height="33" Source="Z-supprimer.jpg" Stretch="Fill" Width="31"/>
+        </Button>
+        <Label x:Name="label3" Content="Total :" HorizontalAlignment="Left" Margin="535,302,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5" Content="Réduction :" HorizontalAlignment="Left" Margin="507,349,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label6" Content="A payer :" HorizontalAlignment="Left" Margin="520,373,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="20" Margin="577,305,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="20" Margin="577,353,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="20" Margin="577,377,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"/>
+        <Label x:Name="label5_Copy" Content="Coefficient :" HorizontalAlignment="Left" Margin="503,325,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox9" HorizontalAlignment="Left" Height="20" Margin="577,329,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"/>
+    </Grid>
+</Window>

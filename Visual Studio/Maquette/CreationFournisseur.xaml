@@ -1,0 +1,32 @@
+﻿<Window x:Class="Maquette.CreationFournisseur"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Maquette"
+        mc:Ignorable="d"
+        Title="CreationFournisseur" Height="480" Width="720">
+    <Grid>
+        <Image x:Name="logo" Margin="0,0,673,391" Source="Z-VG_logo_mini.jpg" Stretch="Fill"/>
+        <Label x:Name="label1" Content="Création d'un nouveau Fournisseur" HorizontalAlignment="Left" Margin="72,47,0,0" VerticalAlignment="Top" FontSize="32"/>
+        <Button x:Name="btn_quitter" Content="Quitter" HorizontalAlignment="Left" Margin="37,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_quitter_Click"/>
+        <Button x:Name="btn_terminer" Content="Terminer" HorizontalAlignment="Left" Margin="505,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_terminer_Click"/>
+        <Button x:Name="btn_annuler" Content="Annuler" HorizontalAlignment="Left" Margin="605,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_annuler_Click"/>
+        <Label x:Name="label" Content="Nom de société" HorizontalAlignment="Left" Margin="57,129,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="Nom" HorizontalAlignment="Right" Margin="0,174,563,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Prénom" HorizontalAlignment="Right" Margin="0,175,264,0" VerticalAlignment="Top"/>
+        <Label x:Name="label4" Content="Rue" HorizontalAlignment="Right" Margin="0,219,561,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5" Content="Code Postal" HorizontalAlignment="Right" Margin="0,264,561,0" VerticalAlignment="Top"/>
+        <Label x:Name="label6" Content="Ville" HorizontalAlignment="Right" Margin="0,265,416,0" VerticalAlignment="Top"/>
+        <Label x:Name="label7" Content="Téléphone" HorizontalAlignment="Right" Margin="0,312,562,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox6" HorizontalAlignment="Left" Height="23" Margin="161,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="479"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="160,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="459,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="182"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="160,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="481"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="23" Margin="160,268,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="23" Margin="307,269,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="334"/>
+        <TextBox x:Name="textBox5" HorizontalAlignment="Left" Height="23" Margin="160,316,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"/>
+
+
+    </Grid>
+</Window>
