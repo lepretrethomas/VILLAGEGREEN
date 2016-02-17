@@ -32,113 +32,120 @@ go
 
 /****** Création des Tables ******/
 ----- Table: SERVICE COMMERCIAL
-CREATE TABLE SERVCOM (
-	commercial_id    	INT IDENTITY NOT NULL,
-	commercial_nom  	VARCHAR(50),
-	commercial_prenom	VARCHAR(25),
-	PRIMARY KEY (commercial_id)
+CREATE TABLE SERC (
+	emp_id    	INT IDENTITY NOT NULL,
+	emp_nom  	VARCHAR(50),
+	emp_pre	VARCHAR(25),
+	PRIMARY KEY (emp_id)
+)
+
+----- Table: STATUT
+CREATE TABLE STAT (
+	sta_id     			INT IDENTITY NOT NULL,
+	sta_nom      		VARCHAR(50) NOT NULL,
+	sta_coe  		INT NOT NULL,
+	PRIMARY KEY (sta_id)
 )
 
 ----- Table: CLIENTS
-CREATE TABLE CLIENT (
-	cli_ref      		INT IDENTITY NOT NULL,
+CREATE TABLE CLIE (
+	cli_id     			INT IDENTITY NOT NULL,
 	cli_nom      		VARCHAR(50) NOT NULL,
-	cli_prenom   		VARCHAR(25),
-	cli_adresse  		VARCHAR(100) NOT NULL,
+	cli_pre  		VARCHAR(25),
+	cli_adr  		VARCHAR(100) NOT NULL,
 	cli_cp       		int check (cli_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
-	cli_ville    		VARCHAR(100) NOT NULL,
+	cli_vil    		VARCHAR(100) NOT NULL,
 	cli_tel      		VARCHAR(15) NOT NULL,
-	cli_categorie 		VARCHAR(15),
-	cli_coef     		INT,
-	PRIMARY KEY (cli_ref)
+	sta_id 			INT NOT NULL,
+	PRIMARY KEY (cli_id)
 )
 
 ----- Table: FOURNISSEURS
 CREATE TABLE FOUR (
-	four_ref     		INT IDENTITY NOT NULL,
-	four_nom     		VARCHAR(50) NOT NULL,
-	four_prenom  		VARCHAR(25),
-	four_adresse 		VARCHAR(100) NOT NULL,
-	four_cp      		int check (four_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
-	four_ville   		VARCHAR(100) NOT NULL,
-	four_tel     		VARCHAR(15) NOT NULL,
-	PRIMARY KEY (four_ref)
+	fou_id    			INT IDENTITY NOT NULL,
+	fou_nom     		VARCHAR(50) NOT NULL,
+	fou_pre 		VARCHAR(25),
+	fou_adr 		VARCHAR(100) NOT NULL,
+	fou_cp      		int check (fou_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
+	fou_vil   		VARCHAR(100) NOT NULL,
+	fou_tel     		VARCHAR(15) NOT NULL,
+	PRIMARY KEY (fou_id)
 )
 
 ----- Table: PRODUITS
 CREATE TABLE PROD (
-	prod_ref        	INT IDENTITY NOT NULL,
-	four_ref			INT NOT NULL,
-	prod_nom        	VARCHAR(30) NOT NULL,
-	prod_lib_court  	VARCHAR(50),
-	prod_lib_long   	VARCHAR(200),
-	prod_photo      	VARCHAR(25),
-	prod_stock      	INT NOT NULL,
-	ssrub_id        	INT,
-	PRIMARY KEY (prod_ref)
+	pro_id        	INT IDENTITY NOT NULL,
+	fou_id			INT NOT NULL,
+	pro_nom        	VARCHAR(30) NOT NULL,
+	pro_lbc  	VARCHAR(50),
+	pro_lbl   	VARCHAR(200),
+	pro_pho      	VARCHAR(25),
+	pro_sto      	INT NOT NULL,
+	ssrub_id        INT,
+	PRIMARY KEY (pro_id)
 )
 
 ----- Table: COMMANDES
-CREATE TABLE COM (
-	com_num  			INT IDENTITY NOT NULL,
-	com_date 			DATE DEFAULT GETDATE() NOT NULL,
-	com_etat 			VARCHAR(25) NOT NULL,
-	cli_ref  			INT NOT NULL,
-	fac_adresse   		VARCHAR(100) NOT NULL,
+CREATE TABLE COMM (
+	com_id  			INT IDENTITY NOT NULL,
+	com_dat 			DATE DEFAULT GETDATE() NOT NULL,
+	com_eta 			VARCHAR(25) NOT NULL,
+	cli_id  			INT NOT NULL,
+	fac_adr   		VARCHAR(100) NOT NULL,
 	fac_cp        		int check (fac_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
-	fac_ville     		VARCHAR(100) NOT NULL,
-	liv_adresse 		VARCHAR(100) NOT NULL,
+	fac_vil    		VARCHAR(100) NOT NULL,
+	liv_adr 		VARCHAR(100) NOT NULL,
 	liv_cp      		int check (liv_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
-	liv_ville   		VARCHAR(100) NOT NULL,
-	PRIMARY KEY (com_num)
+	liv_vil   		VARCHAR(100) NOT NULL,
+	PRIMARY KEY (com_id)
 )
 
 ----- Table: FACTURATIONS
 CREATE TABLE FACT (
-	fac_num       		INT IDENTITY NOT NULL,
-	com_num       		INT NOT NULL,
-	fac_date      		DATE DEFAULT GETDATE() NOT NULL,
-	fac_montant   		numeric (8,2) NOT NULL,
-	PRIMARY KEY (fac_num)
+	fac_id       		INT IDENTITY NOT NULL,
+	com_id       		INT NOT NULL,
+	fac_dat      		DATE DEFAULT GETDATE() NOT NULL,
+	fac_tot   		numeric (8,2) NOT NULL,
+	PRIMARY KEY (fac_id)
 )
 
 ----- Table: REGLEMENTS
 CREATE TABLE REGL (
-	reglement_num     	INT IDENTITY NOT NULL,
-	fac_num           	INT NOT NULL,
-	reglement_date    	DATE DEFAULT GETDATE() NOT NULL,
-	reglement_montant 	numeric (8,2) NOT NULL,
-	PRIMARY KEY (reglement_num)
+	reg_id     	INT IDENTITY NOT NULL,
+	fac_id           	INT NOT NULL,
+	reg_dat   	DATE DEFAULT GETDATE() NOT NULL,
+	reg_tot 	numeric (8,2) NOT NULL,
+	PRIMARY KEY (reg_id)
 )
 
 ----- Table: LIGNES DE COMMANDE
-CREATE TABLE LIGCOM (
-	com_ligne 			INT IDENTITY NOT NULL,
+CREATE TABLE LIGN (
+	com_lig 			INT IDENTITY NOT NULL,
 	com_qte   			INT NOT NULL,
 	com_pu    			MONEY NOT NULL,
-	com_num   			INT,
-	prod_ref  			INT NOT NULL,
-	PRIMARY KEY (com_ligne)
+	com_id   			INT,
+	pro_id  			INT NOT NULL,
+	PRIMARY KEY (com_lig)
 )
 
 ----- Table: LIVRAISONS
 CREATE TABLE LIVR (
-	liv_num     		INT IDENTITY NOT NULL,
-	com_num     		INT NOT NULL,
+	liv_id     		INT IDENTITY NOT NULL,
+	com_id     		INT NOT NULL,
 	liv_exp     		DATE NOT NULL,
 	liv_rec     		DATE,
-	PRIMARY KEY (liv_num)
+	PRIMARY KEY (liv_id)
 )
 
 ----- Table: CATEGORIES
-CREATE TABLE CAT (
+CREATE TABLE CATE (
 	rub_id  			INT IDENTITY NOT NULL,
 	rub_nom 			VARCHAR(25),
 	PRIMARY KEY (rub_id)
 )
 
 ----- Table: SOUS-CATEGORIES
-CREATE TABLE SSCAT (
+CREATE TABLE SCAT (
 	ssrub_id  			INT IDENTITY NOT NULL,
 	ssrub_nom 			VARCHAR(25),
 	rub_id    			INT NOT NULL,
@@ -147,90 +154,75 @@ CREATE TABLE SSCAT (
 
 ----- Table: NEGOCIER
 CREATE TABLE NEGO (
-	cli_ref       		INT  NOT NULL,
-	commercial_id 		INT  NOT NULL,
-	fac_reduction 		numeric (8,2) NOT NULL,
-	PRIMARY KEY (commercial_id, cli_ref)
+	cli_id      		INT  NOT NULL,
+	emp_id 		INT  NOT NULL,
+	fac_red 		numeric (8,2) NOT NULL,
+	PRIMARY KEY (emp_id, cli_id)
 )
 
 ----- Table: CONTENIR
 CREATE TABLE CONT (
-	liv_num  			INT NOT NULL,
+	liv_id  			INT NOT NULL,
 	liv_qte  			INT NOT NULL,
-	prod_ref 			INT NOT NULL,
-	PRIMARY KEY (prod_ref, liv_num)
+	pro_id 			INT NOT NULL,
+	PRIMARY KEY (pro_id, liv_id)
 )
 go
 
 /****** Création des Contraintes ******/
+----- Contrainte: STATUT
+ALTER TABLE CLIE
+	ADD
+		FOREIGN KEY (sta_id) REFERENCES STAT(sta_id)
+
 ----- Contrainte: Produits
 ALTER TABLE PROD
 	ADD
-		FOREIGN KEY (ssrub_id) REFERENCES SSCAT(ssrub_id),
-		FOREIGN KEY (four_ref) REFERENCES FOUR(four_ref)
+		FOREIGN KEY (ssrub_id) REFERENCES SCAT(ssrub_id),
+		FOREIGN KEY (fou_id) REFERENCES FOUR(fou_id)
 
 ----- Contrainte: SousCatégories
-ALTER TABLE SSCAT
+ALTER TABLE SCAT
 	ADD
-		FOREIGN KEY (rub_id) REFERENCES CAT(rub_id)
+		FOREIGN KEY (rub_id) REFERENCES CATE(rub_id)
 
 ----- Contrainte: Lignes de commande
-ALTER TABLE LIGCOM
+ALTER TABLE LIGN
 	ADD
-		FOREIGN KEY (prod_ref) REFERENCES PROD(prod_ref),
-		FOREIGN KEY (com_num) REFERENCES COM(com_num)
+		FOREIGN KEY (pro_id) REFERENCES PROD(pro_id),
+		FOREIGN KEY (com_id) REFERENCES COMM(com_id)
 
 ----- Contrainte: Commandes
-ALTER TABLE COM
+ALTER TABLE COMM
 	ADD
-		FOREIGN KEY (cli_ref) REFERENCES CLIENT(cli_ref)
+		FOREIGN KEY (cli_id) REFERENCES CLIE(cli_id)
 	
 ----- Contrainte: Facturations
 ALTER TABLE FACT
 	ADD
-		FOREIGN KEY (com_num) REFERENCES COM(com_num),
-		CONSTRAINT FACT_AK UNIQUE (com_num)
+		FOREIGN KEY (com_id) REFERENCES COMM(com_id),
+		CONSTRAINT FACT_AK UNIQUE (com_id)
 
 ----- Contrainte: Règlements
 ALTER TABLE REGL
 	ADD
-		FOREIGN KEY (fac_num) REFERENCES FACT(fac_num),
-		CONSTRAINT REG_AK UNIQUE (fac_num)
+		FOREIGN KEY (fac_id) REFERENCES FACT(fac_id),
+		CONSTRAINT REGL_AK UNIQUE (fac_id)
 
 ----- Contrainte: Livraisons
 ALTER TABLE LIVR
 	ADD
-		FOREIGN KEY (com_num) REFERENCES COM(com_num)
+		FOREIGN KEY (com_id) REFERENCES COMM(com_id)
 
 ----- Contrainte: NEGOCIER
 ALTER TABLE NEGO
 	ADD
-		FOREIGN KEY (commercial_id) REFERENCES SERVCOM(commercial_id),
-		FOREIGN KEY (cli_ref) REFERENCES CLIENT(cli_ref)
+		FOREIGN KEY (emp_id) REFERENCES SERC(emp_id),
+		FOREIGN KEY (cli_id) REFERENCES CLIE(cli_id)
 
 ----- Contrainte: contenir
 ALTER TABLE CONT
 	ADD
-		FOREIGN KEY (prod_ref) REFERENCES PROD(prod_ref),
-		FOREIGN KEY (liv_num) REFERENCES LIVR(liv_num)
-go
-
-/****** Création des Indexs ******/
------ Index sur les noms Clients
-create nonclustered index ix_client on CLIENT(cli_nom)
-
------ Index sur les noms Fournisseurs
-create nonclustered index ix_fournis on FOUR(four_nom)
-
------ Index sur les noms Produits
-create nonclustered index ix_produit on PROD(prod_nom)
-
----- Index sur les villes Clients
-create nonclustered index ix_vilcli on CLIENT(cli_cp, cli_ville)
-
----- Index sur les villes Fournisseurs
-create nonclustered index ix_vilfou on FOUR(four_cp, four_ville)
-
----- Index sur les villes Livraisons
-create nonclustered index ix_villiv on COM(liv_cp, liv_ville)
+		FOREIGN KEY (pro_id) REFERENCES PROD(pro_id),
+		FOREIGN KEY (liv_id) REFERENCES LIVR(liv_id)
 go

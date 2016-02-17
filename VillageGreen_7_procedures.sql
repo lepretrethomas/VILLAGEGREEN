@@ -39,27 +39,27 @@ create proc PROD_AJOUT --drop proc PROD_AJOUT
 	@stock INT,
 	@ssrub_id INT
 as
-INSERT INTO Prod (four_ref, prod_nom, prod_lib_court, prod_lib_long, prod_photo, prod_stock, ssrub_id)
+INSERT INTO PROD (fou_id, pro_nom, pro_lbc, pro_lbl, pro_pho, pro_sto, ssrub_id)
 	values (@fournisseur, @nom, @lib_court, @lib_long, @photo, @stock, @ssrub_id)
 
 execute PROD_AJOUT '34', 'AAA', 'BBB', 'CCCC', NULL, 11, '100'
-select * from prod
+select * from PROD
 
 -- D’en supprimer
 create proc PROD_SUPPR_NOM --drop proc PROD_SUPPR_NOM
 	@produit VARCHAR(30)
 as
-DELETE from PROD where PROD.prod_nom=@produit
+DELETE from PROD where PROD.pro_nom=@produit
 
 
 create proc PROD_SUPPR_REF --drop proc PROD_SUPPR_REF
 	@ref INT
 as
-DELETE from PROD where PROD.prod_ref=@ref
+DELETE from PROD where PROD.pro_id=@ref
 
 execute PROD_SUPPR_NOM 'AAA'
 execute PROD_SUPPR_REF '213897'
-select * from prod
+select * from PROD
 
 -- D’en modifier les caractéristiques (libellé, caractéristique, tarif)
 
@@ -68,64 +68,95 @@ select * from prod
 -- Certaines interrogations sont à prévoir:
 -- Chiffre d'affaire généré pour l'ensemble et par fournisseur
 select sum(com_qte*com_pu) as 'Chiffre d''affaire'
-	from LIGCOM
+	from LIGN
 
-select FOUR.four_nom as 'Nom du fournisseur', sum(LIGCOM.com_qte*LIGCOM.com_pu) as 'Chiffre d''affaire'
+select FOUR.fou_nom as 'Nom du fournisseur', sum(LIGN.com_qte*LIGN.com_pu) as 'Chiffre d''affaire'
 	from FOUR
 		join PROD
-		on PROD.four_ref=FOUR.four_ref
-			join LIGCOM
-			on LIGCOM.prod_ref=PROD.prod_ref
-				group by FOUR.four_nom
+		on PROD.fou_id=FOUR.fou_id
+			join LIGN
+			on LIGN.pro_id=PROD.pro_id
+				group by FOUR.fou_nom
 
 select * from prod
-select * from ligcom
+select * from lign
 
 -- Liste des produits commandés (ref produit, qte commandé)
-select distinct prod_ref, com_qte from LIGCOM
+select distinct pro_id, com_qte from LIGN
 
 -- Liste des commandes pour un client (date, ref client, montant)
 create proc COMCLI
 	@client varchar(50)
 as
-select COM.com_num, COM.com_date, CLIENT.cli_ref, FACT.fac_montant
-	from COM
-		join CLIENT
-		on CLIENT.cli_ref=COM.cli_ref
+select COMM.com_id, COMM.com_dat, CLIE.cli_id, FACT.fac_tot
+	from COMM
+		join CLIE
+		on CLIE.cli_id=COMM.cli_id
 			join FACT
-			on FACT.com_num=COM.com_num
-				where CLIENT.cli_nom=@client
+			on FACT.com_id=COMM.com_id
+				where CLIE.cli_nom=@client
 
 exec comcli 'Page'
 exec comcli 'UNIVERSAL MUSIC'
 
 -- Répartition du chiffre d'affaire par type de client
-select cli_categorie as 'Catégorie', sum((com_qte*com_pu)*cli_coef) as 'Chiffre d''affaire'
-	from CLIENT, LIGCOM
-		group by cli_categorie
+select sta_nom as 'Catégorie', sum((com_qte*com_pu)*STAT.sta_coe) as 'Chiffre d''affaire'
+	from LIGN
+		join COMM
+		on LIGN.com_id=COMM.com_id
+			join CLIE
+			on CLIE.cli_id=COMM.cli_id
+				join STAT
+				on CLIE.sta_id=STAT.sta_id
+					group by sta_nom
+
 
 -- Lister les commandes en cours de livraison.
-select * from COM, LIVR
-	where (exists (select * where LIVR.com_num=COM.com_num and LIVR.liv_exp is not null)
+select * from COMM, LIVR
+	where (exists (select * where LIVR.com_id=COMM.com_id and LIVR.liv_exp is not null)
 	and LIVR.liv_rec is null)
 	
 ou
 
-select * from COM
-	where COM.com_etat='En cours de livraison'
+select * from COMM
+	where COMM.com_eta='En cours de livraison'
 
 /****** Programmer des procédures stockées sur le SGBD ******/
 -- Créez une procédure stockée qui sélectionne les commandes non soldées (en cours
--- de livraison), puis une autre qui renvoie le délai moyen entre la date de commande
+-- de livraison)
+create proc COMSOLDES1
+as
+select * from COMM, LIVR
+	where (exists (select * where LIVR.com_id=COMM.com_id and LIVR.liv_exp is not null)
+	and LIVR.liv_rec is null)
+
+create proc COMSOLDES2
+as
+select * from COMM
+	where COMM.com_eta='En cours de livraison'
+
+exec COMSOLDES1
+exec COMSOLDES1
+
+
+-- Puis une autre qui renvoie le délai moyen entre la date de commande
 -- et la date de facturation.
+create proc DELAI_COMFAC
+as
+	select avg (datediff (day, COMM.com_dat, Fact.fac_dat)) as 'Délai moyen entre la date de commande et la date de facturation'
+		from COMM
+			join FACT on FACT.com_id=COMM.com_id
+			where FACT.fac_dat is not null
+
+exec DELAI_COMFAC
 
 /****** Gérer les vues ******/
 -- Créez une vue correspondant à la jointure Produits - Fournisseurs :
 create view PRODFOUR
 as
-select PROD.prod_ref, prod_nom, FOUR.four_ref, four_nom
+select PROD.pro_id, pro_nom, FOUR.fou_id, fou_nom
 	from PROD
 		join FOUR
-		on FOUR.four_ref=PROD.four_ref
+		on FOUR.fou_id=PROD.fou_id
 
 select * from prodfour
