@@ -4,7 +4,7 @@
 
 ----- Suppression de la base Village Green existante
 /*
-USE VILLAGE_GREEN
+USE VILLAGEGREEN
 DROP USER VG_us01
 go
 DROP USER VG_us02
@@ -19,15 +19,15 @@ DROP LOGIN VG_log02
 go
 DROP LOGIN VG_log03
 go
-DROP DATABASE VILLAGE_GREEN
+DROP DATABASE VILLAGEGREEN
 go
 */
 
 ----- Création de la base de donnees Village Green
-CREATE DATABASE VILLAGE_GREEN
+CREATE DATABASE VILLAGEGREEN
 go
 
-USE VILLAGE_GREEN
+USE VILLAGEGREEN
 go
 
 /****** Création des Tables ******/
@@ -50,13 +50,19 @@ CREATE TABLE STAT (
 ----- Table: CLIENTS
 CREATE TABLE CLIE (
 	cli_id     			INT IDENTITY NOT NULL,
+	sta_id 			INT NOT NULL,
 	cli_nom      		VARCHAR(50) NOT NULL,
 	cli_pre  		VARCHAR(25),
 	cli_adr  		VARCHAR(100) NOT NULL,
 	cli_cp       		int check (cli_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
 	cli_vil    		VARCHAR(100) NOT NULL,
 	cli_tel      		VARCHAR(15) NOT NULL,
-	sta_id 			INT NOT NULL,
+	fac_adr   		VARCHAR(100) NOT NULL,
+	fac_cp        		int check (fac_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
+	fac_vil    		VARCHAR(100) NOT NULL,
+	liv_adr 		VARCHAR(100) NOT NULL,
+	liv_cp      		int check (liv_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
+	liv_vil   		VARCHAR(100) NOT NULL,
 	PRIMARY KEY (cli_id)
 )
 
@@ -76,11 +82,9 @@ CREATE TABLE FOUR (
 CREATE TABLE PROD (
 	pro_id        	INT IDENTITY NOT NULL,
 	fou_id			INT NOT NULL,
-	pro_nom        	VARCHAR(30) NOT NULL,
-	pro_lbc  	VARCHAR(50),
-	pro_lbl   	VARCHAR(200),
-	pro_pho      	VARCHAR(25),
-	pro_sto      	INT NOT NULL,
+	pro_lbc  	VARCHAR(50) NOT NULL,
+	pro_lbl   	VARCHAR(1500),
+	pro_pho      	VARCHAR(50),
 	ssrub_id        INT,
 	PRIMARY KEY (pro_id)
 )
@@ -91,12 +95,6 @@ CREATE TABLE COMM (
 	com_dat 			DATE DEFAULT GETDATE() NOT NULL,
 	com_eta 			VARCHAR(25) NOT NULL,
 	cli_id  			INT NOT NULL,
-	fac_adr   		VARCHAR(100) NOT NULL,
-	fac_cp        		int check (fac_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
-	fac_vil    		VARCHAR(100) NOT NULL,
-	liv_adr 		VARCHAR(100) NOT NULL,
-	liv_cp      		int check (liv_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
-	liv_vil   		VARCHAR(100) NOT NULL,
 	PRIMARY KEY (com_id)
 )
 
@@ -105,7 +103,8 @@ CREATE TABLE FACT (
 	fac_id       		INT IDENTITY NOT NULL,
 	com_id       		INT NOT NULL,
 	fac_dat      		DATE DEFAULT GETDATE() NOT NULL,
-	fac_tot   		numeric (8,2) NOT NULL,
+	fac_red			numeric (10,2),
+	fac_tot   		numeric (10,2) NOT NULL,
 	PRIMARY KEY (fac_id)
 )
 
@@ -114,7 +113,7 @@ CREATE TABLE REGL (
 	reg_id     	INT IDENTITY NOT NULL,
 	fac_id           	INT NOT NULL,
 	reg_dat   	DATE DEFAULT GETDATE() NOT NULL,
-	reg_tot 	numeric (8,2) NOT NULL,
+	reg_tot 	numeric (10,2) NOT NULL,
 	PRIMARY KEY (reg_id)
 )
 
@@ -152,16 +151,8 @@ CREATE TABLE SCAT (
 	PRIMARY KEY (ssrub_id)
 )
 
------ Table: NEGOCIER
-CREATE TABLE NEGO (
-	cli_id      		INT  NOT NULL,
-	emp_id 		INT  NOT NULL,
-	fac_red 		numeric (8,2) NOT NULL,
-	PRIMARY KEY (emp_id, cli_id)
-)
-
------ Table: CONTENIR
-CREATE TABLE CONT (
+----- Table: COLIS
+CREATE TABLE COLI (
 	liv_id  			INT NOT NULL,
 	liv_qte  			INT NOT NULL,
 	pro_id 			INT NOT NULL,
@@ -170,7 +161,7 @@ CREATE TABLE CONT (
 go
 
 /****** Création des Contraintes ******/
------ Contrainte: STATUT
+----- Contrainte: Statut
 ALTER TABLE CLIE
 	ADD
 		FOREIGN KEY (sta_id) REFERENCES STAT(sta_id)
@@ -214,14 +205,8 @@ ALTER TABLE LIVR
 	ADD
 		FOREIGN KEY (com_id) REFERENCES COMM(com_id)
 
------ Contrainte: NEGOCIER
-ALTER TABLE NEGO
-	ADD
-		FOREIGN KEY (emp_id) REFERENCES SERC(emp_id),
-		FOREIGN KEY (cli_id) REFERENCES CLIE(cli_id)
-
------ Contrainte: contenir
-ALTER TABLE CONT
+----- Contrainte: Colis
+ALTER TABLE COLI
 	ADD
 		FOREIGN KEY (pro_id) REFERENCES PROD(pro_id),
 		FOREIGN KEY (liv_id) REFERENCES LIVR(liv_id)

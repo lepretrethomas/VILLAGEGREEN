@@ -1,5 +1,5 @@
 /****** Création des Rôles ******/
-use VILLAGE_GREEN
+use VILLAGEGREEN
 go
 
 /****** Création des Indexs ******/
