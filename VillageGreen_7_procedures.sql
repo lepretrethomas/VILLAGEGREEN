@@ -1,4 +1,4 @@
-/****** Accès aux données Village_Green ******/
+/****** Accès aux données VillageGreen ******/
 
 /****** Formaliser des requêtes à l'aide du langage SQL ******/
 -- 1. Pour chacune des interrogations demandées (voir cahier des charges), créez un
@@ -32,24 +32,22 @@
 -- D’ajouter des produits
 create proc PROD_AJOUT --drop proc PROD_AJOUT
 	@fournisseur int,
-	@nom VARCHAR(30),
 	@lib_court VARCHAR(50),
 	@lib_long VARCHAR(200),
 	@photo VARCHAR(25),
-	@stock INT,
 	@ssrub_id INT
 as
-INSERT INTO PROD (fou_id, pro_nom, pro_lbc, pro_lbl, pro_pho, pro_sto, ssrub_id)
-	values (@fournisseur, @nom, @lib_court, @lib_long, @photo, @stock, @ssrub_id)
+INSERT INTO PROD (fou_id, pro_lbc, pro_lbl, pro_pho, ssrub_id)
+	values (@fournisseur, @lib_court, @lib_long, @photo, @ssrub_id)
 
-execute PROD_AJOUT '34', 'AAA', 'BBB', 'CCCC', NULL, 11, '100'
+execute PROD_AJOUT '1', 'AAA', 'BBB', NULL, '1'
 select * from PROD
 
 -- D’en supprimer
 create proc PROD_SUPPR_NOM --drop proc PROD_SUPPR_NOM
 	@produit VARCHAR(30)
 as
-DELETE from PROD where PROD.pro_nom=@produit
+DELETE from PROD where PROD.pro_lbc=@produit
 
 
 create proc PROD_SUPPR_REF --drop proc PROD_SUPPR_REF
@@ -58,7 +56,7 @@ as
 DELETE from PROD where PROD.pro_id=@ref
 
 execute PROD_SUPPR_NOM 'AAA'
-execute PROD_SUPPR_REF '213897'
+execute PROD_SUPPR_REF '897319'
 select * from PROD
 
 -- D’en modifier les caractéristiques (libellé, caractéristique, tarif)
@@ -82,7 +80,8 @@ select * from prod
 select * from lign
 
 -- Liste des produits commandés (ref produit, qte commandé)
-select distinct pro_id, com_qte from LIGN
+select pro_id as 'Référence produit', sum(com_qte) as 'Quantité commandée' from LIGN
+	group by pro_id
 
 -- Liste des commandes pour un client (date, ref client, montant)
 create proc COMCLI
@@ -136,14 +135,14 @@ select * from COMM
 	where COMM.com_eta='En cours de livraison'
 
 exec COMSOLDES1
-exec COMSOLDES1
+exec COMSOLDES2
 
 
 -- Puis une autre qui renvoie le délai moyen entre la date de commande
 -- et la date de facturation.
 create proc DELAI_COMFAC
 as
-	select avg (datediff (day, COMM.com_dat, Fact.fac_dat)) as 'Délai moyen entre la date de commande et la date de facturation'
+	select avg (datediff (day, COMM.com_dat, FACT.fac_dat)) as 'Délai moyen entre la date de commande et la date de facturation'
 		from COMM
 			join FACT on FACT.com_id=COMM.com_id
 			where FACT.fac_dat is not null
@@ -154,7 +153,7 @@ exec DELAI_COMFAC
 -- Créez une vue correspondant à la jointure Produits - Fournisseurs :
 create view PRODFOUR
 as
-select PROD.pro_id, pro_nom, FOUR.fou_id, fou_nom
+select PROD.pro_id, PROD.pro_lbc, FOUR.fou_id, fou_nom
 	from PROD
 		join FOUR
 		on FOUR.fou_id=PROD.fou_id
