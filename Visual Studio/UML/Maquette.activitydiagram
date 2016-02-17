@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="131b6bf5-5f7b-4f78-9b84-ca9105e9d29a" name="Maquette" linkedPackageId="d3796fbd-7d66-482b-b488-f4fd7358c702" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="5fac835b-0410-40b7-a639-b003e01ec1fb">
+      <elementDefinition Id="f391897c-0008-4ff1-bbbf-4755ccfe8140" />
+      <body>1- Chiffre d'affaire généré pour l'ensemble et par fournisseur
+2- Liste des produits commandés (ref produit, qte commandé)
+3- Liste des commandes pour un client (date, ref client, montant)
+4- Répartition du chiffre d'affaire par type de client
+5- Lister les commandes en cours de livraison.</body>
+    </comment>
+    <comment Id="877908a2-322b-4dc6-b6b6-034fb75d20ad">
+      <elementDefinition Id="c3deb0b2-05f5-4f7b-8de3-98a2b96701e0" />
+      <body>(1) (4)</body>
+    </comment>
+    <comment Id="eba625c2-8549-464d-86b5-39ad9914346f">
+      <elementDefinition Id="7ed724d4-c66f-4098-8a51-57b92513192a" />
+      <body>(2)</body>
+    </comment>
+    <comment Id="a42707b6-aa50-4f5b-a304-1bad3c1e965d">
+      <elementDefinition Id="ffc93b2f-a1e7-4245-bd6d-a83abb85b3de" />
+      <body>(3)</body>
+    </comment>
+    <comment Id="7288895c-4214-48f7-bb09-49eb0f93bb0e">
+      <elementDefinition Id="8750c4c0-3d19-4036-b633-6ec9828b386d" />
+      <body>(5)</body>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="37e90f16-3bea-47b4-8c8a-d8723fd32209" name="Maquette" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="544b206e-6b72-48dd-9d54-2c320306874e" />
+        <nodes>
+          <initialNode Id="1b95e7fc-6479-47dd-b8cc-a7d7966beb3a" name="Initial1" isLeaf="false">
+            <elementDefinition Id="ed2cf8b5-537f-4a61-a220-4a707c378755" />
+            <flowNodeTargets>
+              <controlFlow Id="60902526-599a-434b-a5b7-47ebd6e24397" isLeaf="false">
+                <opaqueActionMoniker Id="6ac3f270-07d9-46cf-869a-61011c80eebe" LastKnownName="MainWindow" />
+                <elementDefinition Id="a63b65f6-fb1e-4d18-b878-b765c476e7a9" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="6ac3f270-07d9-46cf-869a-61011c80eebe" name="MainWindow" isLeaf="false">
+            <elementDefinition Id="0c93f37c-9aa2-40a7-b135-b3ec345f0994" />
+            <flowNodeTargets>
+              <controlFlow Id="4d0badf2-34cd-4eeb-b04c-8e59f882a6a3" isLeaf="false">
+                <opaqueActionMoniker Id="edf9b517-22da-4615-a0e0-d99c30d06fdc" LastKnownName="Connexion" />
+                <elementDefinition Id="6f863303-4de7-44a8-a7fe-c2199acb193d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="edf9b517-22da-4615-a0e0-d99c30d06fdc" name="Connexion" isLeaf="false">
+            <elementDefinition Id="221b6078-80e1-4185-809c-f6cc1d4cc9bb" />
+            <flowNodeTargets>
+              <controlFlow Id="1f4bc3f7-2d76-455c-bbd6-6ecc5e5ac5ce" isLeaf="false">
+                <opaqueActionMoniker Id="9ec91a98-072d-4b7d-b088-14bcc44f945d" LastKnownName="MenuGestion" />
+                <elementDefinition Id="c8c5639f-8063-4c22-8af7-d727d3705054" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="9ec91a98-072d-4b7d-b088-14bcc44f945d" name="MenuGestion" isLeaf="false">
+            <elementDefinition Id="b4768751-cdf3-4529-92cc-bd66ab35ff45" />
+            <flowNodeTargets>
+              <controlFlow Id="645976f2-0521-44aa-a9f5-8f2ade7ceb9d" isLeaf="false">
+                <opaqueActionMoniker Id="e159b267-b8b2-447c-afc1-a7329d6ad057" LastKnownName="GestionClient" />
+                <elementDefinition Id="d4605c88-358b-4b13-9526-37a02e26225a" />
+              </controlFlow>
+              <controlFlow Id="cf50b5a9-0c53-4824-97fe-0a1339fca111" isLeaf="false">
+                <opaqueActionMoniker Id="a68fdcc1-86fd-41bc-a239-b11ca7b3e87c" LastKnownName="GestionProduit" />
+                <elementDefinition Id="a8c6b3ff-7dd3-4f4b-8be1-f2068f8d588d" />
+              </controlFlow>
+              <controlFlow Id="b308d0fe-54b9-4e6f-8f3d-2cb5df848f4c" isLeaf="false">
+                <opaqueActionMoniker Id="58f4cc17-015c-40e4-955b-5c78ac3cdb54" LastKnownName="GestionFournisseur" />
+                <elementDefinition Id="56b1987e-9a86-4b74-9fe0-59e2f114df75" />
+              </controlFlow>
+              <controlFlow Id="e2a43d18-228b-4128-8788-9d510bf86162" isLeaf="false">
+                <opaqueActionMoniker Id="40164539-1394-44fe-b8a8-24975caad473" LastKnownName="GestionCommande" />
+                <elementDefinition Id="b2cfcc96-1131-482c-bf59-3f3869c50f62" />
+              </controlFlow>
+              <controlFlow Id="ecef504b-dcc9-41fe-a909-1be33c5ff3d5" isLeaf="false">
+                <opaqueActionMoniker Id="1b019411-cacb-40e3-99d0-56b7a8ce9e9b" LastKnownName="Facturation" />
+                <elementDefinition Id="c02eeee3-691e-4510-922f-38d127343476" />
+              </controlFlow>
+              <controlFlow Id="975203b2-cbac-4a92-bd29-aab2eaadc79b" isLeaf="false">
+                <opaqueActionMoniker Id="b070c4ee-94a1-43b0-b572-71df6f3885b2" LastKnownName="Livraison" />
+                <elementDefinition Id="cabdb674-2870-4587-bd29-20d7d906809c" />
+              </controlFlow>
+              <controlFlow Id="0879e015-4ce3-4aca-b88b-ca9826e745b1" isLeaf="false">
+                <opaqueActionMoniker Id="c59c8430-f3b9-41a8-a34e-601edd3b6816" LastKnownName="ChiffreAffaire" />
+                <elementDefinition Id="f3323bd5-4789-4bfd-9365-4c3ced6e275b" />
+              </controlFlow>
+              <controlFlow Id="92e7f406-02d9-43ec-ad60-97b3b0cb41c9" isLeaf="false">
+                <opaqueActionMoniker Id="cbbdb783-4ab6-484f-a2d8-9c04b6155656" LastKnownName="Catalogue" />
+                <elementDefinition Id="e77f986f-7a2c-45ef-9340-02cb3be2f59e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="58f4cc17-015c-40e4-955b-5c78ac3cdb54" name="GestionFournisseur" isLeaf="false">
+            <elementDefinition Id="80fdfb8f-688a-48d4-af1a-77d7e61bd5e2" />
+            <flowNodeTargets>
+              <controlFlow Id="6ff89940-2c4a-4fe4-90be-2ad83f988460" isLeaf="false">
+                <opaqueActionMoniker Id="e5c6c503-2518-4389-9597-808c1eadaf1b" LastKnownName="CreationFournisseur" />
+                <elementDefinition Id="66a3aa1b-f0f0-46a3-919e-0a8a385aeb98" />
+              </controlFlow>
+              <controlFlow Id="3db8ab55-8519-4290-9ddd-7e7222c005c0" isLeaf="false">
+                <opaqueActionMoniker Id="9229d037-0c9d-4ce5-82e8-d5a2e1c44823" LastKnownName="RechercheFournisseur" />
+                <elementDefinition Id="af7f4a84-e114-4d72-a6e0-921045051ba5" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="40164539-1394-44fe-b8a8-24975caad473" name="GestionCommande" isLeaf="false">
+            <elementDefinition Id="2ea93716-ef5c-4e1b-a0ed-dd2b5c37dba0" />
+            <flowNodeTargets>
+              <controlFlow Id="13dd03ec-152f-4557-859c-eb774f1a06d2" isLeaf="false">
+                <opaqueActionMoniker Id="584f381a-b085-47af-9260-6257de186f31" LastKnownName="CreationCommande1" />
+                <elementDefinition Id="c57379be-4e44-4bff-94f8-4eb485626225" />
+              </controlFlow>
+              <controlFlow Id="634bb576-6396-4b9c-9796-ca5cbc4b03ad" isLeaf="false">
+                <opaqueActionMoniker Id="d2c71bdc-27fc-4046-bf57-5b1a25ee1465" LastKnownName="RechercheCommande" />
+                <elementDefinition Id="3aca8626-6219-4e3d-aabc-5fd83b798543" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="a68fdcc1-86fd-41bc-a239-b11ca7b3e87c" name="GestionProduit" isLeaf="false">
+            <elementDefinition Id="79bdcede-502a-469c-8192-593762859cb2" />
+            <flowNodeTargets>
+              <controlFlow Id="31817d14-9495-4bf3-a44c-bc37407b755d" isLeaf="false">
+                <opaqueActionMoniker Id="da01587a-6030-4b6a-9c83-2d9576f8e6b6" LastKnownName="CreationProduit" />
+                <elementDefinition Id="707654df-17ae-4f4e-8a9e-b140f21388f5" />
+              </controlFlow>
+              <controlFlow Id="4d46fd0e-2877-4fed-9016-0392835381a0" isLeaf="false">
+                <opaqueActionMoniker Id="ceac1235-c181-42cb-a584-6f90dfaa7dab" LastKnownName="RechercheProduit" />
+                <elementDefinition Id="c16605e0-c8e0-4fd1-8d41-46d037791e56" />
+              </controlFlow>
+              <controlFlow Id="a9dc47fd-a7e6-4bcb-a76d-7572850b9886" isLeaf="false">
+                <opaqueActionMoniker Id="a9d8ead1-84bc-4118-ac50-4b852ecbc3a3" LastKnownName="ListeProdComm" />
+                <elementDefinition Id="2bdaaa33-09be-47b4-9758-f3249060468e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="e159b267-b8b2-447c-afc1-a7329d6ad057" name="GestionClient" isLeaf="false">
+            <elementDefinition Id="79649538-61c3-4231-8ab8-9b7664104e8d" />
+            <flowNodeTargets>
+              <controlFlow Id="8b383c07-506d-47e1-9df8-00ce5fee63be" isLeaf="false">
+                <opaqueActionMoniker Id="c2fd56b8-f166-4394-827a-e6acdf9a1b2f" LastKnownName="RechercheClient" />
+                <elementDefinition Id="78bf24f0-7f80-44c6-9db5-5ed92aea63d2" />
+              </controlFlow>
+              <controlFlow Id="328f95ea-0436-4306-af5f-51fe0c6e9ebd" isLeaf="false">
+                <opaqueActionMoniker Id="83981f05-a3ca-477e-b4e6-50f85efa301c" LastKnownName="CreationClient1" />
+                <elementDefinition Id="3492e7c7-26fd-4e17-9b14-5dd04124ad15" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="1b019411-cacb-40e3-99d0-56b7a8ce9e9b" name="Facturation" isLeaf="false">
+            <elementDefinition Id="eb6676f1-5772-4ca9-8966-d5fac1769126" />
+            <flowNodeTargets>
+              <controlFlow Id="6c4e6b02-0c76-4112-9d9e-cdbfa89abcd3" isLeaf="false">
+                <opaqueActionMoniker Id="ba0e8627-cf7e-4e2f-9103-0178b98af2bd" LastKnownName="RechercheFacture" />
+                <elementDefinition Id="df128588-a540-45c9-94a4-43fb55171dfa" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="b070c4ee-94a1-43b0-b572-71df6f3885b2" name="Livraison" isLeaf="false">
+            <elementDefinition Id="5f781b40-71f6-4dae-a234-9989b5ab38ab" />
+            <flowNodeTargets>
+              <controlFlow Id="e22bd938-1de2-42e5-b9b9-7ee18bfe61bc" isLeaf="false">
+                <opaqueActionMoniker Id="d5947316-c327-486e-9303-0d6d22de1323" LastKnownName="RechercheLivraison" />
+                <elementDefinition Id="cb4a1cbe-2aab-4a61-8527-070d7de31435" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="c59c8430-f3b9-41a8-a34e-601edd3b6816" name="ChiffreAffaire" isLeaf="false">
+            <elementDefinition Id="3ded74ca-d3f7-453d-aba4-7e4954d068f5" />
+          </opaqueAction>
+          <opaqueAction Id="cbbdb783-4ab6-484f-a2d8-9c04b6155656" name="Catalogue" isLeaf="false">
+            <elementDefinition Id="bf39c5fc-0c70-445e-980d-4f6bcdc1cb2f" />
+          </opaqueAction>
+          <opaqueAction Id="da01587a-6030-4b6a-9c83-2d9576f8e6b6" name="CreationProduit" isLeaf="false">
+            <elementDefinition Id="f43cde07-be71-437a-8a6f-15911aad00cd" />
+          </opaqueAction>
+          <opaqueAction Id="e5c6c503-2518-4389-9597-808c1eadaf1b" name="CreationFournisseur" isLeaf="false">
+            <elementDefinition Id="16456855-13f3-4b0b-96d2-b6c55601c1d3" />
+          </opaqueAction>
+          <opaqueAction Id="bad137ba-13c8-439c-a79c-c33479fc9021" name="FicheClient" isLeaf="false">
+            <elementDefinition Id="64e90a5f-b99b-4ba0-81f2-b9b0d75cc1de" />
+            <flowNodeTargets>
+              <controlFlow Id="879af7cc-c8b4-40f2-acf5-666478c211f7" isLeaf="false">
+                <opaqueActionMoniker Id="a134d3f6-4238-4b89-96bc-8fad250f2d67" LastKnownName="HistoriqueCommande" />
+                <elementDefinition Id="f546e922-29e6-4101-b585-37f7da4b73d4" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="6fe8b0d4-e3d4-460f-800d-2bc3378feb82" name="FicheProduit" isLeaf="false">
+            <elementDefinition Id="9741957a-16ef-45ea-afdf-e8e527089c69" />
+          </opaqueAction>
+          <opaqueAction Id="0fb51a38-fb4e-4002-bebb-be1bfe8a2f6e" name="FicheFournisseur" isLeaf="false">
+            <elementDefinition Id="20df14c4-e557-4f87-a356-c0cc7addf0b9" />
+            <flowNodeTargets>
+              <controlFlow Id="307d7e01-602a-4351-bc9a-36077de40244" isLeaf="false">
+                <opaqueActionMoniker Id="2902ba36-8f9b-418e-beab-a38a6afc53cf" LastKnownName="ListeFourProd" />
+                <elementDefinition Id="1265eaa0-3e7f-4292-86a9-06dc9b868b39" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="83981f05-a3ca-477e-b4e6-50f85efa301c" name="CreationClient1" isLeaf="false">
+            <elementDefinition Id="f6737d0e-e217-4db8-829b-e40aa98bfd76" />
+          </opaqueAction>
+          <opaqueAction Id="b738bf18-a3f5-41b9-83b9-a832941a8f8b" name="CreationClient2" isLeaf="false">
+            <elementDefinition Id="071c17a4-173a-468e-a93b-ea4c37907de1" />
+          </opaqueAction>
+          <opaqueAction Id="8f6b39b1-721a-4eea-8e07-db1d542433ad" name="ConfirmeCommande" isLeaf="false">
+            <elementDefinition Id="f268e95e-b1c9-4176-bfa9-c769c6013042" />
+          </opaqueAction>
+          <opaqueAction Id="88864ba4-00e8-43e6-92bc-cbb010fe2c6f" name="ConfirmeModification" isLeaf="false">
+            <elementDefinition Id="30a15e80-5ab2-47c1-a5e0-a37d4b6d0347" />
+          </opaqueAction>
+          <opaqueAction Id="8bedf1ed-ab5e-4b42-a213-7b97c977f43a" name="ConfirmeQuitter" isLeaf="false">
+            <elementDefinition Id="ffe99145-745a-4c90-9017-6ba6716d62ac" />
+            <flowNodeTargets>
+              <controlFlow Id="66a2bbbd-0c04-4eda-8a15-eb60d7b58b0d" isLeaf="false">
+                <activityFinalNodeMoniker Id="f1c99c96-5645-40b7-8291-152473dd6773" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="57eea0e0-5eb1-4585-a195-0938109e1587" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="70b14e92-d2f2-48a0-a675-5d6dd3c761be" name="ConfirmeReglement" isLeaf="false">
+            <elementDefinition Id="b9a936b2-5cb3-4542-aa0b-e0ac8ff03226" />
+          </opaqueAction>
+          <opaqueAction Id="3c4e8d83-66e2-4079-ba01-eaad621f0298" name="ConfirmeSuppression" isLeaf="false">
+            <elementDefinition Id="47774785-9c1b-41e7-8291-dac2fd4e2f81" />
+          </opaqueAction>
+          <opaqueAction Id="4417047f-7f6c-4b3e-9195-1987cc49890f" name="CreationClient3" isLeaf="false">
+            <elementDefinition Id="58e6ddef-6eac-4355-b043-e41fbc7c948f" />
+          </opaqueAction>
+          <opaqueAction Id="ebb35522-401a-4a57-8826-a37722cd1b69" name="FicheCommande" isLeaf="false">
+            <elementDefinition Id="bbc8df2b-c15d-47d2-a3d8-e90e40d00ff0" />
+          </opaqueAction>
+          <opaqueAction Id="f1b664e8-545c-4e62-ad92-2d7c5d3625dd" name="FicheFacture" isLeaf="false">
+            <elementDefinition Id="2e533623-941a-4507-9b2d-9029c2c383d4" />
+            <flowNodeTargets>
+              <controlFlow Id="28fccac3-d921-4fb6-a02b-d0ca785b5699" isLeaf="false">
+                <opaqueActionMoniker Id="1321fa53-448f-423c-9411-2c50060c1a95" LastKnownName="FicheReglement" />
+                <elementDefinition Id="66a9927c-0217-48cb-9cbc-fb1d4428fdc4" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="3c7cdd40-bb15-4ca6-8317-a6f8e7411049" name="FicheLivraison" isLeaf="false">
+            <elementDefinition Id="4f20f88d-1784-40f3-8263-3da2e1674817" />
+          </opaqueAction>
+          <opaqueAction Id="1321fa53-448f-423c-9411-2c50060c1a95" name="FicheReglement" isLeaf="false">
+            <elementDefinition Id="398265c7-71ba-4d5c-a0ee-1379d6730162" />
+            <flowNodeTargets>
+              <controlFlow Id="07b82b80-1cd4-43db-b9b5-4c6b170d0e87" isLeaf="false">
+                <opaqueActionMoniker Id="70b14e92-d2f2-48a0-a675-5d6dd3c761be" LastKnownName="ConfirmeReglement" />
+                <elementDefinition Id="ebc57658-e8a5-43be-8731-fecbad875c22" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="584f381a-b085-47af-9260-6257de186f31" name="CreationCommande1" isLeaf="false">
+            <elementDefinition Id="214527bf-4bc8-4817-b919-235d5d8149e4" />
+          </opaqueAction>
+          <opaqueAction Id="210f42bb-6828-45c0-a90c-be4bdffc016f" name="CreationCommande2" isLeaf="false">
+            <elementDefinition Id="aa4f996a-2af1-4a09-81c2-569104fa90b1" />
+          </opaqueAction>
+          <opaqueAction Id="ce1509ea-b9a7-4a7c-982b-4ce737c8cd7a" name="CreationCommande3" isLeaf="false">
+            <elementDefinition Id="cd98037c-12a1-4469-b08e-fabda8f288c8" />
+          </opaqueAction>
+          <opaqueAction Id="a134d3f6-4238-4b89-96bc-8fad250f2d67" name="HistoriqueCommande" isLeaf="false">
+            <elementDefinition Id="3cc93082-ec1e-4442-80da-39ef882686dd" />
+          </opaqueAction>
+          <opaqueAction Id="2902ba36-8f9b-418e-beab-a38a6afc53cf" name="ListeFourProd" isLeaf="false">
+            <elementDefinition Id="41702409-ff04-45c8-b935-b7780947ea6d" />
+          </opaqueAction>
+          <opaqueAction Id="a9d8ead1-84bc-4118-ac50-4b852ecbc3a3" name="ListeProdComm" isLeaf="false">
+            <elementDefinition Id="9accdf8e-068c-4866-968a-9874fff093f2" />
+          </opaqueAction>
+          <opaqueAction Id="c2fd56b8-f166-4394-827a-e6acdf9a1b2f" name="RechercheClient" isLeaf="false">
+            <elementDefinition Id="524cd0dc-60a9-4c32-b13e-6e9663da5dd3" />
+            <flowNodeTargets>
+              <controlFlow Id="1eb22aa0-61e3-40d5-bdf6-1257524e15ef" isLeaf="false">
+                <opaqueActionMoniker Id="bad137ba-13c8-439c-a79c-c33479fc9021" LastKnownName="FicheClient" />
+                <elementDefinition Id="f11d7148-f36b-4671-a8cb-6e7ce40015a7" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="d2c71bdc-27fc-4046-bf57-5b1a25ee1465" name="RechercheCommande" isLeaf="false">
+            <elementDefinition Id="9f06bf4d-5849-4cd4-85ca-58dd74e596fa" />
+            <flowNodeTargets>
+              <controlFlow Id="e741e5d7-283f-483b-bc0f-559e0845ff8c" isLeaf="false">
+                <opaqueActionMoniker Id="ebb35522-401a-4a57-8826-a37722cd1b69" LastKnownName="FicheCommande" />
+                <elementDefinition Id="0e0e6ffd-56cf-4c91-9864-1593a00eff70" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="ba0e8627-cf7e-4e2f-9103-0178b98af2bd" name="RechercheFacture" isLeaf="false">
+            <elementDefinition Id="e580ac1f-3f73-4e87-afb7-1a7b95c3ad44" />
+            <flowNodeTargets>
+              <controlFlow Id="496aef11-eea8-4d1a-8c9e-9ed860f96f78" isLeaf="false">
+                <opaqueActionMoniker Id="f1b664e8-545c-4e62-ad92-2d7c5d3625dd" LastKnownName="FicheFacture" />
+                <elementDefinition Id="47a3afa3-94f8-403d-8f82-32c45d9fa364" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="9229d037-0c9d-4ce5-82e8-d5a2e1c44823" name="RechercheFournisseur" isLeaf="false">
+            <elementDefinition Id="4a0728ad-4dae-4e7c-be72-d4b55aa5c6a9" />
+            <flowNodeTargets>
+              <controlFlow Id="cd22d333-8c3e-443a-b67c-0ab139fda52c" isLeaf="false">
+                <opaqueActionMoniker Id="0fb51a38-fb4e-4002-bebb-be1bfe8a2f6e" LastKnownName="FicheFournisseur" />
+                <elementDefinition Id="18baf5a4-9b97-4093-9c8a-22abf3fbf3db" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="d5947316-c327-486e-9303-0d6d22de1323" name="RechercheLivraison" isLeaf="false">
+            <elementDefinition Id="aa768ac1-959b-484d-b2fa-5d1dfc95397f" />
+            <flowNodeTargets>
+              <controlFlow Id="8305f55a-f413-40ea-b5c9-d4e7bb23592a" isLeaf="false">
+                <opaqueActionMoniker Id="3c7cdd40-bb15-4ca6-8317-a6f8e7411049" LastKnownName="FicheLivraison" />
+                <elementDefinition Id="e1a9037f-d1e7-4de6-a8d7-01e56d884e2c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="ceac1235-c181-42cb-a584-6f90dfaa7dab" name="RechercheProduit" isLeaf="false">
+            <elementDefinition Id="6edcb945-2c9a-4a66-bc69-02b1f377b062" />
+            <flowNodeTargets>
+              <controlFlow Id="c4037009-952b-4dfb-8cf6-ebd9e1f0e9ad" isLeaf="false">
+                <opaqueActionMoniker Id="6fe8b0d4-e3d4-460f-800d-2bc3378feb82" LastKnownName="FicheProduit" />
+                <elementDefinition Id="ac028770-20e9-4c67-b19e-1a8134590e55" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode Id="f1c99c96-5645-40b7-8291-152473dd6773" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="1dfac984-8fd8-4760-9f49-3c8c568775a7" />
+          </activityFinalNode>
+          <opaqueAction Id="5e62dd08-cb26-4ddd-b3f9-fd52dfa85be9" name="&quot;Fiche&quot;" isLeaf="false">
+            <elementDefinition Id="bf6780f7-29f8-486b-b219-cbc3b84c60c6" />
+            <flowNodeTargets>
+              <controlFlow Id="683f78f0-28a8-49d0-ab8f-222cacbd919e" isLeaf="false">
+                <opaqueActionMoniker Id="88864ba4-00e8-43e6-92bc-cbb010fe2c6f" LastKnownName="ConfirmeModification" />
+                <elementDefinition Id="380bfc41-2116-4b59-8f00-151842f9deb9" />
+              </controlFlow>
+              <controlFlow Id="06f68603-3bcf-4360-a680-46129d9cfdda" isLeaf="false">
+                <opaqueActionMoniker Id="3c4e8d83-66e2-4079-ba01-eaad621f0298" LastKnownName="ConfirmeSuppression" />
+                <elementDefinition Id="f9794bed-738d-4446-ae85-dcff1d391331" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="8633161d-9e6c-4f26-a900-cf3ea4df4278" name="CreationCommande4" isLeaf="false">
+            <elementDefinition Id="9201fc81-6994-4a9c-b665-972af8aefbf1" />
+            <flowNodeTargets>
+              <controlFlow Id="ada1dbe9-1d22-4ff7-9cdf-825d4b5a4ab2" isLeaf="false">
+                <opaqueActionMoniker Id="8f6b39b1-721a-4eea-8e07-db1d542433ad" LastKnownName="ConfirmeCommande" />
+                <elementDefinition Id="16c39724-3436-40c5-b4d5-d7fd5ce6ada1" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="d3796fbd-7d66-482b-b488-f4fd7358c702" name="UML">
+    <elementDefinition Id="c7e86c47-526c-4670-85ad-4279ffb2b354" />
+    <profileInstances>
+      <packageHasProfileInstances Id="c420c705-f4f1-4eeb-8aaa-48bc26ca3653">
+        <profileInstance Id="bb002255-615c-416f-a8da-1284690ea808" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="7497f15d-01e8-4382-8fea-42ef068a85b6">
+        <profileInstance Id="efe5687e-7ab4-43c0-be40-8ceb319de824" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

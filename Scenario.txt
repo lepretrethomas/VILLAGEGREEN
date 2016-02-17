@@ -1,0 +1,70 @@
+VILLAGE GREEN
+
+Diagramme de cas d'utilisation - Scénario
+
+	1/ Description
+Ce cas d’utilisation permet de saisir les informations concernant la création d’une commande d'un point de vue commercial.
+
+	2/ Flux d’évènements
+		a. Conditions
+Seul un commercial peut opérer cette saisie.
+Le client doit déjà être enregistré.
+La commande ne concerne qu'un article.
+
+		b. Résultats
+Une commande est passée et enregistrée.
+
+	3/ Flot Nominal
+Le commercial ouvre le module de gestion de commmande.
+Le système lui affiche un menu de gestion.
+
+Le commercial crée une nouvelle commande.
+Le système lui affiche un formulaire de commande vierge.
+
+Le commercial sélectionne le champ "client" et saisit la référence du client.
+Le système contrôle l’existence de la référence.
+Le système remplit les champs de coordonnées du client automatiquement (civil, facturation, livraison)
+Le commercial vérifie les coordonnées du client.
+
+Le commercial sélectionne le champ de la première ligne de commande et saisit la référence du produit.
+Le système contrôle l’existence de la référence.
+Le système affiche les informations du produit.
+Le commercial vérifie les informations du produit.
+Le commercial entre la quantité d'article voulue.
+Le système calcule le prix unitaire par la quantité et affiche le résultat pour cette ligne de commande.
+
+Le commercial termine la commande.
+Le système calcule et affiche le prix total de la commande.
+Le commercial confirme la commande.
+Le système enregistre la commande et lui attribue un numéro.
+
+Le système édite une facture.
+Le système édite une fiche de préparation de commande en vue de la livraison.
+
+	4/ Flots alternatifs
+		a. Le client n’est pas répertorié
+Le commercial enregistre le client avant de créer une commande.
+
+		b. Les coordonnées de l'usager sont erronées
+Le système a détecté qu’une ou plusieurs informations saisies concernant l'usager sont absentes ou comportent des erreurs.
+Le système signale les informations en erreur.
+Le commercial met à jour la fiche du client.
+
+		b. Les informations sur le produit sont erronées
+Le système a détecté qu’une ou plusieurs informations saisies concernant le produit sont absentes ou comportent des erreurs.
+Le système signale les informations en erreur.
+Le commercial met à jour la fiche du produit.
+
+		c. Les références du client ou du produit sont incorrectes
+Le système affiche un message d'erreur.
+Le commercial vérifie les références et recommence la saisie.
+
+		d. Il n’y a pas le produit en stock
+Le système recherche le délai d'approvisionnement.
+Si le délai est accepté par le client, le scénario normal reprend.
+
+		e. La commande n’est pas confirmée
+• Abandon du processus.
+
+		f. Il peut y avoir abandon a tout moment du processus
+• Le cas d’utilisation prend fin.
