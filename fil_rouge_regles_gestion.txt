@@ -1,0 +1,12 @@
+Le prix de vente est calculé à partir du prix d'achat
+auquel on applique un coefficient en fonction de la catégorie du client (Particulier ou
+Professionnel).
+Pour les clients particuliers,
+un paiement à la commande est exigé. Pour les clients professionnels le paiement se fait
+en différé. Dans les deux cas de figure, on notera l'information concernant le règlement.
+
+Une commande expédiée même partiellement fait l’objet d’une facturation de l’ensemble
+de la commande.
+
+Les commandes et les documents associés sont conservés pendant trois ans. 
+
