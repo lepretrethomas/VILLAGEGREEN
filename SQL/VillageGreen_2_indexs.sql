@@ -1,4 +1,3 @@
-/****** Création des Rôles ******/
 use VILLAGEGREEN
 go
 
@@ -19,5 +18,5 @@ create nonclustered index ix_vilcli on CLIE(cli_cp, cli_vil)
 create nonclustered index ix_vilfou on FOUR(fou_cp, fou_vil)
 
 ---- Index sur les villes Livraisons
-create nonclustered index ix_villiv on COMM(liv_cp, liv_vil)
+create nonclustered index ix_villiv on CLIE(liv_cp, liv_vil)
 go

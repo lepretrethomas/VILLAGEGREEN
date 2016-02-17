@@ -1,33 +1,6 @@
 /****** Accès aux données VillageGreen ******/
 
 /****** Formaliser des requêtes à l'aide du langage SQL ******/
--- 1. Pour chacune des interrogations demandées (voir cahier des charges), créez un
--- script contenant la ou les requêtes nécessaires.
--- 2. Exportez les tables principales (entité) vers des tableaux d’un tableur de votre
--- choix ainsi que le contenu du résultat de vos requêtes.
--- Ces tableaux devront apparaitre dans votre dossier final.
-
--- Dans le catalogue de l'entreprise tous les produits sont organisés en
--- Rubrique/SousRubrique. Chaque produit doit être décrit par un libellé court et un libellé
--- long (description), une référence fournisseur, un prix d'achat et une photo.
-
--- Tous les prix sont notés hors taxes. Le prix de vente est calculé à partir du prix d'achat
--- auquel on applique un coefficient en fonction de la catégorie du client (Particulier ou
--- Professionnel). Les coefficients sont attribués aux clients au moment de leur création et
--- peuvent être ajustés par le service commercial.
-
--- Quand un client passe une commande, il peut être appliqué une réduction supplémentaire
--- sur le total, cette réduction est négociée par le service commercial.
-
--- Un module de gestion des commandes réservé au service commercial :
---- Créer une nouvelle commande
---- Ajouter des produits dans la commande
---- Connaître l’état de la commande (saisie, annulée, en préparation, expédiée,
---facturée, retard de paiement, soldée)
---- Consulter les clients en retard de paiement à une date donnée
---- Modifier ou annuler la commande avant qu’elle ne soit en préparation
---- Les commandes seront saisies par le biais d’une interface accessible par internet
-
 -- Un module de gestion des produits va permettre :
 -- D’ajouter des produits
 create proc PROD_AJOUT --drop proc PROD_AJOUT
@@ -58,10 +31,6 @@ DELETE from PROD where PROD.pro_id=@ref
 execute PROD_SUPPR_NOM 'AAA'
 execute PROD_SUPPR_REF '897319'
 select * from PROD
-
--- D’en modifier les caractéristiques (libellé, caractéristique, tarif)
-
-
 
 -- Certaines interrogations sont à prévoir:
 -- Chiffre d'affaire généré pour l'ensemble et par fournisseur
