@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MenuGestion" Height="480" Width="720">
     <Grid>
-        <Image x:Name="logo" Margin="0,0,673,391" Source="Z-VG_logo_mini.jpg" Stretch="Fill"/>
+        <Image x:Name="VG_logo_mini_jpg" Margin="0,0,673,391" Source="Z-VG_logo_mini.jpg" Stretch="Fill"/>
         <Button x:Name="btn_clie" Content="Client" HorizontalAlignment="Left" Margin="84,100,0,0" VerticalAlignment="Top" Width="120" Height="279" FontSize="18.667" Click="btn_clie_Click" Background="#FFDDDDDD"/>
         <Button x:Name="btn_prod" Content="Produit" HorizontalAlignment="Left" Margin="204,276,0,0" VerticalAlignment="Top" Width="254" Height="103" FontSize="18.667" Click="btn_prod_Click" Background="#FFDDDDDD"/>
         <Button x:Name="btn_comm" Content="Commande" HorizontalAlignment="Left" Margin="204,100,0,0" VerticalAlignment="Top" Width="420" Height="55" FontSize="18.667" Click="btn_comm_Click" Background="#FFDDDDDD"/>

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="480" Width="720" ResizeMode="NoResize">
     <Grid>
-        <Image x:Name="logo" Margin="50,50,50,205" Source="Z-VG_logo.jpg" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image x:Name="VG_logo_jpg" Margin="50,50,50,205" Source="Z-VG_logo.jpg" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button x:Name="btn_demarrer" Content="Démarrer" HorizontalAlignment="Left" Margin="302,302,0,0" VerticalAlignment="Top" Width="110" Height="40" Click="btn_demarrer_Click" FontSize="18.667"/>
         <Button x:Name="btn_quitter" Content="Quitter" HorizontalAlignment="Left" Margin="37,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_quitter_Click"/>
     </Grid>

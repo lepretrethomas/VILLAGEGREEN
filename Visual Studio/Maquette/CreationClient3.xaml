@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="CreationClient3" Height="480" Width="720">
     <Grid>
-        <Image x:Name="logo" Margin="0,0,673,391" Source="Z-VG_logo_mini.jpg" Stretch="Fill"/>
+        <Image x:Name="VG_logo_mini_jpg" Margin="0,0,673,391" Source="Z-VG_logo_mini.jpg" Stretch="Fill"/>
         <Label x:Name="label1" Content="Création d'un nouveau Client" HorizontalAlignment="Left" Margin="72,47,0,0" VerticalAlignment="Top" FontSize="32"/>
         <Button x:Name="btn_quitter" Content="Quitter" HorizontalAlignment="Left" Margin="37,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_quitter_Click"/>
         <Button x:Name="btn_terminer" Content="Terminer" HorizontalAlignment="Left" Margin="505,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_terminer_Click"/>

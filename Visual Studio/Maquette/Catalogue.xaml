@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Catalogue" Height="480" Width="720">
     <Grid>
-        <Image x:Name="logo" Margin="0,0,673,391" Source="Z-VG_logo_mini.jpg" Stretch="Fill"/>
+        <Image x:Name="VG_logo_mini_jpg" Margin="0,0,673,391" Source="Z-VG_logo_mini.jpg" Stretch="Fill"/>
         <Button x:Name="btn_quitter" Content="Quitter" HorizontalAlignment="Left" Margin="37,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_quitter_Click"/>
         <Button x:Name="btn_revenir" Content="Revenir" HorizontalAlignment="Left" Margin="605,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_revenir_Click"/>
         <Label x:Name="label1" Content="Catalogue" HorizontalAlignment="Left" Margin="71,-6,0,0" VerticalAlignment="Top" FontSize="32"/>
@@ -43,7 +43,7 @@
         <Label x:Name="label4" Content="Fournisseur" HorizontalAlignment="Left" Margin="336,90,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="512,8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"/>
         <Button x:Name="button2" HorizontalAlignment="Left" Margin="680,8,0,0" VerticalAlignment="Top" Width="20" Height="23">
-            <Image x:Name="recherche" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
+            <Image x:Name="recherche2_jpg" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
         </Button>
 
     </Grid>
