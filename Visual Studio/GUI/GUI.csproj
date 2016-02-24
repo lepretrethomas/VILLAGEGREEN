@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,6 +59,12 @@
     <Compile Include="gestion_f.Designer.cs">
       <DependentUpon>gestion_f.cs</DependentUpon>
     </Compile>
+    <Compile Include="mail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mail.Designer.cs">
+      <DependentUpon>mail.cs</DependentUpon>
+    </Compile>
     <Compile Include="menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gestion_f.resx">
       <DependentUpon>gestion_f.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mail.resx">
+      <DependentUpon>mail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menu.resx">
       <DependentUpon>menu.cs</DependentUpon>
