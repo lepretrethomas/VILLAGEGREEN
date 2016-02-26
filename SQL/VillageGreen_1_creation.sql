@@ -94,6 +94,7 @@ CREATE TABLE COMM (
 	com_id  			INT IDENTITY NOT NULL,
 	com_dat 			DATE DEFAULT GETDATE() NOT NULL,
 	com_eta 			VARCHAR(25) NOT NULL,
+	com_tot				numeric (10,2),
 	cli_id  			INT NOT NULL,
 	PRIMARY KEY (com_id)
 )

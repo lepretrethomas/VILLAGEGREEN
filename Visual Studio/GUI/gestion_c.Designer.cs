@@ -87,9 +87,15 @@
             this.button_ajouter = new System.Windows.Forms.Button();
             this.label_operation = new System.Windows.Forms.Label();
             this.label_cours = new System.Windows.Forms.Label();
+            this.button_commande = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.button_par = new System.Windows.Forms.Button();
+            this.button_pro = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox_liv.SuspendLayout();
             this.groupBox_fac.SuspendLayout();
             this.groupBox_detail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelcopie2
@@ -384,12 +390,13 @@
             // 
             // button_liste
             // 
-            this.button_liste.Location = new System.Drawing.Point(12, 386);
+            this.button_liste.Location = new System.Drawing.Point(12, 407);
             this.button_liste.Name = "button_liste";
-            this.button_liste.Size = new System.Drawing.Size(204, 33);
+            this.button_liste.Size = new System.Drawing.Size(204, 21);
             this.button_liste.TabIndex = 33;
-            this.button_liste.Text = "Actualiser la liste";
+            this.button_liste.Text = "Global";
             this.button_liste.UseVisualStyleBackColor = true;
+            this.button_liste.Click += new System.EventHandler(this.button_liste_Click);
             // 
             // groupBox_detail
             // 
@@ -692,11 +699,63 @@
             this.label_cours.Size = new System.Drawing.Size(0, 13);
             this.label_cours.TabIndex = 45;
             // 
+            // button_commande
+            // 
+            this.button_commande.Location = new System.Drawing.Point(222, 271);
+            this.button_commande.Name = "button_commande";
+            this.button_commande.Size = new System.Drawing.Size(107, 46);
+            this.button_commande.TabIndex = 46;
+            this.button_commande.Text = "Historique des commandes";
+            this.button_commande.UseVisualStyleBackColor = true;
+            this.button_commande.Click += new System.EventHandler(this.button_commande_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(48, 443);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(140, 13);
+            this.label13.TabIndex = 48;
+            this.label13.Text = "Historique des commandes :";
+            // 
+            // button_par
+            // 
+            this.button_par.Location = new System.Drawing.Point(12, 380);
+            this.button_par.Name = "button_par";
+            this.button_par.Size = new System.Drawing.Size(97, 27);
+            this.button_par.TabIndex = 49;
+            this.button_par.Text = "Professionnel";
+            this.button_par.UseVisualStyleBackColor = true;
+            this.button_par.Click += new System.EventHandler(this.button_par_Click);
+            // 
+            // button_pro
+            // 
+            this.button_pro.Location = new System.Drawing.Point(119, 380);
+            this.button_pro.Name = "button_pro";
+            this.button_pro.Size = new System.Drawing.Size(97, 27);
+            this.button_pro.TabIndex = 50;
+            this.button_pro.Text = "Particulier";
+            this.button_pro.UseVisualStyleBackColor = true;
+            this.button_pro.Click += new System.EventHandler(this.button_pro_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(36, 459);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(815, 110);
+            this.dataGridView1.TabIndex = 51;
+            // 
             // gestion_c
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 434);
+            this.ClientSize = new System.Drawing.Size(884, 589);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button_pro);
+            this.Controls.Add(this.button_par);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.button_commande);
             this.Controls.Add(this.label_cours);
             this.Controls.Add(this.label_operation);
             this.Controls.Add(this.labelcopie2);
@@ -722,6 +781,7 @@
             this.groupBox_fac.PerformLayout();
             this.groupBox_detail.ResumeLayout(false);
             this.groupBox_detail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -788,5 +848,10 @@
         private System.Windows.Forms.Label label_cours;
         private System.Windows.Forms.Label label_statut;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button_commande;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button_par;
+        private System.Windows.Forms.Button button_pro;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -94,6 +94,7 @@ CREATE TABLE COMM (
 	com_id  			INT IDENTITY NOT NULL,
 	com_dat 			DATE DEFAULT GETDATE() NOT NULL,
 	com_eta 			VARCHAR(25) NOT NULL,
+	com_tot				numeric (10,2),
 	cli_id  			INT NOT NULL,
 	PRIMARY KEY (com_id)
 )
@@ -765,23 +766,23 @@ go
 --
 SET IDENTITY_INSERT COMM ON
 go
-INSERT INTO COMM (com_id, com_eta, com_dat, cli_id)
-	VALUES	(1, 'Terminé', '12/01/2016', 1),
-			(2, 'Terminé', '14/01/2016', 1),
-			(3, 'Terminé','20/01/2016', 1),
-			(4, 'Terminé', '21/01/2016', 2),
-			(5, 'Terminé', '22/01/2016', 2),
-			(6, 'Terminé','27/01/2016', 2),
-			(7, 'Terminé', '29/01/2016', 2),
-			(8, 'Terminé', '30/01/2016', 3),
-			(9, 'Terminé','04/02/2016', 3),
-			(10, 'Terminé', '04/02/2016', 4),
-			(11, 'Terminé', '05/02/2016', 5),
-			(12, 'Terminé','09/02/2016', 6),
-			(13, 'En cours de livraison','13/02/2016', 6),
-			(14, 'En cours de livraison','15/02/2016', 7),
-			(15, 'En attente de paiement','20/02/2016', 7),
-			(16, 'En attente de paiement','22/02/2016', 7)
+INSERT INTO COMM (com_id, com_eta, com_dat, com_tot, cli_id)
+	VALUES	(1, 'Terminé', '12/01/2016', 807.00, 1),
+			(2, 'Terminé', '14/01/2016', 1380.00, 1),
+			(3, 'Terminé','20/01/2016', 465.00, 1),
+			(4, 'Terminé', '21/01/2016', 8044.00, 2),
+			(5, 'Terminé', '22/01/2016', 199.00, 2),
+			(6, 'Terminé','27/01/2016', 149.95, 2),
+			(7, 'Terminé', '29/01/2016', 276.00, 2),
+			(8, 'Terminé', '30/01/2016', 3368.00, 3),
+			(9, 'Terminé','04/02/2016', 1121.4, 3),
+			(10, 'Terminé', '04/02/2016', 1527.00, 4),
+			(11, 'Terminé', '05/02/2016', 894.00, 5),
+			(12, 'Terminé','09/02/2016', 7998.00, 6),
+			(13, 'En cours de livraison','13/02/2016', 2637.00, 6),
+			(14, 'En cours de livraison','15/02/2016', 494.00, 7),
+			(15, 'En attente de paiement','20/02/2016', 1697.00, 7),
+			(16, 'En attente de paiement','22/02/2016', 2800, 7)
 go
 SET IDENTITY_INSERT COMM OFF
 go

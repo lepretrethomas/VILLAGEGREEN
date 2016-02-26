@@ -33,6 +33,9 @@ namespace GUI
 
         private void button3_Click(object sender, EventArgs e)
         {
+            gestion_p f = new gestion_p();
+            f.Owner = this;
+            f.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)

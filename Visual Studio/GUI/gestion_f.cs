@@ -53,14 +53,14 @@ namespace GUI
         private void remplir()
         {
             FournisseurDAO fdao = new FournisseurDAO(GUI.Properties.Settings.Default.Serveur);
-            Fournisseur c = fdao.Find(Convert.ToInt32(listBox.SelectedValue));
-            textBox_nom.Text = c.Nom;
-            textBox_prenom.Text = c.Prenom;
-            textBox_adresse.Text = c.Adresse;
-            textBox_cp.Text = c.CodePostal;
-            textBox_ville.Text = c.Ville;
-            textBox_tel.Text = c.Telephone;
-            label_id.Text = Convert.ToString(c.Id);
+            Fournisseur f = fdao.FindbyName(listBox.Text);
+            textBox_nom.Text = f.Nom;
+            textBox_prenom.Text = f.Prenom;
+            textBox_adresse.Text = f.Adresse;
+            textBox_cp.Text = f.CodePostal;
+            textBox_ville.Text = f.Ville;
+            textBox_tel.Text = f.Telephone;
+            label_id.Text = Convert.ToString(f.Id);
         }
         private void button_voir_Click(object sender, EventArgs e)
         {
@@ -116,65 +116,71 @@ namespace GUI
 
             try
             {
-                Fournisseur c = new Fournisseur();
+                Fournisseur f = new Fournisseur();
                 FournisseurDAO fdao = new FournisseurDAO(GUI.Properties.Settings.Default.Serveur);
                 if (voir == true)
                 {
-                    c.Nom = textBox_nom.Text;
-                    c.Prenom = textBox_prenom.Text;
-                    c.Adresse = textBox_adresse.Text;
-                    c.CodePostal = textBox_cp.Text;
-                    c.Ville = textBox_ville.Text;
-                    c.Telephone = textBox_tel.Text;
+                    f.Nom = textBox_nom.Text;
+                    f.Prenom = textBox_prenom.Text;
+                    f.Adresse = textBox_adresse.Text;
+                    f.CodePostal = textBox_cp.Text;
+                    f.Ville = textBox_ville.Text;
+                    f.Telephone = textBox_tel.Text;
                 }
                 if (ajouter == true)
                 {
-                    c.Nom = textBox_nom.Text;
-                    c.Prenom = textBox_prenom.Text;
-                    c.Adresse = textBox_adresse.Text;
-                    c.CodePostal = textBox_cp.Text;
-                    c.Ville = textBox_ville.Text;
-                    c.Telephone = textBox_tel.Text;
+                    modifier = false;
+                    supprimer = false;
+                    f.Nom = textBox_nom.Text;
+                    f.Prenom = textBox_prenom.Text;
+                    f.Adresse = textBox_adresse.Text;
+                    f.CodePostal = textBox_cp.Text;
+                    f.Ville = textBox_ville.Text;
+                    f.Telephone = textBox_tel.Text;
                     try
                     {
-                        fdao.Insert(c);
+                        fdao.Insert(f);
                         MessageBox.Show("Ajout effectué.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch (Exception erreur)
+                    catch (Exception)
                     {
-                        MessageBox.Show(erreur.Message, "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 if (modifier == true)
                 {
-                    c.Nom = textBox_nom.Text;
-                    c.Prenom = textBox_prenom.Text;
-                    c.Adresse = textBox_adresse.Text;
-                    c.CodePostal = textBox_cp.Text;
-                    c.Ville = textBox_ville.Text;
-                    c.Telephone = textBox_tel.Text;
-                    c.Id = (int)listBox.SelectedValue;
+                    ajouter = false;
+                    supprimer = false;
+                    f.Nom = textBox_nom.Text;
+                    f.Prenom = textBox_prenom.Text;
+                    f.Adresse = textBox_adresse.Text;
+                    f.CodePostal = textBox_cp.Text;
+                    f.Ville = textBox_ville.Text;
+                    f.Telephone = textBox_tel.Text;
+                    f.Id = (int)listBox.SelectedValue;
                     try
                     {
-                        fdao.Update(c);
+                        fdao.Update(f);
                         MessageBox.Show("Modification effectuée.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch (Exception erreur)
+                    catch (Exception)
                     {
-                        MessageBox.Show(erreur.Message, "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 if (supprimer == true)
                 {
-                    c.Id = (int)listBox.SelectedValue;
+                    ajouter = false;
+                    modifier = false;
+                    f.Id = (int)listBox.SelectedValue;
                     try
                     {
-                        fdao.Delete(c);
+                        fdao.Delete(f);
                         MessageBox.Show("Suppression effectuée.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch (Exception erreur)
+                    catch (Exception)
                     {
-                        MessageBox.Show(erreur.Message, "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 nettoyer();
@@ -185,9 +191,9 @@ namespace GUI
                 modifier = false;
                 supprimer = false;
             }
-            catch (Exception erreur)
+            catch (Exception)
             {
-                MessageBox.Show(erreur.Message, "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void button_liste_Click(object sender, EventArgs e)

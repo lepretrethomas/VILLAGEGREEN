@@ -59,6 +59,12 @@
     <Compile Include="gestion_f.Designer.cs">
       <DependentUpon>gestion_f.cs</DependentUpon>
     </Compile>
+    <Compile Include="gestion_p.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gestion_p.Designer.cs">
+      <DependentUpon>gestion_p.cs</DependentUpon>
+    </Compile>
     <Compile Include="mail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gestion_f.resx">
       <DependentUpon>gestion_f.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gestion_p.resx">
+      <DependentUpon>gestion_p.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mail.resx">
       <DependentUpon>mail.cs</DependentUpon>

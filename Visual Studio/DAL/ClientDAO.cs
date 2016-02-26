@@ -24,7 +24,14 @@ namespace DAL
             + " values (@nom, @prenom, @adresse, @codepostal, @ville, @telephone,"
             + " @adresse_f, @codepostal_f, @ville_f, @adresse_l, @codepostal_l, @ville_l, @statut)", connect);
             requete_insert.Parameters.AddWithValue("@nom", c.Nom);
-            requete_insert.Parameters.AddWithValue("@prenom", c.Prenom);
+            if (c.Prenom != "")
+            {
+                requete_insert.Parameters.AddWithValue("@prenom", c.Prenom);
+            }
+            else
+            {
+                requete_insert.Parameters.AddWithValue("@prenom", DBNull.Value);
+            }
             requete_insert.Parameters.AddWithValue("@adresse", c.Adresse);
             requete_insert.Parameters.AddWithValue("@codepostal", c.CodePostal);
             requete_insert.Parameters.AddWithValue("@ville", c.Ville);
@@ -58,7 +65,14 @@ namespace DAL
             + " where cli_id = @id", connect);
             requete_update.Parameters.AddWithValue("@id", c.Id);
             requete_update.Parameters.AddWithValue("@nom", c.Nom);
-            requete_update.Parameters.AddWithValue("@prenom", c.Prenom);
+            if (c.Prenom != "")
+            {
+                requete_update.Parameters.AddWithValue("@prenom", c.Prenom);
+            }
+            else
+            {
+                requete_update.Parameters.AddWithValue("@prenom", DBNull.Value);
+            }
             requete_update.Parameters.AddWithValue("@adresse", c.Adresse);
             requete_update.Parameters.AddWithValue("@codepostal", c.CodePostal);
             requete_update.Parameters.AddWithValue("@ville", c.Ville);
@@ -83,7 +97,7 @@ namespace DAL
             connect.Close();
         }
 
-        public Client Find(int id)
+        public Client FindbyId(int id)
         {
             connect.Open();
             Client c = null;
@@ -114,7 +128,37 @@ namespace DAL
             connect.Close();
             return c;
         }
+        public Client FindbyName(string nom)
+        {
+            connect.Open();
+            Client c = null;
+            SqlCommand requete_find = new SqlCommand("select * from CLIE where cli_nom = @nom", connect);
+            requete_find.Parameters.AddWithValue("@nom", nom);
+            SqlDataReader lecture = requete_find.ExecuteReader();
 
+            if (lecture.Read())
+            {
+                c = new Client();
+                c.Id = Convert.ToInt32(lecture["cli_id"]);
+                c.Nom = Convert.ToString(lecture["cli_nom"]);
+                c.Prenom = Convert.ToString(lecture["cli_pre"]);
+                c.Adresse = Convert.ToString(lecture["cli_adr"]);
+                c.CodePostal = Convert.ToString(lecture["cli_cp"]);
+                c.Ville = Convert.ToString(lecture["cli_vil"]);
+                c.Telephone = Convert.ToString(lecture["cli_tel"]);
+                c.Fac_Adresse = Convert.ToString(lecture["fac_adr"]);
+                c.Fac_CodePostal = Convert.ToString(lecture["fac_cp"]);
+                c.Fac_Ville = Convert.ToString(lecture["fac_vil"]);
+                c.Liv_Adresse = Convert.ToString(lecture["liv_adr"]);
+                c.Liv_CodePostal = Convert.ToString(lecture["liv_cp"]);
+                c.Liv_Ville = Convert.ToString(lecture["liv_vil"]);
+                c.Statut = Convert.ToString(lecture["sta_id"]);
+            }
+
+            lecture.Close();
+            connect.Close();
+            return c;
+        }
         public List<Client> List()
         {
             connect.Open();
@@ -142,6 +186,28 @@ namespace DAL
                 resultat.Add(c);
             }
 
+            lecture.Close();
+            connect.Close();
+            return resultat;
+        }
+        public List<Client> ParStatut(int statut)
+        {
+            List<Client> resultat = new List<Client>();
+
+            connect.Open();
+
+            SqlCommand requete_statut = new SqlCommand("Select cli_nom  " +
+                                                    "From CLIE where sta_id = @statut", connect);
+            requete_statut.Parameters.AddWithValue("@statut", statut);
+
+            SqlDataReader lecture = requete_statut.ExecuteReader();
+
+            while (lecture.Read())
+            {
+                Client c = new Client();
+                c.Nom = (string)lecture["cli_nom"];
+                resultat.Add(c);
+            }
             lecture.Close();
             connect.Close();
             return resultat;

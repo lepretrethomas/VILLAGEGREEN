@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
 using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 
 namespace GUI
 {
@@ -21,16 +22,33 @@ namespace GUI
         public gestion_c()
         {
             InitializeComponent();
+            Height = 475;
+            Width = 900;
             charger();
             non_modifiable();
             button_modifier.Enabled = false;
             button_supprimer.Enabled = false;
+            button_commande.Enabled = false;
             label_cours.Text = "En attente";
         }
         private void charger()
         {
             ClientDAO cdao = new ClientDAO(GUI.Properties.Settings.Default.Serveur);
             listBox.DataSource = cdao.List();
+            listBox.ValueMember = "Id";
+            listBox.DisplayMember = "Nom";
+        }
+        private void button_pro_Click(object sender, EventArgs e)
+        {
+            ClientDAO cdao = new ClientDAO(GUI.Properties.Settings.Default.Serveur);
+            listBox.DataSource = cdao.ParStatut(1);
+            listBox.ValueMember = "Id";
+            listBox.DisplayMember = "Nom";
+        }
+        private void button_par_Click(object sender, EventArgs e)
+        {
+            ClientDAO cdao = new ClientDAO(GUI.Properties.Settings.Default.Serveur);
+            listBox.DataSource = cdao.ParStatut(2);
             listBox.ValueMember = "Id";
             listBox.DisplayMember = "Nom";
         }
@@ -68,7 +86,7 @@ namespace GUI
         private void remplir()
         {
             ClientDAO cdao = new ClientDAO(GUI.Properties.Settings.Default.Serveur);
-            Client c = cdao.Find(Convert.ToInt32(listBox.SelectedValue));
+            Client c = cdao.FindbyName(listBox.Text);
             textBox_nom.Text = c.Nom;
             textBox_prenom.Text = c.Prenom;
             textBox_adresse.Text = c.Adresse;
@@ -91,6 +109,7 @@ namespace GUI
             voir = true;
             button_modifier.Enabled = true;
             button_supprimer.Enabled = true;
+            button_commande.Enabled = true;
             label_cours.Text = "Visualisation";
             button_confirmer.Enabled = false;
             button_annuler.Enabled = false;
@@ -103,6 +122,7 @@ namespace GUI
             ajouter = true;
             button_modifier.Enabled = false;
             button_supprimer.Enabled = false;
+            button_commande.Enabled = false;
             label_cours.Text = "Ajout";
             button_confirmer.Enabled = true;
             button_annuler.Enabled = true;
@@ -131,6 +151,7 @@ namespace GUI
             nettoyer();
             button_modifier.Enabled = false;
             button_supprimer.Enabled = false;
+            button_commande.Enabled = false;
             label_cours.Text = "En attente";
         }
         private void button_confirmer_Click(object sender, EventArgs e)
@@ -158,6 +179,8 @@ namespace GUI
                 }
                 if (ajouter == true)
                 {
+                    modifier = false;
+                    supprimer = false;
                     c.Nom = textBox_nom.Text;
                     c.Prenom = textBox_prenom.Text;
                     c.Adresse = textBox_adresse.Text;
@@ -176,13 +199,15 @@ namespace GUI
                         cdao.Insert(c);
                         MessageBox.Show("Ajout effectué.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch (Exception erreur)
+                    catch (Exception)
                     {
-                        MessageBox.Show(erreur.Message, "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 if (modifier == true)
                 {
+                    ajouter = false;
+                    supprimer = false;
                     c.Nom = textBox_nom.Text;
                     c.Prenom = textBox_prenom.Text;
                     c.Adresse = textBox_adresse.Text;
@@ -202,35 +227,38 @@ namespace GUI
                         cdao.Update(c);
                         MessageBox.Show("Modification effectuée.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch (Exception erreur)
+                    catch (Exception)
                     {
-                        MessageBox.Show(erreur.Message, "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 if (supprimer == true)
                 {
+                    ajouter = false;
+                    modifier = false;
                     c.Id = (int)listBox.SelectedValue;
                     try
                     {
                         cdao.Delete(c);
                         MessageBox.Show("Suppression effectuée.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch (Exception erreur)
+                    catch (Exception)
                     {
-                        MessageBox.Show(erreur.Message, "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 nettoyer();
                 charger();
                 button_modifier.Enabled = false;
                 button_supprimer.Enabled = false;
+                button_commande.Enabled = false;
                 ajouter = false;
                 modifier = false;
                 supprimer = false;
             }
-            catch (Exception erreur)
+            catch (Exception)
             {
-                MessageBox.Show(erreur.Message, "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void button_liste_Click(object sender, EventArgs e)
@@ -329,9 +357,11 @@ namespace GUI
             non_modifiable();
             button_modifier.Enabled = false;
             button_supprimer.Enabled = false;
+            button_commande.Enabled = false;
             label_cours.Text = "En attente";
             button_confirmer.Enabled = false;
             button_annuler.Enabled = false;
+            Height = 475;
         }
         private void textBox_categorie_TextChanged(object sender, EventArgs e)
         {
@@ -511,6 +541,18 @@ namespace GUI
                 textBox_liv_ville.BackColor = Color.LightSalmon;
                 button_confirmer.Enabled = false;
             }
+        }
+
+        private void button_commande_Click(object sender, EventArgs e)
+        {
+            Height = 615;
+            CommandeDAO cdao = new CommandeDAO(GUI.Properties.Settings.Default.Serveur);
+            dataGridView1.DataSource = cdao.ParIdClient(Convert.ToInt32(listBox.SelectedValue));
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }

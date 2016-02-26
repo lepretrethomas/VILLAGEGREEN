@@ -22,7 +22,14 @@ namespace DAL
             SqlCommand requete_insert = new SqlCommand("insert into FOUR (fou_nom, fou_pre, fou_adr, fou_cp, fou_vil, fou_tel)"
             + " values (@nom, @prenom, @adresse, @codepostal, @ville, @telephone)", connect);
             requete_insert.Parameters.AddWithValue("@nom", f.Nom);
-            requete_insert.Parameters.AddWithValue("@prenom", f.Prenom);
+            if (f.Prenom != "")
+            {
+                requete_insert.Parameters.AddWithValue("@prenom", f.Prenom);
+            }
+            else
+            {
+                requete_insert.Parameters.AddWithValue("@prenom", DBNull.Value);
+            }
             requete_insert.Parameters.AddWithValue("@adresse", f.Adresse);
             requete_insert.Parameters.AddWithValue("@codepostal", f.CodePostal);
             requete_insert.Parameters.AddWithValue("@ville", f.Ville);
@@ -47,7 +54,14 @@ namespace DAL
             + " where fou_id = @id", connect);
             requete_update.Parameters.AddWithValue("@id", f.Id);
             requete_update.Parameters.AddWithValue("@nom", f.Nom);
-            requete_update.Parameters.AddWithValue("@prenom", f.Prenom);
+            if (f.Prenom != "")
+            {
+                requete_update.Parameters.AddWithValue("@prenom", f.Prenom);
+            }
+            else
+            {
+                requete_update.Parameters.AddWithValue("@prenom", DBNull.Value);
+            }
             requete_update.Parameters.AddWithValue("@adresse", f.Adresse);
             requete_update.Parameters.AddWithValue("@codepostal", f.CodePostal);
             requete_update.Parameters.AddWithValue("@ville", f.Ville);
@@ -65,12 +79,36 @@ namespace DAL
             connect.Close();
         }
 
-        public Fournisseur Find(int id)
+        public Fournisseur FindbyId(int id)
         {
             connect.Open();
             Fournisseur f = null;
             SqlCommand requete_find = new SqlCommand("select * from FOUR where fou_id = @id", connect);
             requete_find.Parameters.AddWithValue("@id", id);
+            SqlDataReader lecture = requete_find.ExecuteReader();
+
+            if (lecture.Read())
+            {
+                f = new Fournisseur();
+                f.Id = Convert.ToInt32(lecture["fou_id"]);
+                f.Nom = Convert.ToString(lecture["fou_nom"]);
+                f.Prenom = Convert.ToString(lecture["fou_pre"]);
+                f.Adresse = Convert.ToString(lecture["fou_adr"]);
+                f.CodePostal = Convert.ToString(lecture["fou_cp"]);
+                f.Ville = Convert.ToString(lecture["fou_vil"]);
+                f.Telephone = Convert.ToString(lecture["fou_tel"]);
+            }
+
+            lecture.Close();
+            connect.Close();
+            return f;
+        }
+        public Fournisseur FindbyName(string nom)
+        {
+            connect.Open();
+            Fournisseur f = null;
+            SqlCommand requete_find = new SqlCommand("select * from FOUR where fou_nom = @nom", connect);
+            requete_find.Parameters.AddWithValue("@nom", nom);
             SqlDataReader lecture = requete_find.ExecuteReader();
 
             if (lecture.Read())
