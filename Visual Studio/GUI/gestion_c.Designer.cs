@@ -92,6 +92,8 @@
             this.button_par = new System.Windows.Forms.Button();
             this.button_pro = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox_recherche = new System.Windows.Forms.TextBox();
+            this.button_recherche = new System.Windows.Forms.Button();
             this.groupBox_liv.SuspendLayout();
             this.groupBox_fac.SuspendLayout();
             this.groupBox_detail.SuspendLayout();
@@ -372,15 +374,15 @@
             // listBox
             // 
             this.listBox.FormattingEnabled = true;
-            this.listBox.Location = new System.Drawing.Point(12, 12);
+            this.listBox.Location = new System.Drawing.Point(12, 42);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(204, 368);
+            this.listBox.Size = new System.Drawing.Size(204, 316);
             this.listBox.TabIndex = 36;
             this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
             // button_voir
             // 
-            this.button_voir.Location = new System.Drawing.Point(222, 102);
+            this.button_voir.Location = new System.Drawing.Point(222, 130);
             this.button_voir.Name = "button_voir";
             this.button_voir.Size = new System.Drawing.Size(107, 32);
             this.button_voir.TabIndex = 35;
@@ -390,11 +392,11 @@
             // 
             // button_liste
             // 
-            this.button_liste.Location = new System.Drawing.Point(12, 407);
+            this.button_liste.Location = new System.Drawing.Point(12, 394);
             this.button_liste.Name = "button_liste";
-            this.button_liste.Size = new System.Drawing.Size(204, 21);
+            this.button_liste.Size = new System.Drawing.Size(204, 34);
             this.button_liste.TabIndex = 33;
-            this.button_liste.Text = "Global";
+            this.button_liste.Text = "Liste complète";
             this.button_liste.UseVisualStyleBackColor = true;
             this.button_liste.Click += new System.EventHandler(this.button_liste_Click);
             // 
@@ -642,7 +644,7 @@
             // 
             // button_supprimer
             // 
-            this.button_supprimer.Location = new System.Drawing.Point(222, 178);
+            this.button_supprimer.Location = new System.Drawing.Point(222, 206);
             this.button_supprimer.Name = "button_supprimer";
             this.button_supprimer.Size = new System.Drawing.Size(107, 32);
             this.button_supprimer.TabIndex = 31;
@@ -652,7 +654,7 @@
             // 
             // button_modifier
             // 
-            this.button_modifier.Location = new System.Drawing.Point(222, 140);
+            this.button_modifier.Location = new System.Drawing.Point(222, 168);
             this.button_modifier.Name = "button_modifier";
             this.button_modifier.Size = new System.Drawing.Size(107, 32);
             this.button_modifier.TabIndex = 29;
@@ -672,7 +674,7 @@
             // 
             // button_ajouter
             // 
-            this.button_ajouter.Location = new System.Drawing.Point(222, 13);
+            this.button_ajouter.Location = new System.Drawing.Point(222, 42);
             this.button_ajouter.Name = "button_ajouter";
             this.button_ajouter.Size = new System.Drawing.Size(107, 32);
             this.button_ajouter.TabIndex = 28;
@@ -701,7 +703,7 @@
             // 
             // button_commande
             // 
-            this.button_commande.Location = new System.Drawing.Point(222, 271);
+            this.button_commande.Location = new System.Drawing.Point(222, 288);
             this.button_commande.Name = "button_commande";
             this.button_commande.Size = new System.Drawing.Size(107, 46);
             this.button_commande.TabIndex = 46;
@@ -720,9 +722,9 @@
             // 
             // button_par
             // 
-            this.button_par.Location = new System.Drawing.Point(12, 380);
+            this.button_par.Location = new System.Drawing.Point(12, 366);
             this.button_par.Name = "button_par";
-            this.button_par.Size = new System.Drawing.Size(97, 27);
+            this.button_par.Size = new System.Drawing.Size(97, 24);
             this.button_par.TabIndex = 49;
             this.button_par.Text = "Professionnel";
             this.button_par.UseVisualStyleBackColor = true;
@@ -730,9 +732,9 @@
             // 
             // button_pro
             // 
-            this.button_pro.Location = new System.Drawing.Point(119, 380);
+            this.button_pro.Location = new System.Drawing.Point(119, 366);
             this.button_pro.Name = "button_pro";
-            this.button_pro.Size = new System.Drawing.Size(97, 27);
+            this.button_pro.Size = new System.Drawing.Size(97, 24);
             this.button_pro.TabIndex = 50;
             this.button_pro.Text = "Particulier";
             this.button_pro.UseVisualStyleBackColor = true;
@@ -746,11 +748,31 @@
             this.dataGridView1.Size = new System.Drawing.Size(815, 110);
             this.dataGridView1.TabIndex = 51;
             // 
+            // textBox_recherche
+            // 
+            this.textBox_recherche.Location = new System.Drawing.Point(12, 12);
+            this.textBox_recherche.Name = "textBox_recherche";
+            this.textBox_recherche.Size = new System.Drawing.Size(130, 20);
+            this.textBox_recherche.TabIndex = 52;
+            this.textBox_recherche.TextChanged += new System.EventHandler(this.textBox_recherche_TextChanged);
+            // 
+            // button_recherche
+            // 
+            this.button_recherche.Location = new System.Drawing.Point(148, 12);
+            this.button_recherche.Name = "button_recherche";
+            this.button_recherche.Size = new System.Drawing.Size(68, 20);
+            this.button_recherche.TabIndex = 53;
+            this.button_recherche.Text = "Recherche";
+            this.button_recherche.UseVisualStyleBackColor = true;
+            this.button_recherche.Click += new System.EventHandler(this.button_recherche_Click);
+            // 
             // gestion_c
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 589);
+            this.Controls.Add(this.button_recherche);
+            this.Controls.Add(this.textBox_recherche);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button_pro);
             this.Controls.Add(this.button_par);
@@ -853,5 +875,7 @@
         private System.Windows.Forms.Button button_par;
         private System.Windows.Forms.Button button_pro;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox_recherche;
+        private System.Windows.Forms.Button button_recherche;
     }
 }

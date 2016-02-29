@@ -21,10 +21,13 @@ namespace GUI
         public gestion_f()
         {
             InitializeComponent();
+            Height = 475;
+            Width = 900;
             charger();
             non_modifiable();
             button_modifier.Enabled = false;
             button_supprimer.Enabled = false;
+            button_produit.Enabled = false;
             label_cours.Text = "En attente";
         }
         private void charger()
@@ -32,7 +35,7 @@ namespace GUI
             FournisseurDAO fdao = new FournisseurDAO(GUI.Properties.Settings.Default.Serveur);
             listBox.DataSource = fdao.List();
             listBox.ValueMember = "Id";
-            listBox.DisplayMember = "Nom";
+            listBox.DisplayMember = "NomComplet";
         }
         private void nettoyer()
         {
@@ -69,6 +72,7 @@ namespace GUI
             voir = true;
             button_modifier.Enabled = true;
             button_supprimer.Enabled = true;
+            button_produit.Enabled = true;
             label_cours.Text = "Visualisation";
             button_confirmer.Enabled = false;
             button_annuler.Enabled = false;
@@ -81,6 +85,7 @@ namespace GUI
             ajouter = true;
             button_modifier.Enabled = false;
             button_supprimer.Enabled = false;
+            button_produit.Enabled = false;
             label_cours.Text = "Ajout";
             button_confirmer.Enabled = true;
             button_annuler.Enabled = true;
@@ -109,6 +114,7 @@ namespace GUI
             nettoyer();
             button_modifier.Enabled = false;
             button_supprimer.Enabled = false;
+            button_produit.Enabled = false;
             label_cours.Text = "En attente";
         }
         private void button_confirmer_Click(object sender, EventArgs e)
@@ -187,6 +193,7 @@ namespace GUI
                 charger();
                 button_modifier.Enabled = false;
                 button_supprimer.Enabled = false;
+                button_produit.Enabled = false;
                 ajouter = false;
                 modifier = false;
                 supprimer = false;
@@ -236,9 +243,11 @@ namespace GUI
             non_modifiable();
             button_modifier.Enabled = false;
             button_supprimer.Enabled = false;
+            button_produit.Enabled = false;
             label_cours.Text = "En attente";
             button_confirmer.Enabled = false;
             button_annuler.Enabled = false;
+            Height = 475;
         }
         private void textBox_nom_TextChanged(object sender, EventArgs e)
         {
@@ -317,6 +326,41 @@ namespace GUI
             {
                 textBox_tel.BackColor = Color.LightSalmon;
                 button_confirmer.Enabled = false;
+            }
+        }
+        private void button_recherche_Click(object sender, EventArgs e)
+        {
+            FournisseurDAO cdao = new FournisseurDAO(GUI.Properties.Settings.Default.Serveur);
+            listBox.DataSource = cdao.Recherche(textBox_recherche.Text.ToString());
+            listBox.ValueMember = "Id";
+            listBox.DisplayMember = "NomComplet";
+        }
+
+        private void button_produit_Click(object sender, EventArgs e)
+        {
+            Height = 615;
+            ProduitDAO pdao = new ProduitDAO(GUI.Properties.Settings.Default.Serveur);
+            dataGridView1.DataSource = pdao.ParFournisseur(Convert.ToInt32(listBox.SelectedValue));
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Columns[1].Visible = false;
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void textBox_recherche_TextChanged(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(textBox_recherche.Text, @"^[a-zA-Z]+$") == true)
+            {
+                textBox_recherche.BackColor = SystemColors.Window;
+                button_recherche.Enabled = true;
+            }
+            else
+            {
+                textBox_recherche.BackColor = Color.LightSalmon;
+                button_recherche.Enabled = false;
             }
         }
     }

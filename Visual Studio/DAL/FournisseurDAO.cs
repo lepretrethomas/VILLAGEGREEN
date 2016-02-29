@@ -152,5 +152,31 @@ namespace DAL
             connect.Close();
             return resultat;
         }
+        public List<Fournisseur> Recherche(string recherche)
+        {
+            List<Fournisseur> resultat = new List<Fournisseur>();
+
+            connect.Open();
+
+            SqlCommand requete_statut = new SqlCommand(@"Select * from FOUR where fou_nom like '%" + recherche + "%'", connect);
+
+            SqlDataReader lecture = requete_statut.ExecuteReader();
+
+            while (lecture.Read())
+            {
+                Fournisseur f = new Fournisseur();
+                f.Id = Convert.ToInt32(lecture["fou_id"]);
+                f.Nom = Convert.ToString(lecture["fou_nom"]);
+                f.Prenom = Convert.ToString(lecture["fou_pre"]);
+                f.Adresse = Convert.ToString(lecture["fou_adr"]);
+                f.CodePostal = Convert.ToString(lecture["fou_cp"]);
+                f.Ville = Convert.ToString(lecture["fou_vil"]);
+                f.Telephone = Convert.ToString(lecture["fou_tel"]);
+                resultat.Add(f);
+            }
+            lecture.Close();
+            connect.Close();
+            return resultat;
+        }
     }
 }

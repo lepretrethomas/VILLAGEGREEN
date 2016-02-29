@@ -36,21 +36,21 @@ namespace GUI
             ClientDAO cdao = new ClientDAO(GUI.Properties.Settings.Default.Serveur);
             listBox.DataSource = cdao.List();
             listBox.ValueMember = "Id";
-            listBox.DisplayMember = "Nom";
+            listBox.DisplayMember = "NomComplet";
         }
         private void button_pro_Click(object sender, EventArgs e)
         {
             ClientDAO cdao = new ClientDAO(GUI.Properties.Settings.Default.Serveur);
             listBox.DataSource = cdao.ParStatut(1);
             listBox.ValueMember = "Id";
-            listBox.DisplayMember = "Nom";
+            listBox.DisplayMember = "NomComplet";
         }
         private void button_par_Click(object sender, EventArgs e)
         {
             ClientDAO cdao = new ClientDAO(GUI.Properties.Settings.Default.Serveur);
             listBox.DataSource = cdao.ParStatut(2);
             listBox.ValueMember = "Id";
-            listBox.DisplayMember = "Nom";
+            listBox.DisplayMember = "NomComplet";
         }
         private void nettoyer()
         {
@@ -553,6 +553,28 @@ namespace GUI
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Columns[4].Visible = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void button_recherche_Click(object sender, EventArgs e)
+        {
+            ClientDAO cdao = new ClientDAO(GUI.Properties.Settings.Default.Serveur);
+            listBox.DataSource = cdao.Recherche(textBox_recherche.Text.ToString());
+            listBox.ValueMember = "Id";
+            listBox.DisplayMember = "NomComplet";
+        }
+
+        private void textBox_recherche_TextChanged(object sender, EventArgs e)
+        {
+            if ((Regex.IsMatch(textBox_recherche.Text, @"^[a-zA-Z]+$") == true) || (textBox_recherche.Text == ""))
+            {
+                textBox_recherche.BackColor = SystemColors.Window;
+                button_recherche.Enabled = true;
+            }
+            else
+            {
+                textBox_recherche.BackColor = Color.LightSalmon;
+                button_recherche.Enabled = false;
+            }
         }
     }
 }

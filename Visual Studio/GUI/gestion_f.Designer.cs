@@ -60,7 +60,13 @@
             this.label_obligatoire = new System.Windows.Forms.Label();
             this.label_cours = new System.Windows.Forms.Label();
             this.label_operation = new System.Windows.Forms.Label();
+            this.button_recherche = new System.Windows.Forms.Button();
+            this.textBox_recherche = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
+            this.button_produit = new System.Windows.Forms.Button();
             this.groupBox_detail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -285,7 +291,7 @@
             // 
             // button_supprimer
             // 
-            this.button_supprimer.Location = new System.Drawing.Point(222, 178);
+            this.button_supprimer.Location = new System.Drawing.Point(222, 206);
             this.button_supprimer.Name = "button_supprimer";
             this.button_supprimer.Size = new System.Drawing.Size(107, 32);
             this.button_supprimer.TabIndex = 10;
@@ -295,7 +301,7 @@
             // 
             // button_modifier
             // 
-            this.button_modifier.Location = new System.Drawing.Point(222, 140);
+            this.button_modifier.Location = new System.Drawing.Point(222, 168);
             this.button_modifier.Name = "button_modifier";
             this.button_modifier.Size = new System.Drawing.Size(107, 32);
             this.button_modifier.TabIndex = 9;
@@ -305,7 +311,7 @@
             // 
             // button_ajouter
             // 
-            this.button_ajouter.Location = new System.Drawing.Point(222, 13);
+            this.button_ajouter.Location = new System.Drawing.Point(222, 42);
             this.button_ajouter.Name = "button_ajouter";
             this.button_ajouter.Size = new System.Drawing.Size(107, 32);
             this.button_ajouter.TabIndex = 8;
@@ -319,13 +325,13 @@
             this.button_liste.Name = "button_liste";
             this.button_liste.Size = new System.Drawing.Size(204, 33);
             this.button_liste.TabIndex = 13;
-            this.button_liste.Text = "Actualiser la liste";
+            this.button_liste.Text = "Liste complète";
             this.button_liste.UseVisualStyleBackColor = true;
             this.button_liste.Click += new System.EventHandler(this.button_liste_Click);
             // 
             // button_voir
             // 
-            this.button_voir.Location = new System.Drawing.Point(222, 102);
+            this.button_voir.Location = new System.Drawing.Point(222, 130);
             this.button_voir.Name = "button_voir";
             this.button_voir.Size = new System.Drawing.Size(107, 32);
             this.button_voir.TabIndex = 14;
@@ -336,9 +342,9 @@
             // listBox
             // 
             this.listBox.FormattingEnabled = true;
-            this.listBox.Location = new System.Drawing.Point(12, 12);
+            this.listBox.Location = new System.Drawing.Point(12, 42);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(204, 368);
+            this.listBox.Size = new System.Drawing.Size(204, 342);
             this.listBox.TabIndex = 15;
             this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
@@ -382,11 +388,65 @@
             this.label_operation.TabIndex = 46;
             this.label_operation.Text = "Opération en cours :";
             // 
+            // button_recherche
+            // 
+            this.button_recherche.Location = new System.Drawing.Point(148, 12);
+            this.button_recherche.Name = "button_recherche";
+            this.button_recherche.Size = new System.Drawing.Size(68, 20);
+            this.button_recherche.TabIndex = 55;
+            this.button_recherche.Text = "Recherche";
+            this.button_recherche.UseVisualStyleBackColor = true;
+            this.button_recherche.Click += new System.EventHandler(this.button_recherche_Click);
+            // 
+            // textBox_recherche
+            // 
+            this.textBox_recherche.Location = new System.Drawing.Point(12, 12);
+            this.textBox_recherche.Name = "textBox_recherche";
+            this.textBox_recherche.Size = new System.Drawing.Size(130, 20);
+            this.textBox_recherche.TabIndex = 54;
+            this.textBox_recherche.TextChanged += new System.EventHandler(this.textBox_recherche_TextChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(36, 459);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(815, 110);
+            this.dataGridView1.TabIndex = 57;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(48, 443);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(139, 13);
+            this.label13.TabIndex = 56;
+            this.label13.Text = "Liste des produits associès :";
+            // 
+            // button_produit
+            // 
+            this.button_produit.Location = new System.Drawing.Point(222, 288);
+            this.button_produit.Name = "button_produit";
+            this.button_produit.Size = new System.Drawing.Size(107, 46);
+            this.button_produit.TabIndex = 58;
+            this.button_produit.Text = "Liste des produits associès";
+            this.button_produit.UseVisualStyleBackColor = true;
+            this.button_produit.Click += new System.EventHandler(this.button_produit_Click);
+            // 
             // gestion_f
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 431);
+            this.ClientSize = new System.Drawing.Size(884, 589);
+            this.Controls.Add(this.button_produit);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.button_recherche);
+            this.Controls.Add(this.textBox_recherche);
             this.Controls.Add(this.label_cours);
             this.Controls.Add(this.label_operation);
             this.Controls.Add(this.label_obligatoire);
@@ -405,6 +465,7 @@
             this.Text = "Gestion des Fournisseurs";
             this.groupBox_detail.ResumeLayout(false);
             this.groupBox_detail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,5 +504,10 @@
         private System.Windows.Forms.Label label_obligatoire;
         private System.Windows.Forms.Label label_cours;
         private System.Windows.Forms.Label label_operation;
+        private System.Windows.Forms.Button button_recherche;
+        private System.Windows.Forms.TextBox textBox_recherche;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button_produit;
     }
 }

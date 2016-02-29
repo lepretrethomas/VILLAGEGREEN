@@ -225,5 +225,38 @@ namespace DAL
             connect.Close();
             return resultat;
         }
+        public List<Client> Recherche(string recherche)
+        {
+            List<Client> resultat = new List<Client>();
+
+            connect.Open();
+
+            SqlCommand requete_statut = new SqlCommand(@"Select * from CLIE where cli_nom like '%"+ recherche + "%'", connect);
+
+            SqlDataReader lecture = requete_statut.ExecuteReader();
+
+            while (lecture.Read())
+            {
+                Client c = new Client();
+                c.Id = Convert.ToInt32(lecture["cli_id"]);
+                c.Nom = Convert.ToString(lecture["cli_nom"]);
+                c.Prenom = Convert.ToString(lecture["cli_pre"]);
+                c.Adresse = Convert.ToString(lecture["cli_adr"]);
+                c.CodePostal = Convert.ToString(lecture["cli_cp"]);
+                c.Ville = Convert.ToString(lecture["cli_vil"]);
+                c.Telephone = Convert.ToString(lecture["cli_tel"]);
+                c.Fac_Adresse = Convert.ToString(lecture["fac_adr"]);
+                c.Fac_CodePostal = Convert.ToString(lecture["fac_cp"]);
+                c.Fac_Ville = Convert.ToString(lecture["fac_vil"]);
+                c.Liv_Adresse = Convert.ToString(lecture["liv_adr"]);
+                c.Liv_CodePostal = Convert.ToString(lecture["liv_cp"]);
+                c.Liv_Ville = Convert.ToString(lecture["liv_vil"]);
+                c.Statut = Convert.ToString(lecture["sta_id"]);
+                resultat.Add(c);
+            }
+            lecture.Close();
+            connect.Close();
+            return resultat;
+        }
     }
 }

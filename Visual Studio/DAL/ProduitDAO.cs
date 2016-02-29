@@ -175,5 +175,28 @@ namespace DAL
             connect.Close();
             return resultat;
         }
+        public List<Produit> ParFournisseur(int fournisseur)
+        {
+            List<Produit> resultat = new List<Produit>();
+            connect.Open();
+            SqlCommand requete_statut = new SqlCommand(@"Select * from PROD
+                                                         where fou_id = @fournisseur", connect);
+            requete_statut.Parameters.AddWithValue("@fournisseur", fournisseur);
+            SqlDataReader lecture = requete_statut.ExecuteReader();
+            while (lecture.Read())
+            {
+                Produit p = new Produit();
+                p.Id = Convert.ToInt32(lecture["pro_id"]);
+                p.Fournisseur = Convert.ToInt32(lecture["fou_id"]);
+                p.Libelle = Convert.ToString(lecture["pro_lbc"]);
+                p.Description = Convert.ToString(lecture["pro_lbl"]);
+                p.Photo = Convert.ToString(lecture["pro_pho"]);
+                p.Rubrique = Convert.ToInt32(lecture["ssrub_id"]);
+                resultat.Add(p);
+            }
+            lecture.Close();
+            connect.Close();
+            return resultat;
+        }
     }
 }
