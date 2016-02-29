@@ -81,7 +81,7 @@ namespace GUI
         private void remplir()
         {
             ProduitDAO pdao = new ProduitDAO(GUI.Properties.Settings.Default.Serveur);
-            Produit p = pdao.FindbyName(listBox.Text);
+            Produit p = pdao.FindbyId(Convert.ToInt32(listBox.SelectedValue));
             textBox_libelle.Text = p.Libelle;
             textBox_description.Text = p.Description;
             textBox_fournisseur.Text = Convert.ToString(p.Fournisseur);
@@ -106,6 +106,7 @@ namespace GUI
             modifiable();
             textBox_libelle.Focus();
             ajouter = true;
+            comboBox_ssrub.Show();
             button_modifier.Enabled = false;
             button_supprimer.Enabled = false;
             label_cours.Text = "Ajout";

@@ -85,7 +85,7 @@ namespace GUI
                             }
                             else
                             {
-                                resultat = "Adresse correcte.";
+                                resultat = "";
                             }
                         }
                     }

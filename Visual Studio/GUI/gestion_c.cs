@@ -86,7 +86,7 @@ namespace GUI
         private void remplir()
         {
             ClientDAO cdao = new ClientDAO(GUI.Properties.Settings.Default.Serveur);
-            Client c = cdao.FindbyName(listBox.Text);
+            Client c = cdao.FindbyId(Convert.ToInt32(listBox.SelectedValue));
             textBox_nom.Text = c.Nom;
             textBox_prenom.Text = c.Prenom;
             textBox_adresse.Text = c.Adresse;

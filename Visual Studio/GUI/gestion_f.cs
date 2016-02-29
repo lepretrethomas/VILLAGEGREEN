@@ -53,7 +53,7 @@ namespace GUI
         private void remplir()
         {
             FournisseurDAO fdao = new FournisseurDAO(GUI.Properties.Settings.Default.Serveur);
-            Fournisseur f = fdao.FindbyName(listBox.Text);
+            Fournisseur f = fdao.FindbyId(Convert.ToInt32(listBox.SelectedValue));
             textBox_nom.Text = f.Nom;
             textBox_prenom.Text = f.Prenom;
             textBox_adresse.Text = f.Adresse;

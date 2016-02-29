@@ -11,7 +11,7 @@ namespace testMail
         public void ok()
         {
             string resultat = GUI.mail.Verification("abc@abc.abc");
-            Assert.AreEqual(resultat, "Adresse correcte.");
+            Assert.AreEqual(resultat, "");
         }
         [TestMethod]
         public void a()
