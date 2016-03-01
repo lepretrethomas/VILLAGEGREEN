@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="chiffreaffaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="chiffreaffaire.Designer.cs">
+      <DependentUpon>chiffreaffaire.cs</DependentUpon>
+    </Compile>
     <Compile Include="gestion_c.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="chiffreaffaire.resx">
+      <DependentUpon>chiffreaffaire.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gestion_c.resx">
       <DependentUpon>gestion_c.cs</DependentUpon>
     </EmbeddedResource>

@@ -44,5 +44,12 @@ namespace GUI
             f.Owner = this;
             f.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            chiffreaffaire f = new chiffreaffaire();
+            f.Owner = this;
+            f.Show();
+        }
     }
 }

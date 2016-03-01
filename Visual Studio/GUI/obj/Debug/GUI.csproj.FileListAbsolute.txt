@@ -13,3 +13,4 @@ C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.menu.resources
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.mail.resources
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.gestion_p.resources
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.chiffreaffaire.resources

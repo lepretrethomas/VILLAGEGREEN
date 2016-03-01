@@ -352,7 +352,7 @@ namespace GUI
 
         private void textBox_recherche_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_recherche.Text, @"^[a-zA-Z]+$") == true)
+            if ((Regex.IsMatch(textBox_recherche.Text, @"^[a-zA-Z]+$") == true) || (textBox_recherche.Text == ""))
             {
                 textBox_recherche.BackColor = SystemColors.Window;
                 button_recherche.Enabled = true;

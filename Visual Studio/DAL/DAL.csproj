@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CA.cs" />
+    <Compile Include="CADAO.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientDAO.cs" />
     <Compile Include="Commande.cs" />

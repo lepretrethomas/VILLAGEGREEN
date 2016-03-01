@@ -43,7 +43,7 @@ CREATE TABLE SERC (
 CREATE TABLE STAT (
 	sta_id     			INT IDENTITY NOT NULL,
 	sta_nom      		VARCHAR(50) NOT NULL,
-	sta_coe  		INT NOT NULL,
+	sta_coe				numeric (3,2) NOT NULL,
 	PRIMARY KEY (sta_id)
 )
 
@@ -122,7 +122,7 @@ CREATE TABLE REGL (
 CREATE TABLE LIGN (
 	com_lig 			INT IDENTITY NOT NULL,
 	com_qte   			INT NOT NULL,
-	com_pu    			MONEY NOT NULL,
+	com_pu    			numeric (10,2) NOT NULL,
 	com_id   			INT,
 	pro_id  			INT NOT NULL,
 	PRIMARY KEY (com_lig)
