@@ -1,11 +1,9 @@
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\testMail.dll
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\testMail.pdb
-C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\GUI.exe
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\DAL.dll
-C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\GUI.pdb
-C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\DAL.pdb
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\fr\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\obj\Debug\testMail.csprojResolveAssemblyReference.cache
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\obj\Debug\testMail.dll
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\obj\Debug\testMail.pdb
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\Mail.exe
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\Mail.pdb

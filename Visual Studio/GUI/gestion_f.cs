@@ -21,8 +21,8 @@ namespace GUI
         public gestion_f()
         {
             InitializeComponent();
-            Height = 475;
-            Width = 900;
+            Height = 510;
+            Width = 1000;
             charger();
             non_modifiable();
             button_modifier.Enabled = false;
@@ -247,7 +247,7 @@ namespace GUI
             label_cours.Text = "En attente";
             button_confirmer.Enabled = false;
             button_annuler.Enabled = false;
-            Height = 475;
+            Height = 505;
         }
         private void textBox_nom_TextChanged(object sender, EventArgs e)
         {
@@ -338,7 +338,7 @@ namespace GUI
 
         private void button_produit_Click(object sender, EventArgs e)
         {
-            Height = 615;
+            Height = 1000;
             ProduitDAO pdao = new ProduitDAO(GUI.Properties.Settings.Default.Serveur);
             dataGridView1.DataSource = pdao.ParFournisseur(Convert.ToInt32(listBox.SelectedValue));
             dataGridView1.ReadOnly = true;

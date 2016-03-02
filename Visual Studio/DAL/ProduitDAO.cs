@@ -133,7 +133,7 @@ namespace DAL
         {
             connect.Open();
             List<Produit> resultat = new List<Produit>();
-            SqlCommand requete_list = new SqlCommand("select * from PROD", connect);
+            SqlCommand requete_list = new SqlCommand("select * from PROD order by pro_lbc", connect);
             SqlDataReader lecture = requete_list.ExecuteReader();
 
             while (lecture.Read())
@@ -157,7 +157,7 @@ namespace DAL
             List<Produit> resultat = new List<Produit>();
             connect.Open();
             SqlCommand requete_statut = new SqlCommand(@"Select * from PROD
-                                                         where ssrub_id = @ssrub", connect);
+                                                         where ssrub_id = @ssrub order by pro_lbc", connect);
             requete_statut.Parameters.AddWithValue("@ssrub", rubrique);
             SqlDataReader lecture = requete_statut.ExecuteReader();
             while (lecture.Read())
@@ -180,7 +180,7 @@ namespace DAL
             List<Produit> resultat = new List<Produit>();
             connect.Open();
             SqlCommand requete_statut = new SqlCommand(@"Select * from PROD
-                                                         where fou_id = @fournisseur", connect);
+                                                         where fou_id = @fournisseur order by pro_lbc", connect);
             requete_statut.Parameters.AddWithValue("@fournisseur", fournisseur);
             SqlDataReader lecture = requete_statut.ExecuteReader();
             while (lecture.Read())

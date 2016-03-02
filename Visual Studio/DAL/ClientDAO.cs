@@ -163,7 +163,7 @@ namespace DAL
         {
             connect.Open();
             List<Client> resultat = new List<Client>();
-            SqlCommand requete_list = new SqlCommand("select * from CLIE", connect);
+            SqlCommand requete_list = new SqlCommand("select * from CLIE order by cli_nom", connect);
             SqlDataReader lecture = requete_list.ExecuteReader();
 
             while (lecture.Read())
@@ -197,7 +197,7 @@ namespace DAL
             connect.Open();
 
             SqlCommand requete_statut = new SqlCommand("Select * " +
-                                                    "From CLIE where sta_id = @statut", connect);
+                                                    "From CLIE where sta_id = @statut order by cli_nom", connect);
             requete_statut.Parameters.AddWithValue("@statut", statut);
 
             SqlDataReader lecture = requete_statut.ExecuteReader();
@@ -231,7 +231,7 @@ namespace DAL
 
             connect.Open();
 
-            SqlCommand requete_statut = new SqlCommand(@"Select * from CLIE where cli_nom like '%"+ recherche + "%'", connect);
+            SqlCommand requete_statut = new SqlCommand(@"Select * from CLIE where cli_nom like '%"+ recherche + "%' order by cli_nom", connect);
 
             SqlDataReader lecture = requete_statut.ExecuteReader();
 

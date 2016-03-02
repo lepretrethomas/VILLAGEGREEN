@@ -47,7 +47,6 @@
     <Compile Include="ClientDAO.cs" />
     <Compile Include="Commande.cs" />
     <Compile Include="CommandeDAO.cs" />
-    <Compile Include="Employe.cs" />
     <Compile Include="Fournisseur.cs" />
     <Compile Include="FournisseurDAO.cs" />
     <Compile Include="Produit.cs" />

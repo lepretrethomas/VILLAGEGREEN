@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
-namespace GUI
+namespace Mail
 {
     public partial class mail : Form
     {
@@ -18,18 +18,7 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (Regex.IsMatch(textBox1.Text, @"^[a-z0-9._-]{2,}@[a-z0-9]{2,}\.[a-z]{2,}$") == true)
-            {
-                label2.Text = "Correct";
-            }
-            else
-            {
-                label2.Text = "Incorrect";
-            }
-        }
-        private void button2_Click(object sender, EventArgs e)
+        private void button_check_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "")
             {

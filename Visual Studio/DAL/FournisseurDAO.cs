@@ -132,7 +132,7 @@ namespace DAL
         {
             connect.Open();
             List<Fournisseur> resultat = new List<Fournisseur>();
-            SqlCommand requete_list = new SqlCommand("select * from FOUR", connect);
+            SqlCommand requete_list = new SqlCommand("select * from FOUR order by fou_nom", connect);
             SqlDataReader lecture = requete_list.ExecuteReader();
 
             while (lecture.Read())
@@ -158,7 +158,7 @@ namespace DAL
 
             connect.Open();
 
-            SqlCommand requete_statut = new SqlCommand(@"Select * from FOUR where fou_nom like '%" + recherche + "%'", connect);
+            SqlCommand requete_statut = new SqlCommand(@"Select * from FOUR where fou_nom like '%" + recherche + "%' order by fou_nom", connect);
 
             SqlDataReader lecture = requete_statut.ExecuteReader();
 

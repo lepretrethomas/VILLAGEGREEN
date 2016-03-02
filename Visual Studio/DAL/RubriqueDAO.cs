@@ -76,7 +76,7 @@ namespace DAL
         {
             connect.Open();
             List<Rubrique> resultat = new List<Rubrique>();
-            SqlCommand requete_list = new SqlCommand("select * from CATE", connect);
+            SqlCommand requete_list = new SqlCommand("select * from CATE order by rub_nom", connect);
             SqlDataReader lecture = requete_list.ExecuteReader();
 
             while (lecture.Read())

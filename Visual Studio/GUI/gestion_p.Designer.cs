@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gestion_p));
             this.label_cours = new System.Windows.Forms.Label();
             this.label_operation = new System.Windows.Forms.Label();
             this.label_obligatoire = new System.Windows.Forms.Label();
@@ -60,15 +61,19 @@
             this.comboBox_liste1 = new System.Windows.Forms.ComboBox();
             this.comboBox_liste2 = new System.Windows.Forms.ComboBox();
             this.button_filtre = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label_menu = new System.Windows.Forms.Label();
+            this.label_vg = new System.Windows.Forms.Label();
             this.groupBox_detail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label_cours
             // 
             this.label_cours.AutoSize = true;
             this.label_cours.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cours.Location = new System.Drawing.Point(337, 404);
+            this.label_cours.Location = new System.Drawing.Point(393, 425);
             this.label_cours.Name = "label_cours";
             this.label_cours.Size = new System.Drawing.Size(0, 13);
             this.label_cours.TabIndex = 66;
@@ -77,7 +82,7 @@
             // 
             this.label_operation.AutoSize = true;
             this.label_operation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_operation.Location = new System.Drawing.Point(332, 383);
+            this.label_operation.Location = new System.Drawing.Point(388, 404);
             this.label_operation.Name = "label_operation";
             this.label_operation.Size = new System.Drawing.Size(123, 13);
             this.label_operation.TabIndex = 65;
@@ -88,7 +93,7 @@
             this.label_obligatoire.AutoSize = true;
             this.label_obligatoire.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_obligatoire.ForeColor = System.Drawing.Color.Red;
-            this.label_obligatoire.Location = new System.Drawing.Point(762, 383);
+            this.label_obligatoire.Location = new System.Drawing.Point(818, 404);
             this.label_obligatoire.Name = "label_obligatoire";
             this.label_obligatoire.Size = new System.Drawing.Size(110, 13);
             this.label_obligatoire.TabIndex = 62;
@@ -96,7 +101,7 @@
             // 
             // button_confirmer
             // 
-            this.button_confirmer.Location = new System.Drawing.Point(486, 393);
+            this.button_confirmer.Location = new System.Drawing.Point(542, 427);
             this.button_confirmer.Name = "button_confirmer";
             this.button_confirmer.Size = new System.Drawing.Size(107, 32);
             this.button_confirmer.TabIndex = 61;
@@ -107,15 +112,15 @@
             // listBox
             // 
             this.listBox.FormattingEnabled = true;
-            this.listBox.Location = new System.Drawing.Point(12, 98);
+            this.listBox.Location = new System.Drawing.Point(68, 139);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(204, 290);
+            this.listBox.Size = new System.Drawing.Size(204, 277);
             this.listBox.TabIndex = 58;
             this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
             // button_voir
             // 
-            this.button_voir.Location = new System.Drawing.Point(222, 102);
+            this.button_voir.Location = new System.Drawing.Point(278, 143);
             this.button_voir.Name = "button_voir";
             this.button_voir.Size = new System.Drawing.Size(107, 32);
             this.button_voir.TabIndex = 57;
@@ -125,7 +130,7 @@
             // 
             // button_liste
             // 
-            this.button_liste.Location = new System.Drawing.Point(12, 393);
+            this.button_liste.Location = new System.Drawing.Point(68, 427);
             this.button_liste.Name = "button_liste";
             this.button_liste.Size = new System.Drawing.Size(204, 32);
             this.button_liste.TabIndex = 56;
@@ -152,9 +157,9 @@
             this.groupBox_detail.Controls.Add(this.textBox_libelle);
             this.groupBox_detail.Controls.Add(this.label_description);
             this.groupBox_detail.Controls.Add(this.label_libelle);
-            this.groupBox_detail.Location = new System.Drawing.Point(335, 12);
+            this.groupBox_detail.Location = new System.Drawing.Point(391, 53);
             this.groupBox_detail.Name = "groupBox_detail";
-            this.groupBox_detail.Size = new System.Drawing.Size(537, 368);
+            this.groupBox_detail.Size = new System.Drawing.Size(537, 348);
             this.groupBox_detail.TabIndex = 55;
             this.groupBox_detail.TabStop = false;
             this.groupBox_detail.Text = "Détails";
@@ -163,7 +168,7 @@
             // 
             this.pictureBox.Location = new System.Drawing.Point(369, 238);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(127, 115);
+            this.pictureBox.Size = new System.Drawing.Size(108, 97);
             this.pictureBox.TabIndex = 49;
             this.pictureBox.TabStop = false;
             // 
@@ -317,7 +322,7 @@
             // 
             // button_supprimer
             // 
-            this.button_supprimer.Location = new System.Drawing.Point(222, 178);
+            this.button_supprimer.Location = new System.Drawing.Point(278, 219);
             this.button_supprimer.Name = "button_supprimer";
             this.button_supprimer.Size = new System.Drawing.Size(107, 32);
             this.button_supprimer.TabIndex = 54;
@@ -327,7 +332,7 @@
             // 
             // button_modifier
             // 
-            this.button_modifier.Location = new System.Drawing.Point(222, 140);
+            this.button_modifier.Location = new System.Drawing.Point(278, 181);
             this.button_modifier.Name = "button_modifier";
             this.button_modifier.Size = new System.Drawing.Size(107, 32);
             this.button_modifier.TabIndex = 52;
@@ -337,7 +342,7 @@
             // 
             // button_annuler
             // 
-            this.button_annuler.Location = new System.Drawing.Point(599, 393);
+            this.button_annuler.Location = new System.Drawing.Point(655, 427);
             this.button_annuler.Name = "button_annuler";
             this.button_annuler.Size = new System.Drawing.Size(103, 32);
             this.button_annuler.TabIndex = 53;
@@ -347,7 +352,7 @@
             // 
             // button_ajouter
             // 
-            this.button_ajouter.Location = new System.Drawing.Point(222, 13);
+            this.button_ajouter.Location = new System.Drawing.Point(278, 54);
             this.button_ajouter.Name = "button_ajouter";
             this.button_ajouter.Size = new System.Drawing.Size(107, 32);
             this.button_ajouter.TabIndex = 51;
@@ -358,7 +363,7 @@
             // comboBox_liste1
             // 
             this.comboBox_liste1.FormattingEnabled = true;
-            this.comboBox_liste1.Location = new System.Drawing.Point(12, 6);
+            this.comboBox_liste1.Location = new System.Drawing.Point(68, 47);
             this.comboBox_liste1.Name = "comboBox_liste1";
             this.comboBox_liste1.Size = new System.Drawing.Size(204, 21);
             this.comboBox_liste1.TabIndex = 67;
@@ -367,14 +372,14 @@
             // comboBox_liste2
             // 
             this.comboBox_liste2.FormattingEnabled = true;
-            this.comboBox_liste2.Location = new System.Drawing.Point(12, 33);
+            this.comboBox_liste2.Location = new System.Drawing.Point(68, 74);
             this.comboBox_liste2.Name = "comboBox_liste2";
             this.comboBox_liste2.Size = new System.Drawing.Size(204, 21);
             this.comboBox_liste2.TabIndex = 68;
             // 
             // button_filtre
             // 
-            this.button_filtre.Location = new System.Drawing.Point(53, 62);
+            this.button_filtre.Location = new System.Drawing.Point(109, 103);
             this.button_filtre.Name = "button_filtre";
             this.button_filtre.Size = new System.Drawing.Size(123, 23);
             this.button_filtre.TabIndex = 69;
@@ -382,11 +387,46 @@
             this.button_filtre.UseVisualStyleBackColor = true;
             this.button_filtre.Click += new System.EventHandler(this.button_filtre_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 70;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label_menu
+            // 
+            this.label_menu.AutoSize = true;
+            this.label_menu.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_menu.Location = new System.Drawing.Point(732, 9);
+            this.label_menu.Name = "label_menu";
+            this.label_menu.Size = new System.Drawing.Size(240, 33);
+            this.label_menu.TabIndex = 71;
+            this.label_menu.Text = "Gestion des produits";
+            // 
+            // label_vg
+            // 
+            this.label_vg.AutoSize = true;
+            this.label_vg.Font = new System.Drawing.Font("Vivaldi", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_vg.ForeColor = System.Drawing.Color.Green;
+            this.label_vg.Location = new System.Drawing.Point(30, 0);
+            this.label_vg.Name = "label_vg";
+            this.label_vg.Size = new System.Drawing.Size(94, 19);
+            this.label_vg.TabIndex = 72;
+            this.label_vg.Text = "Village Green";
+            // 
             // gestion_p
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 431);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(984, 471);
+            this.Controls.Add(this.label_vg);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label_menu);
             this.Controls.Add(this.button_filtre);
             this.Controls.Add(this.comboBox_liste2);
             this.Controls.Add(this.comboBox_liste1);
@@ -402,11 +442,14 @@
             this.Controls.Add(this.button_modifier);
             this.Controls.Add(this.button_annuler);
             this.Controls.Add(this.button_ajouter);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "gestion_p";
-            this.Text = "gestion_p";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gestion des Produits";
             this.groupBox_detail.ResumeLayout(false);
             this.groupBox_detail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,5 +488,8 @@
         private System.Windows.Forms.ComboBox comboBox_liste1;
         private System.Windows.Forms.ComboBox comboBox_liste2;
         private System.Windows.Forms.Button button_filtre;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label_menu;
+        private System.Windows.Forms.Label label_vg;
     }
 }

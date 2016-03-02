@@ -80,7 +80,7 @@ namespace DAL
         {
             connect.Open();
             List<SsRubrique> resultat = new List<SsRubrique>();
-            SqlCommand requete_list = new SqlCommand("select * from SCAT", connect);
+            SqlCommand requete_list = new SqlCommand("select * from SCAT order by ssrub_nom", connect);
             SqlDataReader lecture = requete_list.ExecuteReader();
 
             while (lecture.Read())
@@ -101,7 +101,7 @@ namespace DAL
             List<SsRubrique> resultat = new List<SsRubrique>();
             connect.Open();
             SqlCommand requete_statut = new SqlCommand(@"Select * from SCAT
-                                                        where SCAT.rub_id = @rubid", connect);
+                                                        where SCAT.rub_id = @rubid  order by ssrub_nom", connect);
             requete_statut.Parameters.AddWithValue("@rubid", rub);
             SqlDataReader lecture = requete_statut.ExecuteReader();
             while (lecture.Read())

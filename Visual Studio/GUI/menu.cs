@@ -17,39 +17,46 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_client_Click(object sender, EventArgs e)
         {
             gestion_c f = new gestion_c();
             f.Owner = this;
             f.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button_fournisseur_Click(object sender, EventArgs e)
         {
             gestion_f f = new gestion_f();
             f.Owner = this;
             f.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button_produit_Click(object sender, EventArgs e)
         {
             gestion_p f = new gestion_p();
             f.Owner = this;
             f.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            mail f = new mail();
-            f.Owner = this;
-            f.Show();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
+        private void button_ca_Click(object sender, EventArgs e)
         {
             chiffreaffaire f = new chiffreaffaire();
             f.Owner = this;
             f.Show();
+        }
+
+        private void button_quitter_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Etes-vous sûrs de vouloir quitter?", "Fin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void button_deco_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -1,0 +1,9 @@
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\obj\Debug\Mail.csprojResolveAssemblyReference.cache
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\obj\Debug\Mail.Properties.Resources.resources
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\obj\Debug\Mail.csproj.GenerateResource.Cache
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\bin\Debug\Mail.exe.config
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\bin\Debug\Mail.exe
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\bin\Debug\Mail.pdb
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\obj\Debug\Mail.mail.resources
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\obj\Debug\Mail.exe
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\obj\Debug\Mail.pdb

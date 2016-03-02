@@ -22,8 +22,8 @@ namespace GUI
         public gestion_c()
         {
             InitializeComponent();
-            Height = 475;
-            Width = 900;
+            Height = 510;
+            Width = 1000;
             charger();
             non_modifiable();
             button_modifier.Enabled = false;
@@ -361,7 +361,7 @@ namespace GUI
             label_cours.Text = "En attente";
             button_confirmer.Enabled = false;
             button_annuler.Enabled = false;
-            Height = 475;
+            Height = 510;
         }
         private void textBox_categorie_TextChanged(object sender, EventArgs e)
         {
@@ -545,7 +545,7 @@ namespace GUI
 
         private void button_commande_Click(object sender, EventArgs e)
         {
-            Height = 615;
+            Height = 650;
             CommandeDAO cdao = new CommandeDAO(GUI.Properties.Settings.Default.Serveur);
             dataGridView1.DataSource = cdao.ParIdClient(Convert.ToInt32(listBox.SelectedValue));
             dataGridView1.ReadOnly = true;

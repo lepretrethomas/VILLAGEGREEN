@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gestion_f));
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox_detail = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -65,8 +66,12 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
             this.button_produit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label_menu = new System.Windows.Forms.Label();
+            this.label_vg = new System.Windows.Forms.Label();
             this.groupBox_detail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -98,7 +103,7 @@
             this.groupBox_detail.Controls.Add(this.label_adresse);
             this.groupBox_detail.Controls.Add(this.label_prenom);
             this.groupBox_detail.Controls.Add(this.label_nom);
-            this.groupBox_detail.Location = new System.Drawing.Point(335, 12);
+            this.groupBox_detail.Location = new System.Drawing.Point(391, 47);
             this.groupBox_detail.Name = "groupBox_detail";
             this.groupBox_detail.Size = new System.Drawing.Size(537, 177);
             this.groupBox_detail.TabIndex = 11;
@@ -281,7 +286,7 @@
             // 
             // button_annuler
             // 
-            this.button_annuler.Location = new System.Drawing.Point(599, 387);
+            this.button_annuler.Location = new System.Drawing.Point(655, 422);
             this.button_annuler.Name = "button_annuler";
             this.button_annuler.Size = new System.Drawing.Size(103, 32);
             this.button_annuler.TabIndex = 9;
@@ -291,7 +296,7 @@
             // 
             // button_supprimer
             // 
-            this.button_supprimer.Location = new System.Drawing.Point(222, 206);
+            this.button_supprimer.Location = new System.Drawing.Point(278, 241);
             this.button_supprimer.Name = "button_supprimer";
             this.button_supprimer.Size = new System.Drawing.Size(107, 32);
             this.button_supprimer.TabIndex = 10;
@@ -301,7 +306,7 @@
             // 
             // button_modifier
             // 
-            this.button_modifier.Location = new System.Drawing.Point(222, 168);
+            this.button_modifier.Location = new System.Drawing.Point(278, 203);
             this.button_modifier.Name = "button_modifier";
             this.button_modifier.Size = new System.Drawing.Size(107, 32);
             this.button_modifier.TabIndex = 9;
@@ -311,7 +316,7 @@
             // 
             // button_ajouter
             // 
-            this.button_ajouter.Location = new System.Drawing.Point(222, 42);
+            this.button_ajouter.Location = new System.Drawing.Point(278, 77);
             this.button_ajouter.Name = "button_ajouter";
             this.button_ajouter.Size = new System.Drawing.Size(107, 32);
             this.button_ajouter.TabIndex = 8;
@@ -321,7 +326,7 @@
             // 
             // button_liste
             // 
-            this.button_liste.Location = new System.Drawing.Point(12, 386);
+            this.button_liste.Location = new System.Drawing.Point(68, 421);
             this.button_liste.Name = "button_liste";
             this.button_liste.Size = new System.Drawing.Size(204, 33);
             this.button_liste.TabIndex = 13;
@@ -331,7 +336,7 @@
             // 
             // button_voir
             // 
-            this.button_voir.Location = new System.Drawing.Point(222, 130);
+            this.button_voir.Location = new System.Drawing.Point(278, 165);
             this.button_voir.Name = "button_voir";
             this.button_voir.Size = new System.Drawing.Size(107, 32);
             this.button_voir.TabIndex = 14;
@@ -342,7 +347,7 @@
             // listBox
             // 
             this.listBox.FormattingEnabled = true;
-            this.listBox.Location = new System.Drawing.Point(12, 42);
+            this.listBox.Location = new System.Drawing.Point(68, 77);
             this.listBox.Name = "listBox";
             this.listBox.Size = new System.Drawing.Size(204, 342);
             this.listBox.TabIndex = 15;
@@ -350,7 +355,7 @@
             // 
             // button_confirmer
             // 
-            this.button_confirmer.Location = new System.Drawing.Point(486, 387);
+            this.button_confirmer.Location = new System.Drawing.Point(542, 422);
             this.button_confirmer.Name = "button_confirmer";
             this.button_confirmer.Size = new System.Drawing.Size(107, 32);
             this.button_confirmer.TabIndex = 18;
@@ -363,7 +368,7 @@
             this.label_obligatoire.AutoSize = true;
             this.label_obligatoire.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_obligatoire.ForeColor = System.Drawing.Color.Red;
-            this.label_obligatoire.Location = new System.Drawing.Point(762, 192);
+            this.label_obligatoire.Location = new System.Drawing.Point(818, 227);
             this.label_obligatoire.Name = "label_obligatoire";
             this.label_obligatoire.Size = new System.Drawing.Size(110, 13);
             this.label_obligatoire.TabIndex = 19;
@@ -373,7 +378,7 @@
             // 
             this.label_cours.AutoSize = true;
             this.label_cours.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cours.Location = new System.Drawing.Point(337, 398);
+            this.label_cours.Location = new System.Drawing.Point(393, 433);
             this.label_cours.Name = "label_cours";
             this.label_cours.Size = new System.Drawing.Size(0, 13);
             this.label_cours.TabIndex = 47;
@@ -382,7 +387,7 @@
             // 
             this.label_operation.AutoSize = true;
             this.label_operation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_operation.Location = new System.Drawing.Point(332, 377);
+            this.label_operation.Location = new System.Drawing.Point(388, 412);
             this.label_operation.Name = "label_operation";
             this.label_operation.Size = new System.Drawing.Size(123, 13);
             this.label_operation.TabIndex = 46;
@@ -390,7 +395,7 @@
             // 
             // button_recherche
             // 
-            this.button_recherche.Location = new System.Drawing.Point(148, 12);
+            this.button_recherche.Location = new System.Drawing.Point(204, 47);
             this.button_recherche.Name = "button_recherche";
             this.button_recherche.Size = new System.Drawing.Size(68, 20);
             this.button_recherche.TabIndex = 55;
@@ -400,7 +405,7 @@
             // 
             // textBox_recherche
             // 
-            this.textBox_recherche.Location = new System.Drawing.Point(12, 12);
+            this.textBox_recherche.Location = new System.Drawing.Point(68, 47);
             this.textBox_recherche.Name = "textBox_recherche";
             this.textBox_recherche.Size = new System.Drawing.Size(130, 20);
             this.textBox_recherche.TabIndex = 54;
@@ -413,7 +418,7 @@
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(36, 459);
+            this.dataGridView1.Location = new System.Drawing.Point(92, 494);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(815, 110);
             this.dataGridView1.TabIndex = 57;
@@ -421,7 +426,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(48, 443);
+            this.label13.Location = new System.Drawing.Point(104, 478);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(139, 13);
             this.label13.TabIndex = 56;
@@ -429,7 +434,7 @@
             // 
             // button_produit
             // 
-            this.button_produit.Location = new System.Drawing.Point(222, 288);
+            this.button_produit.Location = new System.Drawing.Point(278, 323);
             this.button_produit.Name = "button_produit";
             this.button_produit.Size = new System.Drawing.Size(107, 46);
             this.button_produit.TabIndex = 58;
@@ -437,11 +442,46 @@
             this.button_produit.UseVisualStyleBackColor = true;
             this.button_produit.Click += new System.EventHandler(this.button_produit_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 59;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label_menu
+            // 
+            this.label_menu.AutoSize = true;
+            this.label_menu.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_menu.Location = new System.Drawing.Point(690, 9);
+            this.label_menu.Name = "label_menu";
+            this.label_menu.Size = new System.Drawing.Size(282, 33);
+            this.label_menu.TabIndex = 60;
+            this.label_menu.Text = "Gestion des fournisseurs";
+            // 
+            // label_vg
+            // 
+            this.label_vg.AutoSize = true;
+            this.label_vg.Font = new System.Drawing.Font("Vivaldi", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_vg.ForeColor = System.Drawing.Color.Green;
+            this.label_vg.Location = new System.Drawing.Point(30, 0);
+            this.label_vg.Name = "label_vg";
+            this.label_vg.Size = new System.Drawing.Size(94, 19);
+            this.label_vg.TabIndex = 64;
+            this.label_vg.Text = "Village Green";
+            // 
             // gestion_f
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 589);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(984, 611);
+            this.Controls.Add(this.label_vg);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label_menu);
             this.Controls.Add(this.button_produit);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label13);
@@ -462,10 +502,12 @@
             this.Controls.Add(this.listBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "gestion_f";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion des Fournisseurs";
             this.groupBox_detail.ResumeLayout(false);
             this.groupBox_detail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -509,5 +551,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button_produit;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label_menu;
+        private System.Windows.Forms.Label label_vg;
     }
 }
