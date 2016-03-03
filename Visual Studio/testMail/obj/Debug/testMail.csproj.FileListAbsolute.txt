@@ -7,3 +7,4 @@ C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\obj\
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\obj\Debug\testMail.pdb
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\Mail.exe
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\Mail.pdb
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\Mail.xml

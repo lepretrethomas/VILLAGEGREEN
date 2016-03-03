@@ -64,6 +64,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_menu = new System.Windows.Forms.Label();
             this.label_vg = new System.Windows.Forms.Label();
+            this.label_prix = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox_prix = new System.Windows.Forms.TextBox();
+            this.label_euros = new System.Windows.Forms.Label();
             this.groupBox_detail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -140,6 +144,10 @@
             // 
             // groupBox_detail
             // 
+            this.groupBox_detail.Controls.Add(this.label_euros);
+            this.groupBox_detail.Controls.Add(this.textBox_prix);
+            this.groupBox_detail.Controls.Add(this.label3);
+            this.groupBox_detail.Controls.Add(this.label_prix);
             this.groupBox_detail.Controls.Add(this.pictureBox);
             this.groupBox_detail.Controls.Add(this.comboBox_ssrub);
             this.groupBox_detail.Controls.Add(this.label12);
@@ -418,6 +426,43 @@
             this.label_vg.TabIndex = 72;
             this.label_vg.Text = "Village Green";
             // 
+            // label_prix
+            // 
+            this.label_prix.AutoSize = true;
+            this.label_prix.Location = new System.Drawing.Point(63, 281);
+            this.label_prix.Name = "label_prix";
+            this.label_prix.Size = new System.Drawing.Size(24, 13);
+            this.label_prix.TabIndex = 50;
+            this.label_prix.Text = "Prix";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(86, 281);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(11, 13);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "*";
+            // 
+            // textBox_prix
+            // 
+            this.textBox_prix.Location = new System.Drawing.Point(104, 278);
+            this.textBox_prix.Name = "textBox_prix";
+            this.textBox_prix.Size = new System.Drawing.Size(87, 20);
+            this.textBox_prix.TabIndex = 52;
+            this.textBox_prix.TextChanged += new System.EventHandler(this.textBox_prix_TextChanged);
+            // 
+            // label_euros
+            // 
+            this.label_euros.AutoSize = true;
+            this.label_euros.Location = new System.Drawing.Point(197, 281);
+            this.label_euros.Name = "label_euros";
+            this.label_euros.Size = new System.Drawing.Size(33, 13);
+            this.label_euros.TabIndex = 53;
+            this.label_euros.Text = "euros";
+            // 
             // gestion_p
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,5 +536,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label_menu;
         private System.Windows.Forms.Label label_vg;
+        private System.Windows.Forms.Label label_euros;
+        private System.Windows.Forms.TextBox textBox_prix;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_prix;
     }
 }

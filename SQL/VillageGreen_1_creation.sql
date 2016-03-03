@@ -84,6 +84,7 @@ CREATE TABLE PROD (
 	fou_id			INT NOT NULL,
 	pro_lbc  	VARCHAR(50) NOT NULL,
 	pro_lbl   	VARCHAR(1500),
+	pro_pu			numeric (10,2),
 	pro_pho      	VARCHAR(50),
 	ssrub_id        INT,
 	PRIMARY KEY (pro_id)

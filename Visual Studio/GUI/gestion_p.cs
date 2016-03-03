@@ -72,10 +72,12 @@ namespace GUI
             textBox_libelle.Clear();
             textBox_description.Clear();
             textBox_fournisseur.Clear();
+            textBox_prix.Clear();
             comboBox_ssrub.Hide();
             label_id.Text = "";
             textBox_libelle.BackColor = SystemColors.ControlLight;
             textBox_description.BackColor = SystemColors.ControlLight;
+            textBox_prix.BackColor = SystemColors.ControlLight;
             textBox_fournisseur.BackColor = SystemColors.ControlLight;
         }
         private void remplir()
@@ -84,6 +86,7 @@ namespace GUI
             Produit p = pdao.FindbyId(Convert.ToInt32(listBox.SelectedValue));
             textBox_libelle.Text = p.Libelle;
             textBox_description.Text = p.Description;
+            textBox_prix.Text = Convert.ToString(p.Prix);
             textBox_fournisseur.Text = Convert.ToString(p.Fournisseur);
             comboBox_ssrub.SelectedValue = p.Rubrique;
             comboBox_ssrub.Show();
@@ -151,6 +154,7 @@ namespace GUI
                     p.Libelle = textBox_libelle.Text;
                     p.Description = textBox_description.Text;
                     p.Fournisseur = Convert.ToInt32(textBox_fournisseur.Text);
+                    p.Prix = textBox_prix.Text;
                     p.Rubrique = Convert.ToInt32(comboBox_ssrub.SelectedValue);
                 }
                 if (ajouter == true)
@@ -159,6 +163,7 @@ namespace GUI
                     supprimer = false;
                     p.Libelle = textBox_libelle.Text;
                     p.Description = textBox_description.Text;
+                    p.Prix = textBox_prix.Text;
                     p.Fournisseur = Convert.ToInt32(textBox_fournisseur.Text);
                     p.Rubrique = Convert.ToInt32(comboBox_ssrub.SelectedValue);
                     try
@@ -177,6 +182,7 @@ namespace GUI
                     supprimer = false;
                     p.Libelle = textBox_libelle.Text;
                     p.Description = textBox_description.Text;
+                    p.Prix = textBox_prix.Text;
                     p.Fournisseur = Convert.ToInt32(textBox_fournisseur.Text);
                     p.Rubrique = Convert.ToInt32(comboBox_ssrub.SelectedValue);
                     p.Id = (int)listBox.SelectedValue;
@@ -227,8 +233,10 @@ namespace GUI
             textBox_libelle.Enabled = false;
             textBox_description.Enabled = false;
             textBox_fournisseur.Enabled = false;
+            textBox_prix.Enabled = false;
             comboBox_ssrub.Enabled = false;
             textBox_libelle.BackColor = SystemColors.ControlLight;
+            textBox_prix.BackColor = SystemColors.ControlLight;
             textBox_description.BackColor = SystemColors.ControlLight;
             textBox_fournisseur.BackColor = SystemColors.ControlLight;
         }
@@ -237,8 +245,10 @@ namespace GUI
             textBox_libelle.Enabled = true;
             textBox_description.Enabled = true;
             textBox_fournisseur.Enabled = true;
+            textBox_prix.Enabled = true;
             comboBox_ssrub.Enabled = true;
             textBox_libelle.BackColor = SystemColors.Window;
+            textBox_prix.BackColor = SystemColors.Window;
             textBox_description.BackColor = SystemColors.Window;
             textBox_fournisseur.BackColor = SystemColors.Window;
         }
@@ -314,6 +324,20 @@ namespace GUI
             comboBox_ssrub.ValueMember = "Id";
             comboBox_ssrub.DisplayMember = "Nom";
             comboBox_ssrub.DataSource = srdao.List();
+        }
+
+        private void textBox_prix_TextChanged(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(textBox_prix.Text, @"^[0-9 .,]{1,20}$") == true)
+            {
+                textBox_prix.BackColor = SystemColors.Window;
+                button_confirmer.Enabled = true;
+            }
+            else
+            {
+                textBox_prix.BackColor = Color.LightSalmon;
+                button_confirmer.Enabled = false;
+            }
         }
     }
 }

@@ -21,11 +21,12 @@ namespace DAL
             connect.Open();
             //SqlCommand requete_insert = new SqlCommand("insert into PROD (fou_id, pro_lbc, pro_lbl, pro_photo, ssrub_id)"
             //+ " values (@fournisseur, @libelle, @description, @photo, @rubrique)", connect);
-            SqlCommand requete_insert = new SqlCommand("insert into PROD (fou_id, pro_lbc, pro_lbl, ssrub_id)"
-                                                    + " values (@fournisseur, @libelle, @description, @rubrique)", connect);
+            SqlCommand requete_insert = new SqlCommand("insert into PROD (fou_id, pro_lbc, pro_lbl, pro_pu, ssrub_id)"
+                                                    + " values (@fournisseur, @libelle, @description, @prix, @rubrique)", connect);
             requete_insert.Parameters.AddWithValue("@fournisseur", p.Fournisseur);
             requete_insert.Parameters.AddWithValue("@libelle", p.Libelle);
             requete_insert.Parameters.AddWithValue("@description", p.Description);
+            requete_insert.Parameters.AddWithValue("@prix", p.Prix);
             //if (p.Photo != null)
             //{
             //    requete_insert.Parameters.AddWithValue("@photo", p.Photo);
@@ -54,12 +55,13 @@ namespace DAL
             //+ " pro_pho = @photo, pro_lbl = @description, ssrub_id=@rubrique"
             //+ " where pro_id = @id", connect);
             SqlCommand requete_update = new SqlCommand("update PROD set fou_id = @fournisseur, pro_lbc = @libelle,"
-            + " pro_lbl = @description, ssrub_id=@rubrique"
+            + " pro_lbl = @description, pro_pu = @prix, ssrub_id=@rubrique"
             + " where pro_id = @id", connect);
             requete_update.Parameters.AddWithValue("@id", p.Id);
             requete_update.Parameters.AddWithValue("@fournisseur", p.Fournisseur);
             requete_update.Parameters.AddWithValue("@libelle", p.Libelle);
             requete_update.Parameters.AddWithValue("@description", p.Description);
+            requete_update.Parameters.AddWithValue("@prix", p.Prix);
             //if (p.Photo != "")
             //{
             //    requete_update.Parameters.AddWithValue("@photo", p.Photo);
@@ -97,6 +99,7 @@ namespace DAL
                 p.Fournisseur = Convert.ToInt32(lecture["fou_id"]);
                 p.Libelle = Convert.ToString(lecture["pro_lbc"]);
                 p.Description = Convert.ToString(lecture["pro_lbl"]);
+                p.Prix = Convert.ToString(lecture["pro_pu"]);
                 p.Photo = Convert.ToString(lecture["pro_pho"]);
                 p.Rubrique = Convert.ToInt32(lecture["ssrub_id"]);
             }
@@ -120,6 +123,7 @@ namespace DAL
                 p.Fournisseur = Convert.ToInt32(lecture["fou_id"]);
                 p.Libelle = Convert.ToString(lecture["pro_lbc"]);
                 p.Description = Convert.ToString(lecture["pro_lbl"]);
+                p.Prix = Convert.ToString(lecture["pro_pu"]);
                 p.Photo = Convert.ToString(lecture["pro_pho"]);
                 p.Rubrique = Convert.ToInt32(lecture["ssrub_id"]);
             }
@@ -143,6 +147,7 @@ namespace DAL
                 p.Fournisseur = Convert.ToInt32(lecture["fou_id"]);
                 p.Libelle = Convert.ToString(lecture["pro_lbc"]);
                 p.Description = Convert.ToString(lecture["pro_lbl"]);
+                p.Prix = Convert.ToString(lecture["pro_pu"]);
                 p.Photo = Convert.ToString(lecture["pro_pho"]);
                 p.Rubrique = Convert.ToInt32(lecture["ssrub_id"]);
                 resultat.Add(p);
@@ -167,6 +172,7 @@ namespace DAL
                 p.Fournisseur = Convert.ToInt32(lecture["fou_id"]);
                 p.Libelle = Convert.ToString(lecture["pro_lbc"]);
                 p.Description = Convert.ToString(lecture["pro_lbl"]);
+                p.Prix = Convert.ToString(lecture["pro_pu"]);
                 p.Photo = Convert.ToString(lecture["pro_pho"]);
                 p.Rubrique = Convert.ToInt32(lecture["ssrub_id"]);
                 resultat.Add(p);
@@ -190,6 +196,7 @@ namespace DAL
                 p.Fournisseur = Convert.ToInt32(lecture["fou_id"]);
                 p.Libelle = Convert.ToString(lecture["pro_lbc"]);
                 p.Description = Convert.ToString(lecture["pro_lbl"]);
+                p.Prix = Convert.ToString(lecture["pro_pu"]);
                 p.Photo = Convert.ToString(lecture["pro_pho"]);
                 p.Rubrique = Convert.ToInt32(lecture["ssrub_id"]);
                 resultat.Add(p);
