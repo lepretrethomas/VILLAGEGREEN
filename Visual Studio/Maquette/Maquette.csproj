@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -388,39 +389,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Z-VG_logo.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Z-VG_logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Z-VG_logo_mini.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Z-VG_logo_mini.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Z-ajouter.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Z-ajouter.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Z-retirer.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Z-retirer.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Z-supprimer.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Z-supprimer.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Z-produit.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Z-produit.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Z-recherche.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Z-recherche.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

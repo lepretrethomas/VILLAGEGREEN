@@ -1,0 +1,9 @@
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\DAL\bin\Debug\DAL.dll
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\DAL\bin\Debug\DAL.pdb
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\DAL\obj\Debug\DAL.dll
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\DAL\obj\Debug\DAL.pdb
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+B:\VG\Visual Studio\DAL\bin\Debug\DAL.dll
+B:\VG\Visual Studio\DAL\bin\Debug\DAL.pdb
+B:\VG\Visual Studio\DAL\obj\Debug\DAL.dll
+B:\VG\Visual Studio\DAL\obj\Debug\DAL.pdb

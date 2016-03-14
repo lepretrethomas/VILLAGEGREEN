@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="RechercheFacture" Height="480" Width="720">
     <Grid>
-        <Image x:Name="logo" Margin="0,0,673,391" Source="Z-VG_logo_mini.jpg" Stretch="Fill"/>
+        <Image x:Name="VG_logo_mini_jpg" Margin="0,0,673,391" Source="Z-VG_logo_mini.jpg" Stretch="Fill"/>
         <Label x:Name="label1" Content="Recherche d'une facture" HorizontalAlignment="Left" Margin="72,47,0,0" VerticalAlignment="Top" FontSize="32"/>
         <Button x:Name="btn_quitter" Content="Quitter" HorizontalAlignment="Left" Margin="37,410,0,0" VerticalAlignment="Top" Width="75" Click="btn_quitter_Click"/>
         <Label x:Name="label2" Content="Par sa référence :" HorizontalAlignment="Left" Margin="147,113,0,0" VerticalAlignment="Top"/>
@@ -31,18 +31,18 @@
         <Label x:Name="label4" Content="Par la référence du client :" HorizontalAlignment="Left" Margin="101,213,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="24" Margin="261,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156"/>
         <Button x:Name="button" HorizontalAlignment="Left" Margin="424,149,0,0" VerticalAlignment="Top" Width="20" Height="24">
-            <Image x:Name="recherche1" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
+            <Image x:Name="recherche_jpg" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
         </Button>
         <Button x:Name="button2" HorizontalAlignment="Left" Margin="424,183,0,0" VerticalAlignment="Top" Width="20" Height="22">
-            <Image x:Name="recherche2" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
+            <Image x:Name="recherche2_jpg" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
         </Button>
         <Button x:Name="button3" HorizontalAlignment="Left" Margin="424,215,0,0" VerticalAlignment="Top" Width="20" Height="24">
-            <Image x:Name="recherche3" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
+            <Image x:Name="recherche3_jpg" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
         </Button>
         <Label x:Name="label5" Content="Par le numéro de commande :" HorizontalAlignment="Left" Margin="78,147,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="24" Margin="261,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156"/>
         <Button x:Name="button2_Copy" HorizontalAlignment="Left" Margin="424,115,0,0" VerticalAlignment="Top" Width="20" Height="24">
-            <Image x:Name="recherche4" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
+            <Image x:Name="recherche2_jpg1" Source="Z-recherche.jpg" Stretch="Fill" Height="19" Width="16"/>
         </Button>
     </Grid>
 </Window>

@@ -35,7 +35,7 @@
             <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="13,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="78"/>
         </GroupBox>
         <Label x:Name="label4" Content="Référence" HorizontalAlignment="Left" Margin="569,44,0,0" VerticalAlignment="Top"/>
-        <Image x:Name="logo" Margin="0,0,673,391" Source="Z-VG_logo_mini.jpg" Stretch="Fill"/>
+        <Image x:Name="VG_logo_mini_jpg" Margin="0,0,673,391" Source="Z-VG_logo_mini.jpg" Stretch="Fill"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="49" Margin="159,201,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="482"/>
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="124" Margin="160,276,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="481"/>
     </Grid>

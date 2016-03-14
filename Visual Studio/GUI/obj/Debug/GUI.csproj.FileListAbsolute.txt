@@ -1,0 +1,32 @@
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\GUI.exe.config
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.Properties.Resources.resources
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\GUI.exe
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\GUI.pdb
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\DAL.dll
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\DAL.pdb
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.exe
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.pdb
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.gestion_f.resources
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.gestion_c.resources
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.menu.resources
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.gestion_p.resources
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.chiffreaffaire.resources
+C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.start.resources
+B:\VG\Visual Studio\GUI\bin\Debug\GUI.exe.config
+B:\VG\Visual Studio\GUI\obj\Debug\GUI.exe
+B:\VG\Visual Studio\GUI\obj\Debug\GUI.pdb
+B:\VG\Visual Studio\GUI\bin\Debug\GUI.exe
+B:\VG\Visual Studio\GUI\bin\Debug\GUI.pdb
+B:\VG\Visual Studio\GUI\bin\Debug\DAL.dll
+B:\VG\Visual Studio\GUI\bin\Debug\DAL.pdb
+B:\VG\Visual Studio\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+B:\VG\Visual Studio\GUI\obj\Debug\GUI.chiffreaffaire.resources
+B:\VG\Visual Studio\GUI\obj\Debug\GUI.gestion_c.resources
+B:\VG\Visual Studio\GUI\obj\Debug\GUI.gestion_f.resources
+B:\VG\Visual Studio\GUI\obj\Debug\GUI.gestion_p.resources
+B:\VG\Visual Studio\GUI\obj\Debug\GUI.menu.resources
+B:\VG\Visual Studio\GUI\obj\Debug\GUI.Properties.Resources.resources
+B:\VG\Visual Studio\GUI\obj\Debug\GUI.start.resources
+B:\VG\Visual Studio\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
