@@ -29,6 +29,8 @@ namespace GUI
             charger_ssrubrique();
             charger();
             charger_ssrubrique2();
+            comboBox_liste1.SelectedIndex = -1;
+            comboBox_liste2.SelectedIndex = -1;
         }
         private void charger()
         {
@@ -154,7 +156,7 @@ namespace GUI
                     p.Libelle = textBox_libelle.Text;
                     p.Description = textBox_description.Text;
                     p.Fournisseur = Convert.ToInt32(textBox_fournisseur.Text);
-                    p.Prix = textBox_prix.Text;
+                    p.Prix = Convert.ToDecimal(textBox_prix.Text);
                     p.Rubrique = Convert.ToInt32(comboBox_ssrub.SelectedValue);
                 }
                 if (ajouter == true)
@@ -163,7 +165,7 @@ namespace GUI
                     supprimer = false;
                     p.Libelle = textBox_libelle.Text;
                     p.Description = textBox_description.Text;
-                    p.Prix = textBox_prix.Text;
+                    p.Prix = Convert.ToDecimal(textBox_prix.Text);
                     p.Fournisseur = Convert.ToInt32(textBox_fournisseur.Text);
                     p.Rubrique = Convert.ToInt32(comboBox_ssrub.SelectedValue);
                     try
@@ -182,7 +184,7 @@ namespace GUI
                     supprimer = false;
                     p.Libelle = textBox_libelle.Text;
                     p.Description = textBox_description.Text;
-                    p.Prix = textBox_prix.Text;
+                    p.Prix = Convert.ToDecimal(textBox_prix.Text);
                     p.Fournisseur = Convert.ToInt32(textBox_fournisseur.Text);
                     p.Rubrique = Convert.ToInt32(comboBox_ssrub.SelectedValue);
                     p.Id = (int)listBox.SelectedValue;
@@ -259,12 +261,13 @@ namespace GUI
             button_modifier.Enabled = false;
             button_supprimer.Enabled = false;
             label_cours.Text = "En attente";
+            label_four_nom.Text = "";
             button_confirmer.Enabled = false;
             button_annuler.Enabled = false;
         }
         private void textBox_libelle_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_libelle.Text, @"^[A-Za-z0-9 àäéèêëîïôöûùü'-]{1,50}$") == true)
+            if (Regex.IsMatch(textBox_libelle.Text, @"^[\w -\/""']{1,50}$") == true)
             {
                 textBox_libelle.BackColor = SystemColors.Window;
                 button_confirmer.Enabled = true;
@@ -277,7 +280,7 @@ namespace GUI
         }
         private void textBox_description_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_description.Text, @"^[A-Za-z0-9 àäéèêëîïôöûùü'-,:.]{1,1500}$") == true)
+            if ((Regex.IsMatch(textBox_description.Text, @"^[^;]+$") == true) && (textBox_description.Text.Length <= 704))
             {
                 textBox_description.BackColor = SystemColors.Window;
                 button_confirmer.Enabled = true;
@@ -306,7 +309,7 @@ namespace GUI
             }
             catch
             { }
-            if (Regex.IsMatch(textBox_fournisseur.Text, @"^[0-9]{1,}$") == true)
+            if (Regex.IsMatch(textBox_fournisseur.Text, @"^[0-9]{1}$") == true)
 
             {
                 textBox_fournisseur.BackColor = SystemColors.Window;
@@ -328,7 +331,7 @@ namespace GUI
 
         private void textBox_prix_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_prix.Text, @"^[0-9 .,]{1,20}$") == true)
+            if (Regex.IsMatch(textBox_prix.Text, @"^[0-9]+(\,[0-9][0-9]?)?$") == true)
             {
                 textBox_prix.BackColor = SystemColors.Window;
                 button_confirmer.Enabled = true;

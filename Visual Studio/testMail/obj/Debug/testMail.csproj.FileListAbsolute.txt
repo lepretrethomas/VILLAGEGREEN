@@ -8,3 +8,13 @@ C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\obj\
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\Mail.exe
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\Mail.pdb
 C:\Users\stagiaire\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\Mail.xml
+B:\VG\Visual Studio\testMail\bin\Debug\testMail.dll
+B:\VG\Visual Studio\testMail\bin\Debug\testMail.pdb
+B:\VG\Visual Studio\testMail\bin\Debug\Mail.exe
+B:\VG\Visual Studio\testMail\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+B:\VG\Visual Studio\testMail\bin\Debug\Mail.pdb
+B:\VG\Visual Studio\testMail\bin\Debug\Mail.xml
+B:\VG\Visual Studio\testMail\bin\Debug\fr\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+B:\VG\Visual Studio\testMail\obj\Debug\testMail.csprojResolveAssemblyReference.cache
+B:\VG\Visual Studio\testMail\obj\Debug\testMail.dll
+B:\VG\Visual Studio\testMail\obj\Debug\testMail.pdb

@@ -37,6 +37,10 @@
             this.button_voir = new System.Windows.Forms.Button();
             this.button_liste = new System.Windows.Forms.Button();
             this.groupBox_detail = new System.Windows.Forms.GroupBox();
+            this.label_euros = new System.Windows.Forms.Label();
+            this.textBox_prix = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label_prix = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.comboBox_ssrub = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -63,14 +67,11 @@
             this.button_filtre = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_menu = new System.Windows.Forms.Label();
-            this.label_vg = new System.Windows.Forms.Label();
-            this.label_prix = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox_prix = new System.Windows.Forms.TextBox();
-            this.label_euros = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox_detail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label_cours
@@ -171,6 +172,43 @@
             this.groupBox_detail.TabIndex = 55;
             this.groupBox_detail.TabStop = false;
             this.groupBox_detail.Text = "Détails";
+            // 
+            // label_euros
+            // 
+            this.label_euros.AutoSize = true;
+            this.label_euros.Location = new System.Drawing.Point(197, 281);
+            this.label_euros.Name = "label_euros";
+            this.label_euros.Size = new System.Drawing.Size(33, 13);
+            this.label_euros.TabIndex = 53;
+            this.label_euros.Text = "euros";
+            // 
+            // textBox_prix
+            // 
+            this.textBox_prix.Location = new System.Drawing.Point(104, 278);
+            this.textBox_prix.Name = "textBox_prix";
+            this.textBox_prix.Size = new System.Drawing.Size(87, 20);
+            this.textBox_prix.TabIndex = 52;
+            this.textBox_prix.TextChanged += new System.EventHandler(this.textBox_prix_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(86, 281);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(11, 13);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "*";
+            // 
+            // label_prix
+            // 
+            this.label_prix.AutoSize = true;
+            this.label_prix.Location = new System.Drawing.Point(63, 281);
+            this.label_prix.Name = "label_prix";
+            this.label_prix.Size = new System.Drawing.Size(24, 13);
+            this.label_prix.TabIndex = 50;
+            this.label_prix.Text = "Prix";
             // 
             // pictureBox
             // 
@@ -400,8 +438,8 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.Size = new System.Drawing.Size(49, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 70;
             this.pictureBox1.TabStop = false;
             // 
@@ -409,59 +447,22 @@
             // 
             this.label_menu.AutoSize = true;
             this.label_menu.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_menu.Location = new System.Drawing.Point(732, 9);
+            this.label_menu.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label_menu.Location = new System.Drawing.Point(736, 0);
             this.label_menu.Name = "label_menu";
             this.label_menu.Size = new System.Drawing.Size(240, 33);
             this.label_menu.TabIndex = 71;
             this.label_menu.Text = "Gestion des produits";
             // 
-            // label_vg
+            // pictureBox2
             // 
-            this.label_vg.AutoSize = true;
-            this.label_vg.Font = new System.Drawing.Font("Vivaldi", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_vg.ForeColor = System.Drawing.Color.Green;
-            this.label_vg.Location = new System.Drawing.Point(30, 0);
-            this.label_vg.Name = "label_vg";
-            this.label_vg.Size = new System.Drawing.Size(94, 19);
-            this.label_vg.TabIndex = 72;
-            this.label_vg.Text = "Village Green";
-            // 
-            // label_prix
-            // 
-            this.label_prix.AutoSize = true;
-            this.label_prix.Location = new System.Drawing.Point(63, 281);
-            this.label_prix.Name = "label_prix";
-            this.label_prix.Size = new System.Drawing.Size(24, 13);
-            this.label_prix.TabIndex = 50;
-            this.label_prix.Text = "Prix";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(86, 281);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(11, 13);
-            this.label3.TabIndex = 51;
-            this.label3.Text = "*";
-            // 
-            // textBox_prix
-            // 
-            this.textBox_prix.Location = new System.Drawing.Point(104, 278);
-            this.textBox_prix.Name = "textBox_prix";
-            this.textBox_prix.Size = new System.Drawing.Size(87, 20);
-            this.textBox_prix.TabIndex = 52;
-            this.textBox_prix.TextChanged += new System.EventHandler(this.textBox_prix_TextChanged);
-            // 
-            // label_euros
-            // 
-            this.label_euros.AutoSize = true;
-            this.label_euros.Location = new System.Drawing.Point(197, 281);
-            this.label_euros.Name = "label_euros";
-            this.label_euros.Size = new System.Drawing.Size(33, 13);
-            this.label_euros.TabIndex = 53;
-            this.label_euros.Text = "euros";
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(55, 30);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(917, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 72;
+            this.pictureBox2.TabStop = false;
             // 
             // gestion_p
             // 
@@ -469,7 +470,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(984, 471);
-            this.Controls.Add(this.label_vg);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label_menu);
             this.Controls.Add(this.button_filtre);
@@ -487,6 +487,7 @@
             this.Controls.Add(this.button_modifier);
             this.Controls.Add(this.button_annuler);
             this.Controls.Add(this.button_ajouter);
+            this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "gestion_p";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -495,6 +496,7 @@
             this.groupBox_detail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -535,10 +537,10 @@
         private System.Windows.Forms.Button button_filtre;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label_menu;
-        private System.Windows.Forms.Label label_vg;
         private System.Windows.Forms.Label label_euros;
         private System.Windows.Forms.TextBox textBox_prix;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label_prix;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

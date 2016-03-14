@@ -19,16 +19,16 @@ namespace DAL
         public void Insert(Rubrique r)
         {
             connect.Open();
-            SqlCommand requete_insert = new SqlCommand("insert into CATE (rub_nom)"
+            SqlCommand requete_insert = new SqlCommand("insert into RUB1 (ru1_nom)"
             + " values (@nom)", connect);
             requete_insert.Parameters.AddWithValue("@nom", r.Nom);
             requete_insert.ExecuteNonQuery();
 
-            SqlCommand requete_id = new SqlCommand("select rub_id from CATE where rub_nom = @nom", connect);
+            SqlCommand requete_id = new SqlCommand("select ru1_id from RUB1 where ru1_nom = @nom", connect);
             requete_id.Parameters.AddWithValue("@nom", r.Nom);
             SqlDataReader resultat = requete_id.ExecuteReader();
             resultat.Read();
-            int id = (int)resultat["rub_id"];
+            int id = (int)resultat["ru1_id"];
             r.Id = id;
 
             connect.Close();
@@ -37,7 +37,7 @@ namespace DAL
         public void Update(Rubrique r)
         {
             connect.Open();
-            SqlCommand requete_update = new SqlCommand("update CATE set rub_nom = @nom where rub_id = @id", connect);
+            SqlCommand requete_update = new SqlCommand("update RUB1 set ru1_nom = @nom where ru1_id = @id", connect);
             requete_update.Parameters.AddWithValue("@nom", r.Nom);
             requete_update.ExecuteNonQuery();
             connect.Close();
@@ -46,7 +46,7 @@ namespace DAL
         public void Delete(Rubrique r)
         {
             connect.Open();
-            SqlCommand requete_delete = new SqlCommand("delete from CATE where rub_id = @id", connect);
+            SqlCommand requete_delete = new SqlCommand("delete from RUB1 where ru1_id = @id", connect);
             requete_delete.Parameters.AddWithValue("@id", r.Id);
             requete_delete.ExecuteNonQuery();
             connect.Close();
@@ -56,7 +56,7 @@ namespace DAL
         {
             connect.Open();
             Rubrique r = null;
-            SqlCommand requete_find = new SqlCommand("select * from CATE where rub_id = @id", connect);
+            SqlCommand requete_find = new SqlCommand("select * from RUB1 where ru1_id = @id", connect);
             requete_find.Parameters.AddWithValue("@id", id);
             SqlDataReader lecture = requete_find.ExecuteReader();
 
@@ -76,14 +76,14 @@ namespace DAL
         {
             connect.Open();
             List<Rubrique> resultat = new List<Rubrique>();
-            SqlCommand requete_list = new SqlCommand("select * from CATE order by rub_nom", connect);
+            SqlCommand requete_list = new SqlCommand("select * from RUB1 order by ru1_nom", connect);
             SqlDataReader lecture = requete_list.ExecuteReader();
 
             while (lecture.Read())
             {
                 Rubrique r = new Rubrique();
-                r.Id = Convert.ToInt32(lecture["rub_id"]);
-                r.Nom = Convert.ToString(lecture["rub_nom"]);
+                r.Id = Convert.ToInt32(lecture["ru1_id"]);
+                r.Nom = Convert.ToString(lecture["ru1_nom"]);
                 resultat.Add(r);
             }
 

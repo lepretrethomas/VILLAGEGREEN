@@ -68,10 +68,11 @@
             this.button_produit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_menu = new System.Windows.Forms.Label();
-            this.label_vg = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox_detail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -447,8 +448,8 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.Size = new System.Drawing.Size(49, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 59;
             this.pictureBox1.TabStop = false;
             // 
@@ -456,22 +457,22 @@
             // 
             this.label_menu.AutoSize = true;
             this.label_menu.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_menu.Location = new System.Drawing.Point(690, 9);
+            this.label_menu.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label_menu.Location = new System.Drawing.Point(690, 0);
             this.label_menu.Name = "label_menu";
             this.label_menu.Size = new System.Drawing.Size(282, 33);
             this.label_menu.TabIndex = 60;
             this.label_menu.Text = "Gestion des fournisseurs";
             // 
-            // label_vg
+            // pictureBox2
             // 
-            this.label_vg.AutoSize = true;
-            this.label_vg.Font = new System.Drawing.Font("Vivaldi", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_vg.ForeColor = System.Drawing.Color.Green;
-            this.label_vg.Location = new System.Drawing.Point(30, 0);
-            this.label_vg.Name = "label_vg";
-            this.label_vg.Size = new System.Drawing.Size(94, 19);
-            this.label_vg.TabIndex = 64;
-            this.label_vg.Text = "Village Green";
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(55, 30);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(917, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 61;
+            this.pictureBox2.TabStop = false;
             // 
             // gestion_f
             // 
@@ -479,7 +480,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(984, 611);
-            this.Controls.Add(this.label_vg);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label_menu);
             this.Controls.Add(this.button_produit);
@@ -500,6 +500,7 @@
             this.Controls.Add(this.button_annuler);
             this.Controls.Add(this.button_ajouter);
             this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "gestion_f";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -508,6 +509,7 @@
             this.groupBox_detail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -553,6 +555,6 @@
         private System.Windows.Forms.Button button_produit;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label_menu;
-        private System.Windows.Forms.Label label_vg;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -49,15 +49,15 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(760, 237);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.Size = new System.Drawing.Size(357, 251);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // button_quitter
             // 
             this.button_quitter.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_quitter.Location = new System.Drawing.Point(12, 326);
+            this.button_quitter.Location = new System.Drawing.Point(697, 239);
             this.button_quitter.Name = "button_quitter";
             this.button_quitter.Size = new System.Drawing.Size(75, 23);
             this.button_quitter.TabIndex = 6;
@@ -67,18 +67,19 @@
             // 
             // button_start
             // 
-            this.button_start.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_start.Location = new System.Drawing.Point(216, 254);
+            this.button_start.BackColor = System.Drawing.Color.Honeydew;
+            this.button_start.Font = new System.Drawing.Font("Calibri", 18F);
+            this.button_start.Location = new System.Drawing.Point(370, 51);
             this.button_start.Name = "button_start";
-            this.button_start.Size = new System.Drawing.Size(342, 57);
+            this.button_start.Size = new System.Drawing.Size(402, 54);
             this.button_start.TabIndex = 1;
             this.button_start.Text = "Démarrer";
-            this.button_start.UseVisualStyleBackColor = true;
+            this.button_start.UseVisualStyleBackColor = false;
             this.button_start.Click += new System.EventHandler(this.button_start_Click);
             // 
             // textBox_identifiant
             // 
-            this.textBox_identifiant.Location = new System.Drawing.Point(254, 258);
+            this.textBox_identifiant.Location = new System.Drawing.Point(450, 53);
             this.textBox_identifiant.Name = "textBox_identifiant";
             this.textBox_identifiant.Size = new System.Drawing.Size(212, 20);
             this.textBox_identifiant.TabIndex = 2;
@@ -86,7 +87,7 @@
             // 
             // textBox_password
             // 
-            this.textBox_password.Location = new System.Drawing.Point(254, 290);
+            this.textBox_password.Location = new System.Drawing.Point(450, 85);
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.Size = new System.Drawing.Size(212, 20);
             this.textBox_password.TabIndex = 3;
@@ -96,7 +97,7 @@
             // label_identifiant
             // 
             this.label_identifiant.AutoSize = true;
-            this.label_identifiant.Location = new System.Drawing.Point(189, 261);
+            this.label_identifiant.Location = new System.Drawing.Point(385, 56);
             this.label_identifiant.Name = "label_identifiant";
             this.label_identifiant.Size = new System.Drawing.Size(59, 13);
             this.label_identifiant.TabIndex = 7;
@@ -106,7 +107,7 @@
             // label_password
             // 
             this.label_password.AutoSize = true;
-            this.label_password.Location = new System.Drawing.Point(171, 293);
+            this.label_password.Location = new System.Drawing.Point(367, 88);
             this.label_password.Name = "label_password";
             this.label_password.Size = new System.Drawing.Size(77, 13);
             this.label_password.TabIndex = 7;
@@ -115,23 +116,25 @@
             // 
             // button_connect
             // 
-            this.button_connect.Location = new System.Drawing.Point(509, 256);
+            this.button_connect.BackColor = System.Drawing.Color.Honeydew;
+            this.button_connect.Location = new System.Drawing.Point(680, 51);
             this.button_connect.Name = "button_connect";
             this.button_connect.Size = new System.Drawing.Size(92, 23);
             this.button_connect.TabIndex = 4;
             this.button_connect.Text = "Se connecter";
-            this.button_connect.UseVisualStyleBackColor = true;
+            this.button_connect.UseVisualStyleBackColor = false;
             this.button_connect.Visible = false;
             this.button_connect.Click += new System.EventHandler(this.button_connect_Click);
             // 
             // button_cancel
             // 
-            this.button_cancel.Location = new System.Drawing.Point(509, 288);
+            this.button_cancel.BackColor = System.Drawing.Color.Honeydew;
+            this.button_cancel.Location = new System.Drawing.Point(680, 83);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(92, 23);
             this.button_cancel.TabIndex = 5;
             this.button_cancel.Text = "Annuler";
-            this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.UseVisualStyleBackColor = false;
             this.button_cancel.Visible = false;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
@@ -140,7 +143,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(784, 361);
+            this.ClientSize = new System.Drawing.Size(802, 274);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.button_connect);
             this.Controls.Add(this.label_password);

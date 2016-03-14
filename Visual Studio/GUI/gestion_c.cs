@@ -386,7 +386,7 @@ namespace GUI
         }
         private void textBox_nom_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_nom.Text, @"^[A-Za-z àäéèêëîïôöûùü'-]{1,50}$") == true)
+            if (Regex.IsMatch(textBox_nom.Text, @"^[A-Za-z][A-Za-z0-9 -\/:'""]{2,49}$") == true)
             {
                 textBox_nom.BackColor = SystemColors.Window;
                 button_confirmer.Enabled = true;
@@ -399,7 +399,7 @@ namespace GUI
         }
         private void textBox_prenom_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_prenom.Text, @"^[A-Za-z àäéèêëîïôöûùü'-]{0,25}$") == true)
+            if (Regex.IsMatch(textBox_prenom.Text, @"^[A-Za-z][A-Za-z -']{2,24}$") == true)
             {
                 textBox_prenom.BackColor = SystemColors.Window;
                 button_confirmer.Enabled = true;
@@ -412,7 +412,7 @@ namespace GUI
         }
         private void textBox_adresse_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_adresse.Text, @"^[\w àäéèêëîïôöûùü'-.,]{1,100}$") == true)
+            if (Regex.IsMatch(textBox_adresse.Text, @"^[A-Za-z0-9 -,']{3,100}$") == true)
 
             {
                 textBox_adresse.BackColor = SystemColors.Window;
@@ -439,7 +439,7 @@ namespace GUI
         }
         private void textBox_ville_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_ville.Text, @"^[\w àäéèêëîïôöûùü'-.,]{1,100}$") == true)
+            if (Regex.IsMatch(textBox_ville.Text, @"^[A-Za-z0-9 -,']{3,100}$") == true)
             {
                 textBox_ville.BackColor = SystemColors.Window;
                 button_confirmer.Enabled = true;
@@ -465,7 +465,7 @@ namespace GUI
         }
         private void textBox_fac_adresse_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_fac_adresse.Text, @"^[\w àäéèêëîïôöûùü'-.,]{1,100}$") == true)
+            if (Regex.IsMatch(textBox_fac_adresse.Text, @"^[A-Za-z0-9 -,']{3,100}$") == true)
             {
                 textBox_fac_adresse.BackColor = SystemColors.Window;
                 button_confirmer.Enabled = true;
@@ -491,7 +491,7 @@ namespace GUI
         }
         private void textBox_fac_ville_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_fac_ville.Text, @"^[\w àäéèêëîïôöûùü'-.,]{1,100}$") == true)
+            if (Regex.IsMatch(textBox_fac_ville.Text, @"^[A-Za-z0-9 -,']{3,100}$") == true)
             {
                 textBox_fac_ville.BackColor = SystemColors.Window;
                 button_confirmer.Enabled = true;
@@ -504,7 +504,7 @@ namespace GUI
         }
         private void textBox_liv_adresse_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_liv_adresse.Text, @"^[\w àäéèêëîïôöûùü'-.,]{1,100}$") == true)
+            if (Regex.IsMatch(textBox_liv_adresse.Text, @"^[A-Za-z0-9 -,']{3,100}$") == true)
             {
                 textBox_liv_adresse.BackColor = SystemColors.Window;
                 button_confirmer.Enabled = true;
@@ -531,7 +531,7 @@ namespace GUI
         }
         private void textBox_liv_ville_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_liv_ville.Text, @"^[\w àäéèêëîïôöûùü'-.,]{1,100}$") == true)
+            if (Regex.IsMatch(textBox_liv_ville.Text, @"^[A-Za-z0-9 -,']{3,100}$") == true)
             {
                 textBox_liv_ville.BackColor = SystemColors.Window;
                 button_confirmer.Enabled = true;

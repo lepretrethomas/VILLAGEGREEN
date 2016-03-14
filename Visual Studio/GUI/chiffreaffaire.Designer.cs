@@ -43,11 +43,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_menu = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label_vg = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -177,7 +178,8 @@
             // 
             this.label_menu.AutoSize = true;
             this.label_menu.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_menu.Location = new System.Drawing.Point(300, 9);
+            this.label_menu.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label_menu.Location = new System.Drawing.Point(300, 0);
             this.label_menu.Name = "label_menu";
             this.label_menu.Size = new System.Drawing.Size(182, 33);
             this.label_menu.TabIndex = 64;
@@ -188,21 +190,20 @@
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(36, 55);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.Size = new System.Drawing.Size(49, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 71;
             this.pictureBox2.TabStop = false;
             // 
-            // label_vg
+            // pictureBox3
             // 
-            this.label_vg.AutoSize = true;
-            this.label_vg.Font = new System.Drawing.Font("Vivaldi", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_vg.ForeColor = System.Drawing.Color.Green;
-            this.label_vg.Location = new System.Drawing.Point(30, 0);
-            this.label_vg.Name = "label_vg";
-            this.label_vg.Size = new System.Drawing.Size(94, 19);
-            this.label_vg.TabIndex = 72;
-            this.label_vg.Text = "Village Green";
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(55, 30);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(427, 20);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 72;
+            this.pictureBox3.TabStop = false;
             // 
             // chiffreaffaire
             // 
@@ -210,7 +211,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(494, 351);
-            this.Controls.Add(this.label_vg);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label_menu);
@@ -219,6 +219,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "chiffreaffaire";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -227,6 +228,7 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,6 +249,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label_menu;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label_vg;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
