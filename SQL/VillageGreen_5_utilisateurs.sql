@@ -1,38 +1,41 @@
-/****** Création des Rôles ******/
+--LEPRETRE THOMAS - FORMATION DEVELOPPEUR LOGICIEL AFPA AMIENS
+
+/*************************************************************
+******************** FIL ROUGE *******************************
+*************************************************************/
 use VILLAGEGREEN
 go
 
 /****** Création des Rôles ******/
-use VILLAGEGREEN
+create role ADMINISTRATEUR
+grant SELECT, INSERT, DELETE, UPDATE on SCHEMA::dbo to ADMINISTRATEUR
 go
 
-create role GESTION --GESTION
-grant SELECT, INSERT, DELETE, UPDATE on SCHEMA::dbo to GESTION
-go
-
-create role COMPTABLE -- COMPTABILITE
-grant SELECT, INSERT, DELETE, UPDATE on FACT to COMPTABLE
-grant SELECT, INSERT, DELETE, UPDATE on REGL to COMPTABLE
-grant SELECT, INSERT, UPDATE on CLIE to COMPTABLE
+create role COMPTABILITE -- COMPTABILITE
+grant SELECT, INSERT, DELETE, UPDATE on FACT to COMPTABILITE
+grant SELECT, INSERT, DELETE, UPDATE on REGL to COMPTABILITE
 go
 
 create role LIVRAISON -- LIVRAISON
 grant SELECT, INSERT, DELETE, UPDATE on LIVR to LIVRAISON
+grant SELECT, INSERT, DELETE, UPDATE on COLI to LIVRAISON	
 go
 
 create role COMMERCIAL -- COMMERCIAL
 grant SELECT, INSERT, DELETE, UPDATE on CLIE to COMMERCIAL
-grant SELECT, INSERT, DELETE, UPDATE on PROD to COMMERCIAL
 grant SELECT, INSERT, DELETE, UPDATE on LIGN to COMMERCIAL
 grant SELECT, INSERT, DELETE, UPDATE on COMM to COMMERCIAL
+grant SELECT on PROD to COMMERCIAL
 go
 
-create role UTILISATEUR -- CLIENT
-grant SELECT on PROD to UTILISATEUR
-grant SELECT on LIVR to UTILISATEUR
-grant SELECT on FACT to UTILISATEUR
-grant SELECT, INSERT, DELETE, UPDATE on CLIE to UTILISATEUR
-grant SELECT, INSERT, DELETE, UPDATE on LIGN to UTILISATEUR
+create role CLIENT -- CLIENT
+grant SELECT on PROD to CLIENT
+grant SELECT on LIVR to CLIENT
+grant SELECT on FACT to CLIENT
+grant SELECT on REGL to CLIENT
+grant SELECT, INSERT, DELETE, UPDATE on CLIE to CLIENT
+grant SELECT, INSERT, DELETE, UPDATE on LIGN to CLIENT
+grant SELECT, INSERT, DELETE, UPDATE on COMM to CLIENT
 go
 
 /****** Création des Utilisateurs ******/
@@ -44,7 +47,7 @@ check_policy=off
 go
 create user VG_us01 for login VG_log01
 go
-execute sp_addrolemember 'COMPTABLE','VG_us01'
+execute sp_addrolemember 'COMPTABILITE','VG_us01'
 go
 
 -- Création de l'utilisateur 2 / Service commercial
@@ -66,5 +69,5 @@ check_policy=off
 go
 create user VG_us03 for login VG_log03
 go
-execute sp_addrolemember 'UTILISATEUR','VG_us03'
+execute sp_addrolemember 'CLIENT','VG_us03'
 go

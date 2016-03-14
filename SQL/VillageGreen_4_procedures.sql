@@ -1,61 +1,43 @@
+--LEPRETRE THOMAS - FORMATION DEVELOPPEUR LOGICIEL AFPA AMIENS
+
+/*************************************************************
+******************** FIL ROUGE *******************************
+*************************************************************/
+
 /****** Accès aux données VillageGreen ******/
 
 /****** Formaliser des requêtes à l'aide du langage SQL ******/
--- Un module de gestion des produits va permettre :
--- D’ajouter des produits
-create proc PROD_AJOUT --drop proc PROD_AJOUT
-	@fournisseur int,
-	@lib_court VARCHAR(50),
-	@lib_long VARCHAR(200),
-	@photo VARCHAR(25),
-	@ssrub_id INT
-as
-INSERT INTO PROD (fou_id, pro_lbc, pro_lbl, pro_pho, ssrub_id)
-	values (@fournisseur, @lib_court, @lib_long, @photo, @ssrub_id)
-
-execute PROD_AJOUT '1', 'AAA', 'BBB', NULL, '1'
-select * from PROD
-
--- D’en supprimer
-create proc PROD_SUPPR_NOM --drop proc PROD_SUPPR_NOM
-	@produit VARCHAR(30)
-as
-DELETE from PROD where PROD.pro_lbc=@produit
-
-
-create proc PROD_SUPPR_REF --drop proc PROD_SUPPR_REF
-	@ref INT
-as
-DELETE from PROD where PROD.pro_id=@ref
-
-execute PROD_SUPPR_NOM 'AAA'
-execute PROD_SUPPR_REF '897319'
-select * from PROD
-
 -- Certaines interrogations sont à prévoir:
--- Chiffre d'affaire généré pour l'ensemble et par fournisseur
-select sum(com_qte*com_pu) as 'Chiffre d''affaire'
-	from LIGN
 
-select FOUR.fou_nom as 'Nom du fournisseur', sum(LIGN.com_qte*LIGN.com_pu) as 'Chiffre d''affaire'
+-- Chiffre d'affaire généré pour l'ensemble et par fournisseur
+create view CA_All_Fournisseur
+	as
+select sum(lig_qte*lig_pu) as 'CA'
+	from LIGN
+go
+
+create view CA_Fournisseur
+	as
+select FOUR.fou_id as 'FOURNISSEUR', sum(LIGN.lig_qte*LIGN.lig_pu) as 'CA'
 	from FOUR
 		join PROD
 		on PROD.fou_id=FOUR.fou_id
 			join LIGN
 			on LIGN.pro_id=PROD.pro_id
-				group by FOUR.fou_nom
-
-select * from prod
-select * from lign
+				group by FOUR.fou_id
+go
 
 -- Liste des produits commandés (ref produit, qte commandé)
-select pro_id as 'Référence produit', sum(com_qte) as 'Quantité commandée' from LIGN
+create view Prod_Comm
+	as
+select pro_id as 'Référence produit', sum(lig_qte) as 'Quantité commandée' from LIGN
 	group by pro_id
+go
 
 -- Liste des commandes pour un client (date, ref client, montant)
 create proc COMCLI
 	@client varchar(50)
-as
+	as
 select COMM.com_id, COMM.com_dat, CLIE.cli_id, FACT.fac_tot
 	from COMM
 		join CLIE
@@ -63,12 +45,14 @@ select COMM.com_id, COMM.com_dat, CLIE.cli_id, FACT.fac_tot
 			join FACT
 			on FACT.com_id=COMM.com_id
 				where CLIE.cli_nom=@client
-
-exec comcli 'Page'
-exec comcli 'UNIVERSAL MUSIC'
+go
+--exec comcli 'Page'
+--exec comcli 'UNIVERSAL MUSIC'
 
 -- Répartition du chiffre d'affaire par type de client
-select sta_nom as 'Catégorie', sum((com_qte*com_pu)*STAT.sta_coe) as 'Chiffre d''affaire'
+create view CA_Cat_Client
+	as
+select sta_nom as 'CATEGORIE', sum((lig_qte*lig_pu)*STAT.sta_coe) as 'CA'
 	from LIGN
 		join COMM
 		on LIGN.com_id=COMM.com_id
@@ -77,35 +61,55 @@ select sta_nom as 'Catégorie', sum((com_qte*com_pu)*STAT.sta_coe) as 'Chiffre d'
 				join STAT
 				on CLIE.sta_id=STAT.sta_id
 					group by sta_nom
+go
+
+create view CA_All_Client
+	as
+select sum((lig_qte*lig_pu)*STAT.sta_coe) as 'CA'
+	from LIGN
+		join COMM
+		on LIGN.com_id=COMM.com_id
+			join CLIE
+			on CLIE.cli_id=COMM.cli_id
+				join STAT
+				on CLIE.sta_id=STAT.sta_id
+go
 
 
 -- Lister les commandes en cours de livraison.
-select * from COMM, LIVR
+create view Comm_Livr1
+	as
+select COMM.com_id, com_dat, com_eta, liv_id, cli_id, liv_exp, liv_rec from COMM, LIVR
 	where (exists (select * where LIVR.com_id=COMM.com_id and LIVR.liv_exp is not null)
 	and LIVR.liv_rec is null)
-	
-ou
+go
 
+--ou
+
+create view Comm_Livr2
+	as
 select * from COMM
 	where COMM.com_eta='En cours de livraison'
+go
 
 /****** Programmer des procédures stockées sur le SGBD ******/
 -- Créez une procédure stockée qui sélectionne les commandes non soldées (en cours
 -- de livraison)
-create proc COMSOLDES1
+create proc COMSOLD1
 as
 select * from COMM, LIVR
 	where (exists (select * where LIVR.com_id=COMM.com_id and LIVR.liv_exp is not null)
 	and LIVR.liv_rec is null)
+go
 
-create proc COMSOLDES2
+create proc COMSOLD2
 as
 select * from COMM
 	where COMM.com_eta='En cours de livraison'
+go
 
-exec COMSOLDES1
-exec COMSOLDES2
-
+--exec COMSOLDES1
+--exec COMSOLDES2
 
 -- Puis une autre qui renvoie le délai moyen entre la date de commande
 -- et la date de facturation.
@@ -115,16 +119,16 @@ as
 		from COMM
 			join FACT on FACT.com_id=COMM.com_id
 			where FACT.fac_dat is not null
+go
 
-exec DELAI_COMFAC
+--exec DELAI_COMFAC
 
 /****** Gérer les vues ******/
 -- Créez une vue correspondant à la jointure Produits - Fournisseurs :
-create view PRODFOUR
+create view Prod_Four
 as
-select PROD.pro_id, PROD.pro_lbc, FOUR.fou_id, fou_nom
+select PROD.pro_id, PROD.pro_lib, FOUR.fou_id, fou_nom
 	from PROD
 		join FOUR
 		on FOUR.fou_id=PROD.fou_id
-
-select * from prodfour
+go

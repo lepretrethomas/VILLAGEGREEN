@@ -1,209 +1,12 @@
+--LEPRETRE THOMAS - FORMATION DEVELOPPEUR LOGICIEL AFPA AMIENS
+
 /*************************************************************
 ******************** FIL ROUGE *******************************
 *************************************************************/
-
------ Suppression de la base Village Green existante
-/*
-USE master
-go
-DROP DATABASE VILLAGEGREEN
-go
-*/
-
------ Création de la base de donnees Village Green
-CREATE DATABASE VILLAGEGREEN
-go
-
 USE VILLAGEGREEN
-go
-
-/****** Création des Tables ******/
------ Table: SERVICE COMMERCIAL
-CREATE TABLE SERC (
-	emp_id    	INT IDENTITY NOT NULL,
-	emp_nom  	VARCHAR(50),
-	emp_pre	VARCHAR(25),
-	PRIMARY KEY (emp_id)
-)
-
------ Table: STATUT
-CREATE TABLE STAT (
-	sta_id     			INT IDENTITY NOT NULL,
-	sta_nom      		VARCHAR(50) NOT NULL,
-	sta_coe				numeric (3,2) NOT NULL,
-	PRIMARY KEY (sta_id)
-)
-
------ Table: CLIENTS
-CREATE TABLE CLIE (
-	cli_id     			INT IDENTITY NOT NULL,
-	sta_id 			INT NOT NULL,
-	cli_nom      		VARCHAR(50) NOT NULL,
-	cli_pre  		VARCHAR(25),
-	cli_adr  		VARCHAR(100) NOT NULL,
-	cli_cp       		int check (cli_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
-	cli_vil    		VARCHAR(100) NOT NULL,
-	cli_tel      		VARCHAR(15) NOT NULL,
-	fac_adr   		VARCHAR(100) NOT NULL,
-	fac_cp        		int check (fac_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
-	fac_vil    		VARCHAR(100) NOT NULL,
-	liv_adr 		VARCHAR(100) NOT NULL,
-	liv_cp      		int check (liv_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
-	liv_vil   		VARCHAR(100) NOT NULL,
-	PRIMARY KEY (cli_id)
-)
-
------ Table: FOURNISSEURS
-CREATE TABLE FOUR (
-	fou_id    			INT IDENTITY NOT NULL,
-	fou_nom     		VARCHAR(50) NOT NULL,
-	fou_pre 		VARCHAR(25),
-	fou_adr 		VARCHAR(100) NOT NULL,
-	fou_cp      		int check (fou_cp like '[0-9][0-9][0-9][0-9][0-9]') NOT NULL,
-	fou_vil   		VARCHAR(100) NOT NULL,
-	fou_tel     		VARCHAR(15) NOT NULL,
-	PRIMARY KEY (fou_id)
-)
-
------ Table: PRODUITS
-CREATE TABLE PROD (
-	pro_id        	INT IDENTITY NOT NULL,
-	fou_id			INT NOT NULL,
-	pro_lbc  	VARCHAR(50) NOT NULL,
-	pro_lbl   	VARCHAR(1500),
-	pro_pu			numeric (10,2),
-	pro_pho      	VARCHAR(50),
-	ssrub_id        INT,
-	PRIMARY KEY (pro_id)
-)
-
------ Table: COMMANDES
-CREATE TABLE COMM (
-	com_id  			INT IDENTITY NOT NULL,
-	com_dat 			DATE DEFAULT GETDATE() NOT NULL,
-	com_eta 			VARCHAR(25) NOT NULL,
-	com_tot				numeric (10,2),
-	cli_id  			INT NOT NULL,
-	PRIMARY KEY (com_id)
-)
-
------ Table: FACTURATIONS
-CREATE TABLE FACT (
-	fac_id       		INT IDENTITY NOT NULL,
-	com_id       		INT NOT NULL,
-	fac_dat      		DATE DEFAULT GETDATE() NOT NULL,
-	fac_red			numeric (10,2),
-	fac_tot   		numeric (10,2) NOT NULL,
-	PRIMARY KEY (fac_id)
-)
-
------ Table: REGLEMENTS
-CREATE TABLE REGL (
-	reg_id     	INT IDENTITY NOT NULL,
-	fac_id           	INT NOT NULL,
-	reg_dat   	DATE DEFAULT GETDATE() NOT NULL,
-	reg_tot 	numeric (10,2) NOT NULL,
-	PRIMARY KEY (reg_id)
-)
-
------ Table: LIGNES DE COMMANDE
-CREATE TABLE LIGN (
-	com_lig 			INT IDENTITY NOT NULL,
-	com_qte   			INT NOT NULL,
-	com_pu    			numeric (10,2) NOT NULL,
-	com_id   			INT,
-	pro_id  			INT NOT NULL,
-	PRIMARY KEY (com_lig)
-)
-
------ Table: LIVRAISONS
-CREATE TABLE LIVR (
-	liv_id     		INT IDENTITY NOT NULL,
-	com_id     		INT NOT NULL,
-	liv_exp     		DATE NOT NULL,
-	liv_rec     		DATE,
-	PRIMARY KEY (liv_id)
-)
-
------ Table: CATEGORIES
-CREATE TABLE CATE (
-	rub_id  			INT IDENTITY NOT NULL,
-	rub_nom 			VARCHAR(25),
-	PRIMARY KEY (rub_id)
-)
-
------ Table: SOUS-CATEGORIES
-CREATE TABLE SCAT (
-	ssrub_id  			INT IDENTITY NOT NULL,
-	ssrub_nom 			VARCHAR(25),
-	rub_id    			INT NOT NULL,
-	PRIMARY KEY (ssrub_id)
-)
-
------ Table: COLIS
-CREATE TABLE COLI (
-	liv_id  			INT NOT NULL,
-	liv_qte  			INT NOT NULL,
-	pro_id 			INT NOT NULL,
-	PRIMARY KEY (pro_id, liv_id)
-)
-go
-
-/****** Création des Contraintes ******/
------ Contrainte: Statut
-ALTER TABLE CLIE
-	ADD
-		FOREIGN KEY (sta_id) REFERENCES STAT(sta_id)
-
------ Contrainte: Produits
-ALTER TABLE PROD
-	ADD
-		FOREIGN KEY (ssrub_id) REFERENCES SCAT(ssrub_id),
-		FOREIGN KEY (fou_id) REFERENCES FOUR(fou_id)
-
------ Contrainte: SousCatégories
-ALTER TABLE SCAT
-	ADD
-		FOREIGN KEY (rub_id) REFERENCES CATE(rub_id)
-
------ Contrainte: Lignes de commande
-ALTER TABLE LIGN
-	ADD
-		FOREIGN KEY (pro_id) REFERENCES PROD(pro_id),
-		FOREIGN KEY (com_id) REFERENCES COMM(com_id)
-
------ Contrainte: Commandes
-ALTER TABLE COMM
-	ADD
-		FOREIGN KEY (cli_id) REFERENCES CLIE(cli_id)
-	
------ Contrainte: Facturations
-ALTER TABLE FACT
-	ADD
-		FOREIGN KEY (com_id) REFERENCES COMM(com_id),
-		CONSTRAINT FACT_AK UNIQUE (com_id)
-
------ Contrainte: Règlements
-ALTER TABLE REGL
-	ADD
-		FOREIGN KEY (fac_id) REFERENCES FACT(fac_id),
-		CONSTRAINT REGL_AK UNIQUE (fac_id)
-
------ Contrainte: Livraisons
-ALTER TABLE LIVR
-	ADD
-		FOREIGN KEY (com_id) REFERENCES COMM(com_id)
-
------ Contrainte: Colis
-ALTER TABLE COLI
-	ADD
-		FOREIGN KEY (pro_id) REFERENCES PROD(pro_id),
-		FOREIGN KEY (liv_id) REFERENCES LIVR(liv_id)
 go
 
 /****** Alimentation de la base de données ******/
-USE VILLAGEGREEN
-go
 --
 --
 SET IDENTITY_INSERT FOUR ON
@@ -219,9 +22,9 @@ SET IDENTITY_INSERT FOUR OFF
 go
 --
 --
-SET IDENTITY_INSERT CATE ON
+SET IDENTITY_INSERT RUB1 ON
 go
-INSERT INTO CATE (rub_id, rub_nom)
+INSERT INTO RUB1 (ru1_id, ru1_nom)
 	VALUES	(1, 'Guitares'),
 			(2,	'Claviers'),
 			(3,	'Percussions'),
@@ -230,13 +33,13 @@ INSERT INTO CATE (rub_id, rub_nom)
 			(6,	'Micros'),
 			(7,	'Casques')
 go
-SET IDENTITY_INSERT CATE OFF
+SET IDENTITY_INSERT RUB1 OFF
 go
 --
 --
-SET IDENTITY_INSERT SCAT ON
+SET IDENTITY_INSERT RUB2 ON
 go
-INSERT INTO SCAT (ssrub_id, ssrub_nom, rub_id)
+INSERT INTO RUB2 (ru2_id, ru2_nom, ru1_id)
 	VALUES	(1, 'Basses', 1),
 			(2, 'Guitares classiques', 1),
 			(3, 'Guitares électriques', 1),
@@ -256,13 +59,13 @@ INSERT INTO SCAT (ssrub_id, ssrub_nom, rub_id)
 			(17, 'Casques DJ', 7),
 			(18, 'Casques sans fil', 7)
 go
-SET IDENTITY_INSERT SCAT OFF
+SET IDENTITY_INSERT RUB2 OFF
 go
 --
 --
 SET IDENTITY_INSERT PROD ON
 go
-INSERT INTO PROD (pro_id, fou_id, pro_lbc, pro_lbl, pro_pu, pro_pho, ssrub_id)
+INSERT INTO PROD (pro_id, fou_id, pro_lib, pro_des, pro_pu, pro_pho, ru2_id)
 	VALUES	('182835', '1', 'KALA U-BASS',
 '-Corps et Manche en Acajou
 -Touche et Chevalet en Palissandre
@@ -274,14 +77,14 @@ INSERT INTO PROD (pro_id, fou_id, pro_lbc, pro_lbl, pro_pu, pro_pho, ssrub_id)
 -Cordes KALA Silver Rumbler
 -Pré ampli actif Shadow avec les réglages Volume/Tone et accordeur intégré', 408.29, NULL, 1),
 			('166187', '1', 'EAGLESTONE LEONA',
-'- Table : Épicéa
-- Manche : Erable
-- Dos et éclisses : Acajou
-- Touche et Chevalet : Palissandre
-- Sillet manche et Chevalet : Os
-- Diapason : 864 mm
-- Préampli : Fishman ISY-301
-- Finition : Naturelle', 199.00, NULL, 1),
+'-Table : Épicéa
+-Manche : Erable
+-Dos et éclisses : Acajou
+-Touche et Chevalet : Palissandre
+-Sillet manche et Chevalet : Os
+-Diapason : 864 mm
+-Préampli : Fishman ISY-301
+-Finition : Naturelle', 199.00, NULL, 1),
 			('158197', '1', 'LAG OCCITANIA 66',
 '-Table : Epicéa Sitka
 -Dos & Eclisses : Acajou
@@ -293,25 +96,25 @@ INSERT INTO PROD (pro_id, fou_id, pro_lbc, pro_lbl, pro_pu, pro_pho, ssrub_id)
 -Cordes : D''Addario
 -Frettes : 18 / Silver-Nickel', 159.00, NULL, 2),
 			('156059', '1', 'EAGLESTONE SOLEA',
-'- Modèle : 3/4
-- Table d''harmonie : Cèdre
-- Dos et éclisses : Acajou
-- Manche : Nato
-- Sillet de tête : Plastique
-- Binding : Beige multi-plis
-- Touche et Chevalet : Sonokeling
-- Mecaniques : Chromées
-- Cordes : D''Addario EJ45 Pro Arte
-- Finition : Noire' , 85.00, NULL, 2),
+'-Modèle : 3/4
+-Table d''harmonie : Cèdre
+-Dos et éclisses : Acajou
+-Manche : Nato
+-Sillet de tête : Plastique
+-Binding : Beige multi-plis
+-Touche et Chevalet : Sonokeling
+-Mecaniques : Chromées
+-Cordes : D''Addario EJ45 Pro Arte
+-Finition : Noire' , 85.00, NULL, 2),
 			('126190', '1', 'GRG140',
-'- Accastillage chromé 
-- Corps tilleul 
-- Manche GRG en érable 
-- Touche palissandre 24 cases 
-- Frettes médium 
-- Vibrato FAT 10 
-- Micros Single Coil STDS (manche et central) + Humbucker STH2 (chevalet)
-- Plaque blanche', 184.00, NULL, 3),
+'-Accastillage chromé 
+-Corps tilleul 
+-Manche GRG en érable 
+-Touche palissandre 24 cases 
+-Frettes médium 
+-Vibrato FAT 10 
+-Micros Single Coil STDS (manche et central) + Humbucker STH2 (chevalet)
+-Plaque blanche', 184.00, NULL, 3),
 			('216423', '1', 'X MONARKH SCX7',
 '-Corps acajou
 -Manche érable 1 pièce avec renfort en graphite
@@ -347,31 +150,31 @@ INSERT INTO PROD (pro_id, fou_id, pro_lbc, pro_lbl, pro_pu, pro_pho, ssrub_id)
 -Registres Droit/Gauche Coupure de tierce Main Gauche
 -Dimensions 285 x 175 mm - Poids 3.99 kg', 1400.00, NULL, 4),
 			('188088', '2', 'FULLPACK CELVIANO AP-260BK',
-'- Source Sonore Multi Dimensionnelle AiR
-- 88 touches dynamiques toucher ivoire et ébène
-- Clavier avec mécanique de marteaux naturels à 3 capteurs II
-- Fonction Concert Play
-- Effet Damper Resonance (Pédale Forte)
-- 18 sonorités améliorées', 879.00, NULL, 5),
+'-Source Sonore Multi Dimensionnelle AiR
+-88 touches dynamiques toucher ivoire et ébène
+-Clavier avec mécanique de marteaux naturels à 3 capteurs II
+-Fonction Concert Play
+-Effet Damper Resonance (Pédale Forte)
+-18 sonorités améliorées', 879.00, NULL, 5),
 			('210239', '2', 'CELVIANO GP-500',
-'- Layer - Split - Mode duo
-- Fonction de transposition
-- Décalage d’octave
-- 256 notes en polyphonie (max.)
-- Résonance pédale forte
-- Simulateur de couvercle (Lid-Simulation)
-- Chorus (effet numérique)
-- Fonction d''enregistrement audio
-- Port USB mémoire flash (support de stockage)
-- Écran LCD avec rétro-éclairage',	3999.00, NULL, 5),
+'-Layer - Split - Mode duo
+-Fonction de transposition
+-Décalage d’octave
+-256 notes en polyphonie (max.)
+-Résonance pédale forte
+-Simulateur de couvercle (Lid-Simulation)
+-Chorus (effet numérique)
+-Fonction d''enregistrement audio
+-Port USB mémoire flash (support de stockage)
+-Écran LCD avec rétro-éclairage',	3999.00, NULL, 5),
 			('145479', '2', 'ROLAND A-49',
-'- 49 touches de taille standard, sensibles à la vélocité
-- Léger et compact
-- Facile à utiliser
-- 2 commandes, 2 boutons et un contrôleur D-Beam
-- Alimentation via USB
-- Livré avec le logiciel "Cakewalk SONAR LE"
-- Finitions blanc nacré et noire', 149.00, NULL, 6),
+'-49 touches de taille standard, sensibles à la vélocité
+-Léger et compact
+-Facile à utiliser
+-2 commandes, 2 boutons et un contrôleur D-Beam
+-Alimentation via USB
+-Livré avec le logiciel "Cakewalk SONAR LE"
+-Finitions blanc nacré et noire', 149.00, NULL, 6),
 			('158841', '2', 'SL 990 PRO FATAR',
 '-Clavier maître toucher lourd gradué 88 notes TP40GH
 -4 courbes de vélocité
@@ -381,9 +184,9 @@ INSERT INTO PROD (pro_id, fou_id, pro_lbc, pro_lbl, pro_pu, pro_pho, ssrub_id)
 -1x MIDI Out
 -Dimensions : 132,8 x 34,9 x 12,5 cm, poids 20 kg', 369.00, NULL, 6),
 			('173197', '2', 'BIRD DS102 BK',
-'- Fûts en tilleul 6 plis
-- Cerclages et hardware noirs
-- Set d''accessoires complet
+'-Fûts en tilleul 6 plis
+-Cerclages et hardware noirs
+-Set d''accessoires complet
 -Composition : -1 Tom 12" x 9" -1 Tom 13" x 10" -1 Tom basse 16" x 16" -1 caisse claire 14" x 5.5" -1 Grosse caisse 22" x 16"
 -Accessoires : -1 Pied de cymbale droit -1 Pédale de charleston -1 Pédale de grosse caisse -1 Stand de caisse claire -1 paire de cymbales charleston -1 Cymbale Crash -1 Siège -1 Paire de baguettes 5A', 199.00, NULL, 7),
 			('127900', '2', 'TAMA Silverstar',
@@ -397,33 +200,33 @@ INSERT INTO PROD (pro_id, fou_id, pro_lbc, pro_lbl, pro_pu, pro_pho, ssrub_id)
 -Couleur: Red Chameleon Sparkle
 -Accessoires: Support de tom ', 789.00, NULL, 7),
 			('124778', '2', 'BLADE - 14" x 5"',
-'- Fût acier 14" x 5"
-- Finition chrome
-- Accastillage chrome
-- 2 x 6 tirants
-- Baguettes 5A
-- Clé de réglage', 59.00, NULL, 8),
+'-Fût acier 14" x 5"
+-Finition chrome
+-Accastillage chrome
+-2 x 6 tirants
+-Baguettes 5A
+-Clé de réglage', 59.00, NULL, 8),
 			('124780', '2', 'EDGE 14" x 6.5"',
-'- Fût cuivre martelé 14" x 6.5"
-- Cerclages moulés
-- 2 x 10 tirants
-- Peau de frappe Remo Ambassador UK
-- Clé de réglage', 175.00, NULL, 8),
+'-Fût cuivre martelé 14" x 6.5"
+-Cerclages moulés
+-2 x 10 tirants
+-Peau de frappe Remo Ambassador UK
+-Clé de réglage', 175.00, NULL, 8),
 			('143589', '2', 'ROAD CL100',
-'- Corps en résine
-- Mécanique argentée 
-- Graisse et chiffon d''entretien
-- Cordon
-- Housse de transport
-- Livrée en étui avec bec', 199.00, NULL, 9),
+'-Corps en résine
+-Mécanique argentée 
+-Graisse et chiffon d''entretien
+-Cordon
+-Housse de transport
+-Livrée en étui avec bec', 199.00, NULL, 9),
 			('191321', '3', 'YCL650II',
-'- En Sib
-- Corps en grenadille pour une qualité optimale de son
-- Clés argentées
-- Finition Naturelle
-- Ressorts en acier bleui pour une action douce et précise
-- Pads Pisoni
-- Livrée en étui avec un bec, étui de type "Français"', 1279.00, NULL, 9),
+'-En Sib
+-Corps en grenadille pour une qualité optimale de son
+-Clés argentées
+-Finition Naturelle
+-Ressorts en acier bleui pour une action douce et précise
+-Pads Pisoni
+-Livrée en étui avec un bec, étui de type "Français"', 1279.00, NULL, 9),
 			('186715', '3', 'DIATONIQUE 2013',
 '-Type : diatonique
 -Réglage : Richter
@@ -434,42 +237,42 @@ INSERT INTO PROD (pro_id, fou_id, pro_lbc, pro_lbl, pro_pu, pro_pho, ssrub_id)
 -Matériau plaque de musique : Laiton
 -Length : 10 cm', 44.60, NULL, 10),
 			('240899', '3', 'CHROMATIQUE 7582',
-'- Sommier en plastique moulé par injection
-- Plaques en laiton de 1,05 millimètre
-- Plaques de rechange disponibles
-- 64 anches Chromonica
-- Quatre octaves complètes
-- Capots polis en acier inoxydable
-- Embouchure chromée avec trous ronds
-- Disponible en Do majeur', 247.00, NULL, 10),
+'-Sommier en plastique moulé par injection
+-Plaques en laiton de 1,05 millimètre
+-Plaques de rechange disponibles
+-64 anches Chromonica
+-Quatre octaves complètes
+-Capots polis en acier inoxydable
+-Embouchure chromée avec trous ronds
+-Disponible en Do majeur', 247.00, NULL, 10),
 			('164993', '3', 'VINTAGE HIGHWAY',
-'- FA# aigu
-- Garde sur la clé FA# côté
-- Support de pouce en métal
-- Tampons cuir, résonateurs métal
-- Finition Vintage
-- Livré en étui sac à dos, poche partitions, poche accessoires
-- Avec bec, Ligature et couvre-bec, stick de graisse
-- Cordon rembourré "confort"', 649.00, NULL, 11),
+'-FA# aigu
+-Garde sur la clé FA# côté
+-Support de pouce en métal
+-Tampons cuir, résonateurs métal
+-Finition Vintage
+-Livré en étui sac à dos, poche partitions, poche accessoires
+-Avec bec, Ligature et couvre-bec, stick de graisse
+-Cordon rembourré "confort"', 649.00, NULL, 11),
 			('164992', '3', 'DARK HIGHWAY',
-'- FA# aigu
-- Garde sur la clé FA# côté
-- Support de pouce en métal
-- Tampons cuir, résonateurs métal
-- Finition noire
-- Livré en étui sac à dos, poche partitions, poche accessoires
-- Avec bec, Ligature et couvre-bec, stick de graisse
-- Cordon rembourré "confort"', 699.00, NULL, 11),
+'-FA# aigu
+-Garde sur la clé FA# côté
+-Support de pouce en métal
+-Tampons cuir, résonateurs métal
+-Finition noire
+-Livré en étui sac à dos, poche partitions, poche accessoires
+-Avec bec, Ligature et couvre-bec, stick de graisse
+-Cordon rembourré "confort"', 699.00, NULL, 11),
 			('138074', '3', 'ASB 3/4',
-'- 3/4
-- Bois du Brésil
-- Hausse en ébène
-- Crin synthétique', 12.90, NULL, 12),
+'-3/4
+-Bois du Brésil
+-Hausse en ébène
+-Crin synthétique', 12.90, NULL, 12),
 			('138075', '4', 'ASB 1/2',
-'- 1/2
-- Bois du Brésil
-- Hausse en ébène
-- Crin synthétique', 9.50, NULL, 12),
+'-1/2
+-Bois du Brésil
+-Hausse en ébène
+-Crin synthétique', 9.50, NULL, 12),
 			('257312', '4', 'ETUI VIOLON MODELE CVK1',
 '-Ossature en polyfoam.
 -Housse vissée avec poche partitions noire incorporée.
@@ -499,15 +302,15 @@ INSERT INTO PROD (pro_id, fou_id, pro_lbc, pro_lbl, pro_pu, pro_pho, ssrub_id)
 -Archet crins naturels et hausse en ébène
 -Housse de violoncelle,rembourrage 10 mm,avec poche pour cordes et archet', 1615.00, NULL, 14),
 			('814941', '4', 'SET VIOLONCELLE VC5S34',
-'- Type : Stradivarius, 3/4
-- Table : Epicéa
-- Manche, Dos et éclisses : Erable
-- Touche en ébène
-- Chevalet : Yamaha Original
-- Cheville : Palissandre
-- Cordier : Wittner''Ultra''
-- Cordes : D''Addario Prelude
-- Livré avec archet (bois du Brésil), étui et colophane Piranito', 1099.00, NULL, 14),
+'-Type : Stradivarius, 3/4
+-Table : Epicéa
+-Manche, Dos et éclisses : Erable
+-Touche en ébène
+-Chevalet : Yamaha Original
+-Cheville : Palissandre
+-Cordier : Wittner''Ultra''
+-Cordes : D''Addario Prelude
+-Livré avec archet (bois du Brésil), étui et colophane Piranito', 1099.00, NULL, 14),
 			('158777', '4', 'D-01 SINGLE MIC',
 '-Capteur à gradient de pression 
 -Nouvelle capsule K07 à double membrane 
@@ -579,17 +382,6 @@ SET IDENTITY_INSERT PROD OFF
 go
 --
 --
-SET IDENTITY_INSERT SERC ON
-go
-INSERT INTO SERC (emp_id, emp_nom, emp_pre)
-	VALUES	(1, 'Reed', 'Lou'),
-			(2, 'Verlaine', 'Tom'),
-			(3, 'Beck',	'Jeff')
-go
-SET IDENTITY_INSERT SERC OFF
-go
---
---
 SET IDENTITY_INSERT STAT ON
 go
 INSERT INTO STAT (sta_id, sta_nom, sta_coe)
@@ -642,7 +434,7 @@ go
 --
 SET IDENTITY_INSERT LIGN ON
 go
-INSERT INTO LIGN (com_id, com_lig, com_qte, com_pu, pro_id)
+INSERT INTO LIGN (com_id, lig_id, lig_qte, lig_pu, pro_id)
 	VALUES	(1, 1, 3, 85.00, '182835'),
 			(1, 2, 3, 184.00, '166187'),
 			(2, 3, 20, 69.00, '833472'),
@@ -769,18 +561,3 @@ INSERT INTO REGL (reg_id, reg_dat, reg_tot, fac_id)
 go
 SET IDENTITY_INSERT REGL OFF
 go
-
-/*** Affichage des tables ***/
-USE VILLAGEGREEN
-select * from FOUR
-select * from PROD
-select * from SCAT
-select * from CATE
-select * from LIGN
-select * from COMM
-select * from LIVR
-select * from COLI
-select * from CLIE
-select * from FACT
-select * from REGL
-select * from SERC
