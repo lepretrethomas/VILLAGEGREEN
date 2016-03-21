@@ -216,7 +216,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="9d178e6b-8ef2-486f-91bf-a4aa34e1c77e"
-              LastKnownName="Modifie une commande"
+              LastKnownName="Annule / Modifie une commande"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -489,7 +489,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="ee7abc52-8eaa-4118-acaf-f9a575b998db"
-              LastKnownName="Connaitre l'état d'une commande"
+              LastKnownName="Consulter / Connaitre l'état d'une commande"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -528,7 +528,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="9ccc80d4-cfa8-4092-af64-775587d6f7cb"
-              LastKnownName="Edite un bon de livraison"
+              LastKnownName="Edite un bon de livraison / une facture"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -684,7 +684,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="c1889e64-ac77-4b62-92ac-1c1dd57b8d93"
-              LastKnownName="Consulte une fiche produit"
+              LastKnownName="Consulter une fiche produit"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -743,6 +743,84 @@
                 <memberEnd
                   Id="8d81b270-d766-4426-a6ca-a5dcdafb2f57"
                   name="Effectue un réglement"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="21a162b2-3bdb-48a3-b1e4-7bb308f78f2c"
+            isDerived="false"
+            sourceEndRoleName="SERVICE COMMERCIAL"
+            targetEndRoleName="Consulte une fiche fournisseur"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="73334232-9c46-408b-8996-d14492a71226"
+              LastKnownName="Consulter une fiche fournisseur"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f41c7f7e-a5b0-429e-9647-e1120c96fc24"
+                  name="SERVICE COMMERCIAL"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fbad95fe-0d8f-486a-b86a-8ec0feca7607"
+                  name="Consulte une fiche fournisseur"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="37c3e677-a469-4b35-b598-be6748f6f5e6"
+            isDerived="false"
+            sourceEndRoleName="SERVICE COMMERCIAL"
+            targetEndRoleName="Consulter / Rechercher  une commande"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a774cf4e-5776-4a90-935c-3f8a8c9d56fa"
+              LastKnownName="Consulter  une commande"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="60a6e7c4-a5f0-45e5-9390-58e0affa6dc1"
+                  name="SERVICE COMMERCIAL"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="eebf7d8d-51f0-4da6-81ba-7da5bd158b97"
+                  name="Consulter / Rechercher  une commande"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -1084,7 +1162,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="ee7abc52-8eaa-4118-acaf-f9a575b998db"
-              LastKnownName="Connaitre l'état d'une commande"
+              LastKnownName="Consulter / Connaitre l'état d'une commande"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -1240,7 +1318,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="c1889e64-ac77-4b62-92ac-1c1dd57b8d93"
-              LastKnownName="Consulte une fiche produit"
+              LastKnownName="Consulter une fiche produit"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -1343,13 +1421,13 @@
     <packageHasNamedElement>
       <useCase
         Id="7f18fc87-0166-4900-83b5-d9e022e393a1"
-        name="Enregistre un produit"
+        name="Enregistre / Modifie / Supprime une fiche produit"
         isAbstract="false"
         isLeaf="false">
         <subjects>
           <subsystemMoniker
-            Id="54ae7b92-575d-4007-b193-90de9cd8f6a3"
-            LastKnownName="Module de gestion de produit"
+            Id="8e89ccff-6df3-4a4b-9606-d1ec69364fdf"
+            LastKnownName="Module de gestion des produits"
             LastKnownLocation="UML.uml" />
         </subjects>
       </useCase>
@@ -1364,7 +1442,7 @@
     <packageHasNamedElement>
       <useCase
         Id="9d178e6b-8ef2-486f-91bf-a4aa34e1c77e"
-        name="Modifie une commande"
+        name="Annule / Modifie une commande"
         isAbstract="false"
         isLeaf="false">
         <subjects>
@@ -1380,14 +1458,7 @@
         Id="e50085d7-3ca4-4825-b070-e91819235d9a"
         name="Annule une commande"
         isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="94d32aab-ddb4-4d02-bf09-b888fc56b1da"
-            LastKnownName="Module de gestion de commande"
-            LastKnownLocation="UML.uml" />
-        </subjects>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -1404,18 +1475,12 @@
               LastKnownLocation="UML.uml" />
           </dependency>
         </suppliersInternal>
-        <subjects>
-          <subsystemMoniker
-            Id="94d32aab-ddb4-4d02-bf09-b888fc56b1da"
-            LastKnownName="Module de gestion de commande"
-            LastKnownLocation="UML.uml" />
-        </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
         Id="9ccc80d4-cfa8-4092-af64-775587d6f7cb"
-        name="Edite un bon de livraison"
+        name="Edite un bon de livraison / une facture"
         isAbstract="false"
         isLeaf="false">
         <suppliersInternal>
@@ -1468,14 +1533,7 @@
         Id="ce5d1465-b543-4a73-a738-9721c4032518"
         name="Modifie une fiche produit"
         isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="54ae7b92-575d-4007-b193-90de9cd8f6a3"
-            LastKnownName="Module de gestion de produit"
-            LastKnownLocation="UML.uml" />
-        </subjects>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -1517,14 +1575,7 @@
         Id="6ed3b74c-7505-424e-bf9d-a1ba6b9d9328"
         name="Recherche un produit"
         isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="54ae7b92-575d-4007-b193-90de9cd8f6a3"
-            LastKnownName="Module de gestion de produit"
-            LastKnownLocation="UML.uml" />
-        </subjects>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -1742,7 +1793,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="73334232-9c46-408b-8996-d14492a71226"
-              LastKnownName="Consulte une fiche fournisseur"
+              LastKnownName="Consulter une fiche fournisseur"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -1780,14 +1831,7 @@
         Id="8a087d80-3efa-448a-a9ce-e17efcb3bfe5"
         name="Supprime une fiche produit"
         isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="54ae7b92-575d-4007-b193-90de9cd8f6a3"
-            LastKnownName="Module de gestion de produit"
-            LastKnownLocation="UML.uml" />
-        </subjects>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -1801,14 +1845,7 @@
         Id="8c0e8243-dbcc-4010-873a-6fd30c9b8879"
         name="Achète un produit"
         isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="54ae7b92-575d-4007-b193-90de9cd8f6a3"
-            LastKnownName="Module de gestion de produit"
-            LastKnownLocation="UML.uml" />
-        </subjects>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -1829,25 +1866,18 @@
         Id="d9ca87e0-8ab6-4f8b-bc54-c355274569ac"
         name="Crée une fiche fournisseur"
         isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="54ae7b92-575d-4007-b193-90de9cd8f6a3"
-            LastKnownName="Module de gestion de produit"
-            LastKnownLocation="UML.uml" />
-        </subjects>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
         Id="ad9b83b0-b4e4-4561-86a5-5eacc3978ea7"
-        name="Modifie une fiche fournisseur"
+        name="Enregistre / Modifie / Supprime une fiche fournisseur"
         isAbstract="false"
         isLeaf="false">
         <subjects>
           <subsystemMoniker
             Id="54ae7b92-575d-4007-b193-90de9cd8f6a3"
-            LastKnownName="Module de gestion de produit"
+            LastKnownName="Module de gestion de fournisseur"
             LastKnownLocation="UML.uml" />
         </subjects>
       </useCase>
@@ -1855,7 +1885,7 @@
     <packageHasNamedElement>
       <useCase
         Id="ee7abc52-8eaa-4118-acaf-f9a575b998db"
-        name="Connaitre l'état d'une commande"
+        name="Consulter / Connaitre l'état d'une commande"
         isAbstract="false"
         isLeaf="false">
         <subjects>
@@ -1871,14 +1901,7 @@
         Id="607bc3da-ee09-4382-b42b-c0cd372571a3"
         name="Supprime une fiche fournisseur"
         isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="54ae7b92-575d-4007-b193-90de9cd8f6a3"
-            LastKnownName="Module de gestion de produit"
-            LastKnownLocation="UML.uml" />
-        </subjects>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -1897,7 +1920,7 @@
     <packageHasNamedElement>
       <subsystem
         Id="54ae7b92-575d-4007-b193-90de9cd8f6a3"
-        name="Module de gestion de produit"
+        name="Module de gestion de fournisseur"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
@@ -1905,13 +1928,13 @@
     <packageHasNamedElement>
       <useCase
         Id="73334232-9c46-408b-8996-d14492a71226"
-        name="Consulte une fiche fournisseur"
+        name="Consulter une fiche fournisseur"
         isAbstract="false"
         isLeaf="false">
         <subjects>
           <subsystemMoniker
             Id="54ae7b92-575d-4007-b193-90de9cd8f6a3"
-            LastKnownName="Module de gestion de produit"
+            LastKnownName="Module de gestion de fournisseur"
             LastKnownLocation="UML.uml" />
         </subjects>
       </useCase>
@@ -1919,13 +1942,13 @@
     <packageHasNamedElement>
       <useCase
         Id="c1889e64-ac77-4b62-92ac-1c1dd57b8d93"
-        name="Consulte une fiche produit"
+        name="Consulter une fiche produit"
         isAbstract="false"
         isLeaf="false">
         <subjects>
           <subsystemMoniker
-            Id="54ae7b92-575d-4007-b193-90de9cd8f6a3"
-            LastKnownName="Module de gestion de produit"
+            Id="8e89ccff-6df3-4a4b-9606-d1ec69364fdf"
+            LastKnownName="Module de gestion des produits"
             LastKnownLocation="UML.uml" />
         </subjects>
       </useCase>
@@ -1965,14 +1988,7 @@
         Id="4b0a2e7c-db98-4b27-bdd8-5e07143afd1b"
         name="Consulter le stock"
         isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="54ae7b92-575d-4007-b193-90de9cd8f6a3"
-            LastKnownName="Module de gestion de produit"
-            LastKnownLocation="UML.uml" />
-        </subjects>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -2146,39 +2162,6 @@
             aggregation="None"
             isComposite="false" />
           <property
-            Id="02e57af6-d5f5-4198-ae42-8fb4fc5e3688"
-            name="pro_nom"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="be28c171-4e85-402d-8bf1-666742d048d0"
-            name="pro_lbc"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="c6dd79be-6b71-4543-97e9-4ab0c885cf50"
-            name="pro_lbl"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
             Id="7dbf3491-0293-48c1-958d-b07ed04683cb"
             name="pro_pho"
             isLeaf="false"
@@ -2190,8 +2173,30 @@
             aggregation="None"
             isComposite="false" />
           <property
-            Id="403afaa6-96e9-47e4-91f7-4878558b0836"
-            name="pro_sto"
+            Id="50029c42-869c-4f3e-845f-050b6c66a539"
+            name="pro_des"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="bd0144a1-76ad-4dae-a9f3-6f67aee196d8"
+            name="pro_prix"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="ae50cfcd-5455-4c44-b865-3abf4737fab4"
+            name="pro_lib"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2277,8 +2282,8 @@
         </targetEnds>
         <ownedAttributesInternal>
           <property
-            Id="773c1655-f5a4-42b3-a7fa-7de834354791"
-            name="com_lig"
+            Id="7f4eef46-186d-4601-aaff-1098e9e2d6f5"
+            name="lig_qte"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2288,8 +2293,8 @@
             aggregation="None"
             isComposite="false" />
           <property
-            Id="40813f3c-e78b-4dd2-9972-3efafa625f54"
-            name="com_qte"
+            Id="99401782-bd8b-4c17-bbd1-ba40b38bf453"
+            name="lig_pu"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2299,8 +2304,8 @@
             aggregation="None"
             isComposite="false" />
           <property
-            Id="62db2c42-a85f-490d-91a7-b3715e88500b"
-            name="com_pu"
+            Id="80e3f00b-a304-4e7a-91b1-523be09f511f"
+            name="lig_id"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2505,63 +2510,8 @@
             aggregation="None"
             isComposite="false" />
           <property
-            Id="d19d351f-19ad-4d03-8d92-8152935ff38c"
-            name="fac_adr"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="6011f63c-0d31-4976-9e26-9ebc060b7f2a"
-            name="fac_cp"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="c4ae6e27-c03d-4b2f-8142-58c018056f07"
-            name="fac_vil"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="d5c329e1-4e00-4a99-a038-2b26fe4b86cb"
-            name="liv_adr"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="0393d689-423e-4573-bdd8-c25837add260"
-            name="liv_cp"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="51f8a69c-9e58-4858-8808-6f3d0f66b47e"
-            name="liv_vil"
+            Id="23451e39-53d8-4540-8f2b-a33a6356b9d9"
+            name="com_tot"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2656,8 +2606,19 @@
             aggregation="None"
             isComposite="false" />
           <property
-            Id="ef27541c-1597-42ee-aeaa-854850cd69a7"
-            name="fac_tot"
+            Id="2d529303-e1e4-4edd-ac78-f40bca6c3d69"
+            name="fac_mon"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="363e245c-06af-47f4-b4b2-890054974460"
+            name="fac_red"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2700,8 +2661,8 @@
             aggregation="None"
             isComposite="false" />
           <property
-            Id="b1041567-3e3d-41ad-b834-417a7eaf7dd6"
-            name="rep_tot"
+            Id="4e83c2ec-d502-4b29-9a6c-3149151c90e0"
+            name="reg_mon"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2796,7 +2757,7 @@
             aggregation="None"
             isComposite="false" />
           <property
-            Id="d6af3a43-57d8-4987-ae82-05d09ab54e24"
+            Id="5e5ca7c6-2cf1-43b7-8208-11be0b5abd7d"
             name="liv_rec"
             isLeaf="false"
             isStatic="false"
@@ -2942,20 +2903,20 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="5e94b36a-3f3b-40da-a82f-639eeca6ecc7"
+            Id="90044848-7090-4cba-8af1-741ced725e8f"
             isDerived="false"
             sourceEndRoleName=""
             targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
             <classMoniker
-              Id="44380072-eec0-4b0b-9203-8c654404fe61"
-              LastKnownName="Commande"
+              Id="0872e23b-f04f-4b5a-9909-9180531d136a"
+              LastKnownName="Ligne de commande"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="60cd452d-5efd-484d-b114-99e554e457ef"
+                  Id="d1dc4d7b-18a4-4e1d-b5c2-691d9ad79eca"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -2967,7 +2928,7 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="54f8d292-103a-4263-8b71-b179d503cbae"
+                  Id="8d34217b-0b9f-4b08-85e3-825fde4d0e22"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -2977,13 +2938,13 @@
                   isComposite="false">
                   <lowerValueInternal>
                     <literalString
-                      Id="5523f577-6142-4a5c-adb8-1b2233120469"
+                      Id="5bf2c829-7838-4e8a-bf5e-6ff73f472d29"
                       name="Lower"
                       value="*" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
-                      Id="379047b7-e9f8-45a0-996c-478e8dce2f04"
+                      Id="c2cd3dbd-4673-4cec-80e7-c19dba1469d6"
                       name="Upper"
                       value="*" />
                   </upperValueInternal>
@@ -3062,6 +3023,72 @@
           <property
             Id="bc907f2a-b13a-4e3e-9414-e15bdacd1b72"
             name="cli_tel"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="2349a6b0-160c-4345-b2e3-7565db6d6fff"
+            name="fac_adr"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="5c678e3a-c547-488f-8f94-9833acc490dd"
+            name="fac_cp"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="d5005098-bf4a-4a75-a9c2-95e2e136e394"
+            name="fac_vil"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="49467d28-636a-4ed7-bcce-4921de58ceb6"
+            name="liv_adr"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="001ad1cc-96b4-4ef1-856b-e4fa89752a74"
+            name="liv_cp"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="5e0c2a4c-7563-4138-ac1b-a5d8351b3ebb"
+            name="liv_vil"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -3346,6 +3373,30 @@
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="f4df6c32-9c93-4dc1-9460-d61efeae9594"
+            name="ru2_id"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="784570d0-5f0d-4155-88fd-a0c2a024b9c2"
+            name="ru2_nom"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -3407,6 +3458,30 @@
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="cfe48f8f-deff-41d7-b8fd-ba060a0c504f"
+            name="ru1_id"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="23e5d9da-dab5-46da-bb1a-2deefd6ab79c"
+            name="ru1_nom"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -6690,7 +6765,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="ad9b83b0-b4e4-4561-86a5-5eacc3978ea7"
-              LastKnownName="Modifie une fiche fournisseur"
+              LastKnownName="Enregistre / Modifie / Supprime une fiche fournisseur"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -6768,7 +6843,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="73334232-9c46-408b-8996-d14492a71226"
-              LastKnownName="Consulte une fiche fournisseur"
+              LastKnownName="Consulter une fiche fournisseur"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -6885,7 +6960,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="7f18fc87-0166-4900-83b5-d9e022e393a1"
-              LastKnownName="Enregistre un produit"
+              LastKnownName="Enregistre / Modifie / Supprime une fiche produit"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -7041,7 +7116,7 @@
             isAbstract="false">
             <useCaseMoniker
               Id="c1889e64-ac77-4b62-92ac-1c1dd57b8d93"
-              LastKnownName="Consulte une fiche produit"
+              LastKnownName="Consulter une fiche produit"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -7620,6 +7695,21 @@
           </opaqueAction>
         </nodes>
       </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="8e89ccff-6df3-4a4b-9606-d1ec69364fdf"
+        name="Module de gestion des produits"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a774cf4e-5776-4a90-935c-3f8a8c9d56fa"
+        name="Consulter  une commande"
+        isAbstract="false"
+        isLeaf="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
