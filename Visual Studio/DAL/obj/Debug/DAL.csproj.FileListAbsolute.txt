@@ -7,3 +7,8 @@ B:\VG\Visual Studio\DAL\bin\Debug\DAL.dll
 B:\VG\Visual Studio\DAL\bin\Debug\DAL.pdb
 B:\VG\Visual Studio\DAL\obj\Debug\DAL.dll
 B:\VG\Visual Studio\DAL\obj\Debug\DAL.pdb
+C:\Users\stagiaire\Downloads\VillageGreen\Visual Studio\DAL\bin\Debug\DAL.dll
+C:\Users\stagiaire\Downloads\VillageGreen\Visual Studio\DAL\bin\Debug\DAL.pdb
+C:\Users\stagiaire\Downloads\VillageGreen\Visual Studio\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\stagiaire\Downloads\VillageGreen\Visual Studio\DAL\obj\Debug\DAL.dll
+C:\Users\stagiaire\Downloads\VillageGreen\Visual Studio\DAL\obj\Debug\DAL.pdb

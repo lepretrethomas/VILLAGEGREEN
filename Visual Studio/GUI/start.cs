@@ -56,5 +56,10 @@ namespace GUI
             button_connect.Hide();
             button_cancel.Hide();
         }
+
+        private void start_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

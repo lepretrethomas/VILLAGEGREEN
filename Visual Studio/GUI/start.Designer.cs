@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(236)))), ((int)(((byte)(202)))));
             this.ClientSize = new System.Drawing.Size(802, 274);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.button_connect);
@@ -157,6 +157,7 @@
             this.Name = "start";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VillageGreen - Application";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.start_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

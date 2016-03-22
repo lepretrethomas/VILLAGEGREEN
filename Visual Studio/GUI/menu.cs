@@ -58,5 +58,10 @@ namespace GUI
         {
             this.Close();
         }
+
+        private void menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
