@@ -108,6 +108,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="start.resx">
       <DependentUpon>start.cs</DependentUpon>
@@ -130,6 +131,93 @@
       <Project>{85cd97e0-901a-4818-9994-2f2da2a332e9}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_icone25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_logo_46x50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_logo_212x250.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\barre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\villagegreen_logo_65x70.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

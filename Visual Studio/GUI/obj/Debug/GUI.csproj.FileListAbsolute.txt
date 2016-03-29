@@ -46,3 +46,35 @@ C:\Users\stagiaire\Downloads\VillageGreen\Visual Studio\GUI\obj\Debug\GUI.menu.r
 C:\Users\stagiaire\Downloads\VillageGreen\Visual Studio\GUI\obj\Debug\GUI.Properties.Resources.resources
 C:\Users\stagiaire\Downloads\VillageGreen\Visual Studio\GUI\obj\Debug\GUI.start.resources
 C:\Users\stagiaire\Downloads\VillageGreen\Visual Studio\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
+B:\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\GUI.exe.config
+B:\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.exe
+B:\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.pdb
+B:\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\GUI.exe
+B:\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\GUI.pdb
+B:\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\DAL.dll
+B:\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\DAL.pdb
+B:\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.chiffreaffaire.resources
+B:\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.gestion_c.resources
+B:\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.gestion_f.resources
+B:\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.gestion_p.resources
+B:\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.menu.resources
+B:\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.Properties.Resources.resources
+B:\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.start.resources
+B:\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
+B:\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\GUI.exe.config
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.exe
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.pdb
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\GUI.exe
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\GUI.pdb
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\DAL.dll
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\bin\Debug\DAL.pdb
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.chiffreaffaire.resources
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.gestion_c.resources
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.gestion_f.resources
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.gestion_p.resources
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.menu.resources
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.Properties.Resources.resources
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.start.resources
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache

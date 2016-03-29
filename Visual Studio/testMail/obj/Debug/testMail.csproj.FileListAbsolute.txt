@@ -18,3 +18,13 @@ B:\VG\Visual Studio\testMail\bin\Debug\fr\Microsoft.VisualStudio.QualityTools.Un
 B:\VG\Visual Studio\testMail\obj\Debug\testMail.csprojResolveAssemblyReference.cache
 B:\VG\Visual Studio\testMail\obj\Debug\testMail.dll
 B:\VG\Visual Studio\testMail\obj\Debug\testMail.pdb
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\testMail.dll
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\testMail.pdb
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\Mail.exe
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\Mail.pdb
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\Mail.xml
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\bin\Debug\fr\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\obj\Debug\testMail.csprojResolveAssemblyReference.cache
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\obj\Debug\testMail.dll
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\testMail\obj\Debug\testMail.pdb

@@ -56,6 +56,9 @@ namespace GUI
 
         private void button_deco_Click(object sender, EventArgs e)
         {
+            start f = new start();
+            this.Visible = false;
+            f.ShowDialog();
             this.Close();
         }
 

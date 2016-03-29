@@ -21,11 +21,12 @@ namespace DAL
             connect.Open();
             //SqlCommand requete_insert = new SqlCommand("insert into PROD (fou_id, pro_lib, pro_des, pro_photo, ru2_id)"
             //+ " values (@fournisseur, @libelle, @description, @photo, @rubrique)", connect);
-            SqlCommand requete_insert = new SqlCommand("insert into PROD (fou_id, pro_lib, pro_des, pro_pu, ru2_id)"
-                                                    + " values (@fournisseur, @libelle, @description, @prix, @rubrique)", connect);
+            SqlCommand requete_insert = new SqlCommand("insert into PROD (fou_id, pro_lib, pro_des, pro_aff, pro_pu, ru2_id)"
+                                                    + " values (@fournisseur, @libelle, @description, @affiche, @prix, @rubrique)", connect);
             requete_insert.Parameters.AddWithValue("@fournisseur", p.Fournisseur);
             requete_insert.Parameters.AddWithValue("@libelle", p.Libelle);
             requete_insert.Parameters.AddWithValue("@description", p.Description);
+            requete_insert.Parameters.AddWithValue("@affiche", p.Affiche);
             requete_insert.Parameters.AddWithValue("@prix", p.Prix);
             //if (p.Photo != null)
             //{
@@ -55,13 +56,14 @@ namespace DAL
             //+ " pro_pho = @photo, pro_des = @description, ru2_id=@rubrique"
             //+ " where pro_id = @id", connect);
             SqlCommand requete_update = new SqlCommand("update PROD set fou_id = @fournisseur, pro_lib = @libelle,"
-            + " pro_des = @description, pro_pu = @prix, ru2_id=@rubrique"
+            + " pro_des = @description, pro_aff = @affiche, pro_pu = @prix, ru2_id=@rubrique"
             + " where pro_id = @id", connect);
             requete_update.Parameters.AddWithValue("@id", p.Id);
             requete_update.Parameters.AddWithValue("@fournisseur", p.Fournisseur);
             requete_update.Parameters.AddWithValue("@libelle", p.Libelle);
             requete_update.Parameters.AddWithValue("@description", p.Description);
             requete_update.Parameters.AddWithValue("@prix", p.Prix);
+            requete_update.Parameters.AddWithValue("@affiche", p.Affiche);
             //if (p.Photo != "")
             //{
             //    requete_update.Parameters.AddWithValue("@photo", p.Photo);
@@ -100,6 +102,7 @@ namespace DAL
                 p.Libelle = Convert.ToString(lecture["pro_lib"]);
                 p.Description = Convert.ToString(lecture["pro_des"]);
                 p.Prix = Convert.ToDecimal(lecture["pro_pu"]);
+                p.Affiche = Convert.ToInt16(lecture["pro_aff"]);
                 p.Photo = Convert.ToString(lecture["pro_pho"]);
                 p.Rubrique = Convert.ToInt32(lecture["ru2_id"]);
             }
@@ -124,6 +127,7 @@ namespace DAL
                 p.Libelle = Convert.ToString(lecture["pro_lib"]);
                 p.Description = Convert.ToString(lecture["pro_des"]);
                 p.Prix = Convert.ToDecimal(lecture["pro_pu"]);
+                p.Affiche = Convert.ToInt16(lecture["pro_aff"]);
                 p.Photo = Convert.ToString(lecture["pro_pho"]);
                 p.Rubrique = Convert.ToInt32(lecture["ru2_id"]);
             }
@@ -148,6 +152,7 @@ namespace DAL
                 p.Libelle = Convert.ToString(lecture["pro_lib"]);
                 p.Description = Convert.ToString(lecture["pro_des"]);
                 p.Prix = Convert.ToDecimal(lecture["pro_pu"]);
+                p.Affiche = Convert.ToInt16(lecture["pro_aff"]);
                 p.Photo = Convert.ToString(lecture["pro_pho"]);
                 p.Rubrique = Convert.ToInt32(lecture["ru2_id"]);
                 resultat.Add(p);
@@ -173,6 +178,7 @@ namespace DAL
                 p.Libelle = Convert.ToString(lecture["pro_lib"]);
                 p.Description = Convert.ToString(lecture["pro_des"]);
                 p.Prix = Convert.ToDecimal(lecture["pro_pu"]);
+                p.Affiche = Convert.ToInt16(lecture["pro_aff"]);
                 p.Photo = Convert.ToString(lecture["pro_pho"]);
                 p.Rubrique = Convert.ToInt32(lecture["ru2_id"]);
                 resultat.Add(p);
@@ -186,7 +192,8 @@ namespace DAL
             List<Produit> resultat = new List<Produit>();
             connect.Open();
             SqlCommand requete_statut = new SqlCommand(@"Select * from PROD
-                                                         where fou_id = @fournisseur order by pro_lib", connect);
+                                                        join RUB2 on RUB2.ru2_id = PROD.ru2_id
+                                                         where fou_id = @fournisseur order by pro_id", connect);
             requete_statut.Parameters.AddWithValue("@fournisseur", fournisseur);
             SqlDataReader lecture = requete_statut.ExecuteReader();
             while (lecture.Read())
@@ -197,8 +204,9 @@ namespace DAL
                 p.Libelle = Convert.ToString(lecture["pro_lib"]);
                 p.Description = Convert.ToString(lecture["pro_des"]);
                 p.Prix = Convert.ToDecimal(lecture["pro_pu"]);
+                p.Affiche = Convert.ToInt16(lecture["pro_aff"]);
                 p.Photo = Convert.ToString(lecture["pro_pho"]);
-                p.Rubrique = Convert.ToInt32(lecture["ru2_id"]);
+                p.nomRubrique = Convert.ToString(lecture["ru2_nom"]);
                 resultat.Add(p);
             }
             lecture.Close();

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gestion_f));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox_detail = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -69,6 +69,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_menu = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox_detail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -206,15 +207,15 @@
             this.textBox_tel.Location = new System.Drawing.Point(86, 125);
             this.textBox_tel.Name = "textBox_tel";
             this.textBox_tel.Size = new System.Drawing.Size(108, 20);
-            this.textBox_tel.TabIndex = 11;
+            this.textBox_tel.TabIndex = 5;
             this.textBox_tel.TextChanged += new System.EventHandler(this.textBox_tel_TextChanged);
             // 
             // textBox_cp
             // 
             this.textBox_cp.Location = new System.Drawing.Point(86, 99);
             this.textBox_cp.Name = "textBox_cp";
-            this.textBox_cp.Size = new System.Drawing.Size(62, 20);
-            this.textBox_cp.TabIndex = 10;
+            this.textBox_cp.Size = new System.Drawing.Size(56, 20);
+            this.textBox_cp.TabIndex = 3;
             this.textBox_cp.TextChanged += new System.EventHandler(this.textBox_cp_TextChanged);
             // 
             // textBox_ville
@@ -222,7 +223,7 @@
             this.textBox_ville.Location = new System.Drawing.Point(192, 99);
             this.textBox_ville.Name = "textBox_ville";
             this.textBox_ville.Size = new System.Drawing.Size(304, 20);
-            this.textBox_ville.TabIndex = 7;
+            this.textBox_ville.TabIndex = 4;
             this.textBox_ville.TextChanged += new System.EventHandler(this.textBox_ville_TextChanged);
             // 
             // textBox_adresse
@@ -230,7 +231,7 @@
             this.textBox_adresse.Location = new System.Drawing.Point(86, 73);
             this.textBox_adresse.Name = "textBox_adresse";
             this.textBox_adresse.Size = new System.Drawing.Size(410, 20);
-            this.textBox_adresse.TabIndex = 6;
+            this.textBox_adresse.TabIndex = 2;
             this.textBox_adresse.TextChanged += new System.EventHandler(this.textBox_adresse_TextChanged);
             // 
             // textBox_prenom
@@ -238,15 +239,15 @@
             this.textBox_prenom.Location = new System.Drawing.Point(327, 46);
             this.textBox_prenom.Name = "textBox_prenom";
             this.textBox_prenom.Size = new System.Drawing.Size(169, 20);
-            this.textBox_prenom.TabIndex = 5;
+            this.textBox_prenom.TabIndex = 1;
             this.textBox_prenom.TextChanged += new System.EventHandler(this.textBox_prenom_TextChanged);
             // 
             // textBox_nom
             // 
             this.textBox_nom.Location = new System.Drawing.Point(86, 47);
             this.textBox_nom.Name = "textBox_nom";
-            this.textBox_nom.Size = new System.Drawing.Size(186, 20);
-            this.textBox_nom.TabIndex = 4;
+            this.textBox_nom.Size = new System.Drawing.Size(172, 20);
+            this.textBox_nom.TabIndex = 0;
             this.textBox_nom.TextChanged += new System.EventHandler(this.textBox_nom_TextChanged);
             // 
             // label_ville
@@ -290,7 +291,7 @@
             this.button_annuler.Location = new System.Drawing.Point(655, 422);
             this.button_annuler.Name = "button_annuler";
             this.button_annuler.Size = new System.Drawing.Size(103, 32);
-            this.button_annuler.TabIndex = 9;
+            this.button_annuler.TabIndex = 10;
             this.button_annuler.Text = "Annuler";
             this.button_annuler.UseVisualStyleBackColor = true;
             this.button_annuler.Click += new System.EventHandler(this.button_annuler_Click);
@@ -300,7 +301,7 @@
             this.button_supprimer.Location = new System.Drawing.Point(278, 241);
             this.button_supprimer.Name = "button_supprimer";
             this.button_supprimer.Size = new System.Drawing.Size(107, 32);
-            this.button_supprimer.TabIndex = 10;
+            this.button_supprimer.TabIndex = 4;
             this.button_supprimer.Text = "Supprimer";
             this.button_supprimer.UseVisualStyleBackColor = true;
             this.button_supprimer.Click += new System.EventHandler(this.button_supprimer_Click);
@@ -310,7 +311,7 @@
             this.button_modifier.Location = new System.Drawing.Point(278, 203);
             this.button_modifier.Name = "button_modifier";
             this.button_modifier.Size = new System.Drawing.Size(107, 32);
-            this.button_modifier.TabIndex = 9;
+            this.button_modifier.TabIndex = 3;
             this.button_modifier.Text = "Modifier";
             this.button_modifier.UseVisualStyleBackColor = true;
             this.button_modifier.Click += new System.EventHandler(this.button_modifier_Click);
@@ -320,7 +321,7 @@
             this.button_ajouter.Location = new System.Drawing.Point(278, 77);
             this.button_ajouter.Name = "button_ajouter";
             this.button_ajouter.Size = new System.Drawing.Size(107, 32);
-            this.button_ajouter.TabIndex = 8;
+            this.button_ajouter.TabIndex = 1;
             this.button_ajouter.Text = "Ajouter";
             this.button_ajouter.UseVisualStyleBackColor = true;
             this.button_ajouter.Click += new System.EventHandler(this.button_ajouter_Click);
@@ -330,7 +331,7 @@
             this.button_liste.Location = new System.Drawing.Point(68, 421);
             this.button_liste.Name = "button_liste";
             this.button_liste.Size = new System.Drawing.Size(204, 33);
-            this.button_liste.TabIndex = 13;
+            this.button_liste.TabIndex = 6;
             this.button_liste.Text = "Liste complète";
             this.button_liste.UseVisualStyleBackColor = true;
             this.button_liste.Click += new System.EventHandler(this.button_liste_Click);
@@ -340,7 +341,7 @@
             this.button_voir.Location = new System.Drawing.Point(278, 165);
             this.button_voir.Name = "button_voir";
             this.button_voir.Size = new System.Drawing.Size(107, 32);
-            this.button_voir.TabIndex = 14;
+            this.button_voir.TabIndex = 2;
             this.button_voir.Text = "Visualiser";
             this.button_voir.UseVisualStyleBackColor = true;
             this.button_voir.Click += new System.EventHandler(this.button_voir_Click);
@@ -351,15 +352,16 @@
             this.listBox.Location = new System.Drawing.Point(68, 77);
             this.listBox.Name = "listBox";
             this.listBox.Size = new System.Drawing.Size(204, 342);
-            this.listBox.TabIndex = 15;
+            this.listBox.TabIndex = 0;
             this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
+            this.listBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBox_KeyPress);
             // 
             // button_confirmer
             // 
             this.button_confirmer.Location = new System.Drawing.Point(542, 422);
             this.button_confirmer.Name = "button_confirmer";
             this.button_confirmer.Size = new System.Drawing.Size(107, 32);
-            this.button_confirmer.TabIndex = 18;
+            this.button_confirmer.TabIndex = 9;
             this.button_confirmer.Text = "Confirmer";
             this.button_confirmer.UseVisualStyleBackColor = true;
             this.button_confirmer.Click += new System.EventHandler(this.button_confirmer_Click);
@@ -382,7 +384,7 @@
             this.label_cours.Location = new System.Drawing.Point(393, 433);
             this.label_cours.Name = "label_cours";
             this.label_cours.Size = new System.Drawing.Size(0, 13);
-            this.label_cours.TabIndex = 47;
+            this.label_cours.TabIndex = 5;
             // 
             // label_operation
             // 
@@ -391,7 +393,7 @@
             this.label_operation.Location = new System.Drawing.Point(388, 412);
             this.label_operation.Name = "label_operation";
             this.label_operation.Size = new System.Drawing.Size(123, 13);
-            this.label_operation.TabIndex = 46;
+            this.label_operation.TabIndex = 2;
             this.label_operation.Text = "Opération en cours :";
             // 
             // button_recherche
@@ -399,7 +401,7 @@
             this.button_recherche.Location = new System.Drawing.Point(204, 47);
             this.button_recherche.Name = "button_recherche";
             this.button_recherche.Size = new System.Drawing.Size(68, 20);
-            this.button_recherche.TabIndex = 55;
+            this.button_recherche.TabIndex = 8;
             this.button_recherche.Text = "Recherche";
             this.button_recherche.UseVisualStyleBackColor = true;
             this.button_recherche.Click += new System.EventHandler(this.button_recherche_Click);
@@ -409,7 +411,7 @@
             this.textBox_recherche.Location = new System.Drawing.Point(68, 47);
             this.textBox_recherche.Name = "textBox_recherche";
             this.textBox_recherche.Size = new System.Drawing.Size(130, 20);
-            this.textBox_recherche.TabIndex = 54;
+            this.textBox_recherche.TabIndex = 7;
             this.textBox_recherche.TextChanged += new System.EventHandler(this.textBox_recherche_TextChanged);
             // 
             // dataGridView1
@@ -418,7 +420,16 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(92, 494);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(815, 110);
@@ -438,17 +449,17 @@
             this.button_produit.Location = new System.Drawing.Point(278, 323);
             this.button_produit.Name = "button_produit";
             this.button_produit.Size = new System.Drawing.Size(107, 46);
-            this.button_produit.TabIndex = 58;
+            this.button_produit.TabIndex = 5;
             this.button_produit.Text = "Liste des produits associès";
             this.button_produit.UseVisualStyleBackColor = true;
             this.button_produit.Click += new System.EventHandler(this.button_produit_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::GUI.Properties.Resources.villagegreen_logo_65x70;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(49, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(65, 70);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 59;
             this.pictureBox1.TabStop = false;
@@ -466,20 +477,33 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(55, 30);
+            this.pictureBox2.Image = global::GUI.Properties.Resources.barre;
+            this.pictureBox2.Location = new System.Drawing.Point(71, 30);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(917, 20);
+            this.pictureBox2.Size = new System.Drawing.Size(901, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 61;
             this.pictureBox2.TabStop = false;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.linkLabel1.Location = new System.Drawing.Point(954, 434);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(18, 20);
+            this.linkLabel1.TabIndex = 65;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "?";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // gestion_f
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(236)))), ((int)(((byte)(202)))));
+            this.BackColor = System.Drawing.Color.Snow;
             this.ClientSize = new System.Drawing.Size(984, 611);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label_menu);
             this.Controls.Add(this.button_produit);
@@ -505,6 +529,7 @@
             this.Name = "gestion_f";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion des Fournisseurs";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gestion_f_KeyDown);
             this.groupBox_detail.ResumeLayout(false);
             this.groupBox_detail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -556,5 +581,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label_menu;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

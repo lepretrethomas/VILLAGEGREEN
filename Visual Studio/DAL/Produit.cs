@@ -14,6 +14,8 @@ namespace DAL
         public string Description { get; set; }
         public decimal Prix { get; set; }
         public string Photo { get; set; }
+        public int Affiche { get; set; }
         public int Rubrique { get; set; }
+        public string nomRubrique { get; set; }
     }
 }

@@ -57,6 +57,7 @@ CREATE TABLE PROD (
 	pro_lib  			VARCHAR(50) NOT NULL,
 	pro_des   			VARCHAR(704),
 	pro_pu				numeric (10,2) NOT NULL,
+	pro_aff				bit NOT NULL,
 	pro_pho      		VARCHAR(50),
 	ru2_id        		INT,
 	PRIMARY KEY (pro_id)

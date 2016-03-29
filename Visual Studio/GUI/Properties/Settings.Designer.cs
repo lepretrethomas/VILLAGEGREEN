@@ -26,7 +26,8 @@ namespace GUI.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source =.; Initial Catalog=VILLAGEGREEN; integrated security=true")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source =.; Initial Catalog=VILLAGEGREEN; integrated security=true; Connectio" +
+            "n Timeout=5")]
         public string Serveur {
             get {
                 return ((string)(this["Serveur"]));

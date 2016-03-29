@@ -17,3 +17,13 @@ B:\VG\Visual Studio\Mail\obj\Debug\Mail.Properties.Resources.resources
 B:\VG\Visual Studio\Mail\obj\Debug\Mail.csproj.GenerateResource.Cache
 B:\VG\Visual Studio\Mail\obj\Debug\Mail.exe
 B:\VG\Visual Studio\Mail\obj\Debug\Mail.pdb
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\bin\Debug\Mail.exe.config
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\bin\Debug\Mail.XML
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\bin\Debug\Mail.exe
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\bin\Debug\Mail.pdb
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\obj\Debug\Mail.csprojResolveAssemblyReference.cache
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\obj\Debug\Mail.mail.resources
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\obj\Debug\Mail.Properties.Resources.resources
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\obj\Debug\Mail.csproj.GenerateResource.Cache
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\obj\Debug\Mail.exe
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\Mail\obj\Debug\Mail.pdb

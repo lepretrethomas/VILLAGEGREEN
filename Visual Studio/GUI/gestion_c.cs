@@ -15,10 +15,21 @@ namespace GUI
 {
     public partial class gestion_c : Form
     {
-        bool ajouter = false;
-        bool modifier = false;
-        bool supprimer = false;
-        bool voir = false;
+        int choix = 0;
+        bool check_formulaire = false;
+        bool check_categorie = false;
+        bool check_nom = false;
+        bool check_prenom = false;
+        bool check_adresse = false;
+        bool check_cp = false;
+        bool check_ville = false;
+        bool check_tel = false;
+        bool check_fac_adresse = false;
+        bool check_fac_cp = false;
+        bool check_fac_ville = false;
+        bool check_liv_adresse = false;
+        bool check_liv_cp = false;
+        bool check_liv_ville = false;
         public gestion_c()
         {
             InitializeComponent();
@@ -106,44 +117,44 @@ namespace GUI
         {
             remplir();
             non_modifiable();
-            voir = true;
             button_modifier.Enabled = true;
             button_supprimer.Enabled = true;
             button_commande.Enabled = true;
             label_cours.Text = "Visualisation";
             button_confirmer.Enabled = false;
             button_annuler.Enabled = false;
+            choix=1;
         }
         private void button_ajouter_Click(object sender, EventArgs e)
         {
             nettoyer();
             modifiable();
             textBox_nom.Focus();
-            ajouter = true;
             button_modifier.Enabled = false;
             button_supprimer.Enabled = false;
             button_commande.Enabled = false;
             label_cours.Text = "Ajout";
             button_confirmer.Enabled = true;
             button_annuler.Enabled = true;
+                        choix=2;
         }
         private void button_modifier_Click(object sender, EventArgs e)
         {
             remplir();
             modifiable();
-            modifier = true;
             label_cours.Text = "Modification";
             button_confirmer.Enabled = true;
             button_annuler.Enabled = true;
+                        choix=3;
         }
         private void button_supprimer_Click(object sender, EventArgs e)
         {
             remplir();
             non_modifiable();
-            supprimer = true;
             label_cours.Text = "Suppression";
             button_confirmer.Enabled = true;
             button_annuler.Enabled = true;
+                        choix=4;
         }
         private void button_annuler_Click(object sender, EventArgs e)
         {
@@ -156,13 +167,14 @@ namespace GUI
         }
         private void button_confirmer_Click(object sender, EventArgs e)
         {
-
+            check();
             try
             {
                 Client c = new Client();
                 ClientDAO cdao = new ClientDAO(GUI.Properties.Settings.Default.Serveur);
-                if (voir == true)
+                switch (choix)
                 {
+                case (1):
                     c.Nom = textBox_nom.Text;
                     c.Prenom = textBox_prenom.Text;
                     c.Adresse = textBox_adresse.Text;
@@ -175,13 +187,12 @@ namespace GUI
                     c.Liv_Adresse = textBox_liv_adresse.Text;
                     c.Liv_CodePostal = textBox_liv_cp.Text;
                     c.Liv_Ville = textBox_liv_ville.Text;
-                    c.Statut = textBox_categorie.Text;
-                }
-                if (ajouter == true)
-                {
-                    modifier = false;
-                    supprimer = false;
-                    c.Nom = textBox_nom.Text;
+                    c.Statut = textBox_categorie.Text;                
+                break;
+                case (2):
+                        if (check_formulaire == true)
+                        {
+                            c.Nom = textBox_nom.Text;
                     c.Prenom = textBox_prenom.Text;
                     c.Adresse = textBox_adresse.Text;
                     c.CodePostal = textBox_cp.Text;
@@ -198,17 +209,23 @@ namespace GUI
                     {
                         cdao.Insert(c);
                         MessageBox.Show("Ajout effectué.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                                nettoyer();
+                                charger();
+                            }
                     catch (Exception)
-                    {
-                        MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                if (modifier == true)
-                {
-                    ajouter = false;
-                    supprimer = false;
-                    c.Nom = textBox_nom.Text;
+                            {
+                                MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vérifiez votre saisie dans les champs requis, puis recommencez.\nRéférez vous à l'aide en bas à droite de la fenêtre si nécessaire.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        break;
+                    case (3):
+                        if (check_formulaire == true)
+                        {
+                            c.Nom = textBox_nom.Text;
                     c.Prenom = textBox_prenom.Text;
                     c.Adresse = textBox_adresse.Text;
                     c.CodePostal = textBox_cp.Text;
@@ -226,35 +243,37 @@ namespace GUI
                     {
                         cdao.Update(c);
                         MessageBox.Show("Modification effectuée.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                                nettoyer();
+                                charger();
+                            }
                     catch (Exception)
-                    {
-                        MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                if (supprimer == true)
-                {
-                    ajouter = false;
-                    modifier = false;
+                            {
+                                MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vérifiez votre saisie dans les champs requis, puis recommencez.\nRéférez vous à l'aide en bas à droite de la fenêtre si nécessaire.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        break;
+                    case (4):
                     c.Id = (int)listBox.SelectedValue;
                     try
                     {
                         cdao.Delete(c);
                         MessageBox.Show("Suppression effectuée.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                            nettoyer();
+                            charger();
+                        }
                     catch (Exception)
                     {
-                        MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Un problème est survenu.\nNotification: Impossible de supprimer un client associé à d'autres paramètres dans la base de données.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                break;
                 }
-                nettoyer();
-                charger();
                 button_modifier.Enabled = false;
                 button_supprimer.Enabled = false;
                 button_commande.Enabled = false;
-                ajouter = false;
-                modifier = false;
-                supprimer = false;
             }
             catch (Exception)
             {
@@ -368,12 +387,12 @@ namespace GUI
             if (Regex.IsMatch(textBox_categorie.Text, @"^[12]{1}$") == true)
             {
                 textBox_categorie.BackColor = SystemColors.Window;
-                button_confirmer.Enabled = true;
+                check_categorie = true;
             }
             else
             {
                 textBox_categorie.BackColor = Color.LightSalmon;
-                button_confirmer.Enabled = false;
+                check_categorie = false;
             }
             if (textBox_categorie.Text == "1")
             {
@@ -386,160 +405,160 @@ namespace GUI
         }
         private void textBox_nom_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_nom.Text, @"^[A-Za-z][A-Za-z0-9 -\/:'""]{2,49}$") == true)
+            if (Regex.IsMatch(textBox_nom.Text, @"^[A-Za-z0-9 '-]{1,50}$") == true)
             {
                 textBox_nom.BackColor = SystemColors.Window;
-                button_confirmer.Enabled = true;
+                check_nom = true;
             }
             else
             {
                 textBox_nom.BackColor = Color.LightSalmon;
-                button_confirmer.Enabled = false;
+                check_nom = false;
             }
         }
         private void textBox_prenom_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_prenom.Text, @"^[A-Za-z][A-Za-z -']{2,24}$") == true)
+            if ((Regex.IsMatch(textBox_prenom.Text, @"^[A-Za-z -]{1,25}$") == true) || (textBox_prenom.Text == ""))
             {
                 textBox_prenom.BackColor = SystemColors.Window;
-                button_confirmer.Enabled = true;
+                check_prenom = true;
             }
             else
             {
                 textBox_prenom.BackColor = Color.LightSalmon;
-                button_confirmer.Enabled = false;
+                check_prenom = false;
             }
         }
         private void textBox_adresse_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_adresse.Text, @"^[A-Za-z0-9 -,']{3,100}$") == true)
+            if (Regex.IsMatch(textBox_adresse.Text, @"^[A-Za-z0-9 ,'-]{1,100}$") == true)
 
             {
                 textBox_adresse.BackColor = SystemColors.Window;
-                button_confirmer.Enabled = true;
+                check_adresse = true;
             }
             else
             {
                 textBox_adresse.BackColor = Color.LightSalmon;
-                button_confirmer.Enabled = false;
+                check_adresse = false;
             }
         }
         private void textBox_cp_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_cp.Text, @"^[\d]{5}$") == true)
+            if (Regex.IsMatch(textBox_cp.Text, @"^[0-9]{5}$") == true)
             {
                 textBox_cp.BackColor = SystemColors.Window;
-                button_confirmer.Enabled = true;
+                check_cp = true;
             }
             else
             {
                 textBox_cp.BackColor = Color.LightSalmon;
-                button_confirmer.Enabled = false;
+                check_cp = false;
             }
         }
         private void textBox_ville_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_ville.Text, @"^[A-Za-z0-9 -,']{3,100}$") == true)
+            if (Regex.IsMatch(textBox_ville.Text, @"^[A-Za-z0-9 ,'-]{1,100}$") == true)
             {
                 textBox_ville.BackColor = SystemColors.Window;
-                button_confirmer.Enabled = true;
+                check_ville = true;
             }
             else
             {
                 textBox_ville.BackColor = Color.LightSalmon;
-                button_confirmer.Enabled = false;
+                check_ville = false;
             }
         }
         private void textBox_tel_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_tel.Text, @"^[\d ]{10,15}$") == true)
+            if (Regex.IsMatch(textBox_tel.Text, @"^[\d]{10}$") == true)
             {
                 textBox_tel.BackColor = SystemColors.Window;
-                button_confirmer.Enabled = true;
+                check_tel = true;
             }
             else
             {
                 textBox_tel.BackColor = Color.LightSalmon;
-                button_confirmer.Enabled = false;
+                check_tel = false;
             }
         }
         private void textBox_fac_adresse_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_fac_adresse.Text, @"^[A-Za-z0-9 -,']{3,100}$") == true)
+            if (Regex.IsMatch(textBox_fac_adresse.Text, @"^[A-Za-z0-9 ,'-]{1,100}$") == true)
             {
                 textBox_fac_adresse.BackColor = SystemColors.Window;
-                button_confirmer.Enabled = true;
+                check_fac_adresse = true;
             }
             else
             {
                 textBox_fac_adresse.BackColor = Color.LightSalmon;
-                button_confirmer.Enabled = false;
+                check_fac_adresse = false;
             }
         }
         private void textBox_fac_cp_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_fac_cp.Text, @"^\d{5}$") == true)
+            if (Regex.IsMatch(textBox_fac_cp.Text, @"^[0-9]{5}$") == true)
             {
                 textBox_fac_cp.BackColor = SystemColors.Window;
-                button_confirmer.Enabled = true;
+                check_fac_cp = true;
             }
             else
             {
                 textBox_fac_cp.BackColor = Color.LightSalmon;
-                button_confirmer.Enabled = false;
+                check_fac_cp = false;
             }
         }
         private void textBox_fac_ville_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_fac_ville.Text, @"^[A-Za-z0-9 -,']{3,100}$") == true)
+            if (Regex.IsMatch(textBox_fac_ville.Text, @"^[A-Za-z0-9 ,'-]{1,100}$") == true)
             {
                 textBox_fac_ville.BackColor = SystemColors.Window;
-                button_confirmer.Enabled = true;
+                check_fac_ville = true;
             }
             else
             {
                 textBox_fac_ville.BackColor = Color.LightSalmon;
-                button_confirmer.Enabled = false;
+                check_fac_ville = false;
             }
         }
         private void textBox_liv_adresse_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_liv_adresse.Text, @"^[A-Za-z0-9 -,']{3,100}$") == true)
+            if (Regex.IsMatch(textBox_liv_adresse.Text, @"^[A-Za-z0-9 ,'-]{1,100}$") == true)
             {
                 textBox_liv_adresse.BackColor = SystemColors.Window;
-                button_confirmer.Enabled = true;
+                check_liv_adresse = true;
             }
             else
             {
                 textBox_liv_adresse.BackColor = Color.LightSalmon;
-                button_confirmer.Enabled = false;
+                check_liv_adresse = false;
             }
         }
 
         private void textBox_liv_cp_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_liv_cp.Text, @"^\d{5}$") == true)
+            if (Regex.IsMatch(textBox_liv_cp.Text, @"^[0-9]{5}$") == true)
             {
                 textBox_liv_cp.BackColor = SystemColors.Window;
-                button_confirmer.Enabled = true;
+                check_liv_cp = true;
             }
             else
             {
                 textBox_liv_cp.BackColor = Color.LightSalmon;
-                button_confirmer.Enabled = false;
+                check_liv_cp = false;
             }
         }
         private void textBox_liv_ville_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(textBox_liv_ville.Text, @"^[A-Za-z0-9 -,']{3,100}$") == true)
+            if (Regex.IsMatch(textBox_liv_ville.Text, @"^[A-Za-z0-9 ,'-]{1,100}$") == true)
             {
                 textBox_liv_ville.BackColor = SystemColors.Window;
-                button_confirmer.Enabled = true;
+                check_liv_ville = true;
             }
             else
             {
                 textBox_liv_ville.BackColor = Color.LightSalmon;
-                button_confirmer.Enabled = false;
+                check_liv_ville = false;
             }
         }
 
@@ -574,6 +593,48 @@ namespace GUI
             {
                 textBox_recherche.BackColor = Color.LightSalmon;
                 button_recherche.Enabled = false;
+            }
+        }
+        private void check()
+        {
+            if ((check_categorie == true) && (check_nom == true) && (check_prenom == true) && (check_adresse == true) && (check_cp == true) && (check_ville == true) && (check_tel == true) && (check_fac_adresse == true) && (check_fac_cp == true) && (check_fac_ville == true) && (check_liv_adresse == true) && (check_liv_cp == true) && (check_liv_ville == true))
+            {
+                check_formulaire = true;
+            }
+            else
+            {
+                check_formulaire = false;
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Aide:\n\n\nCatégorie:\n1 = Particluier, 2 = Professionel\n\nNom:\nEntre 1 et 50 caractères alphanumériques, y compris les apostrophes * ' *, les espaces *  * et les tirets * - *.\n\nPrénom:\nEntre 0 et 25 caractères alphabétiques, y compris les espaces *  * et les tirets * - *.\n\nAdresse:\nEntre 1 et 100 caractères alphanumériques, y compris les apostrophes * ' *, les espaces *  *, les tirets * - * et les virgules * , *.\n\nCode Postal:\n5 caractères numériques, sans espace. (ex = 80130)\n\nVille:\nEntre 1 et 50 caractères alphanumériques, y compris les apostrophes * ' *, les espaces *  *, les tirets * - * et les virgules * , *.\n\nTéléphone:\n10 caractères numériques, sans espace. (ex = 0606060606)", "Informations", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void gestion_c_KeyDown(object sender, KeyEventArgs e)
+        {
+            this.listBox.Focus();
+            this.listBox.Select();
+
+            if (e.KeyCode == Keys.Up)
+            {
+                this.listBox.SelectedIndex--;
+
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                this.listBox.SelectedIndex++;
+            }
+        }
+
+        private void listBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.listBox.Focus();
+            this.listBox.Select();
+
+            if (e.KeyChar == (char)13)
+            {
+                button_voir.PerformClick();
             }
         }
     }

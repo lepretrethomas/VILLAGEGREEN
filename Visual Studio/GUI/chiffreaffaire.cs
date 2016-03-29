@@ -30,41 +30,76 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CADAO cdao = new CADAO(GUI.Properties.Settings.Default.Serveur);
-            CA c = cdao.ParTypeClient("Particulier");
-            label2.Text = c.ChiffreAffaire.ToString();
-            comboBox1.SelectedIndex = -1;
+            try
+            {
+                CADAO cdao = new CADAO(GUI.Properties.Settings.Default.Serveur);
+                CA c = cdao.ParTypeClient("Particulier");
+                label2.Text = c.ChiffreAffaire.ToString();
+                comboBox1.SelectedIndex = -1;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            CADAO cdao = new CADAO(GUI.Properties.Settings.Default.Serveur);
-            CA c = cdao.ParTypeClient("Professionnel");
-            label2.Text = c.ChiffreAffaire.ToString();
-            comboBox1.SelectedIndex = -1;
+            try
+            {
+                CADAO cdao = new CADAO(GUI.Properties.Settings.Default.Serveur);
+                CA c = cdao.ParTypeClient("Professionnel");
+                label2.Text = c.ChiffreAffaire.ToString();
+                comboBox1.SelectedIndex = -1;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CADAO cdao = new CADAO(GUI.Properties.Settings.Default.Serveur);
-            CA c = cdao.AllClient();
-            label2.Text = c.ChiffreAffaire.ToString();
-            comboBox1.SelectedIndex = -1;
+            try
+            {
+                CADAO cdao = new CADAO(GUI.Properties.Settings.Default.Serveur);
+                CA c = cdao.AllClient();
+                label2.Text = c.ChiffreAffaire.ToString();
+                comboBox1.SelectedIndex = -1;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            CADAO cdao = new CADAO(GUI.Properties.Settings.Default.Serveur);
-            CA c = cdao.AllFournisseur();
-            label2.Text = c.ChiffreAffaire.ToString();
-            comboBox1.SelectedIndex = -1;
+            try
+            {
+                CADAO cdao = new CADAO(GUI.Properties.Settings.Default.Serveur);
+                CA c = cdao.AllFournisseur();
+                label2.Text = c.ChiffreAffaire.ToString();
+                comboBox1.SelectedIndex = -1;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            CADAO cdao = new CADAO(GUI.Properties.Settings.Default.Serveur);
-            CA c = cdao.ParFournisseur(Convert.ToInt32(comboBox1.SelectedValue));
-            label2.Text = c.ChiffreAffaire.ToString();
+            try
+            {
+                CADAO cdao = new CADAO(GUI.Properties.Settings.Default.Serveur);
+                CA c = cdao.ParFournisseur(Convert.ToInt32(comboBox1.SelectedValue));
+                label2.Text = c.ChiffreAffaire.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Un problème est survenu.", "Echec", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

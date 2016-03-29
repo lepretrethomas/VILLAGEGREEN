@@ -12,3 +12,12 @@ C:\Users\stagiaire\Downloads\VillageGreen\Visual Studio\DAL\bin\Debug\DAL.pdb
 C:\Users\stagiaire\Downloads\VillageGreen\Visual Studio\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\stagiaire\Downloads\VillageGreen\Visual Studio\DAL\obj\Debug\DAL.dll
 C:\Users\stagiaire\Downloads\VillageGreen\Visual Studio\DAL\obj\Debug\DAL.pdb
+B:\VILLAGEGREEN\Visual Studio\DAL\bin\Debug\DAL.dll
+B:\VILLAGEGREEN\Visual Studio\DAL\bin\Debug\DAL.pdb
+B:\VILLAGEGREEN\Visual Studio\DAL\obj\Debug\DAL.dll
+B:\VILLAGEGREEN\Visual Studio\DAL\obj\Debug\DAL.pdb
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\DAL\bin\Debug\DAL.dll
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\DAL\bin\Debug\DAL.pdb
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\DAL\obj\Debug\DAL.dll
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\DAL\obj\Debug\DAL.pdb
+B:\Dropbox\Formation DL\VILLAGEGREEN\Visual Studio\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
