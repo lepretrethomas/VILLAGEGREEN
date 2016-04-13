@@ -2205,6 +2205,17 @@
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false" />
+          <property
+            Id="95d5c1ae-bb14-4e52-a298-940240ee954c"
+            name="pro_aff"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
         </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
@@ -2903,20 +2914,20 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="90044848-7090-4cba-8af1-741ced725e8f"
+            Id="6705207f-e6a3-43d0-9678-df40d27967c0"
             isDerived="false"
             sourceEndRoleName=""
             targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
             <classMoniker
-              Id="0872e23b-f04f-4b5a-9909-9180531d136a"
-              LastKnownName="Ligne de commande"
+              Id="44380072-eec0-4b0b-9203-8c654404fe61"
+              LastKnownName="Commande"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="d1dc4d7b-18a4-4e1d-b5c2-691d9ad79eca"
+                  Id="61ec2c36-ab28-4d7a-9af5-240f9b020df9"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -2928,7 +2939,7 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="8d34217b-0b9f-4b08-85e3-825fde4d0e22"
+                  Id="d45fe6a6-e837-4244-8b59-23634110b1c1"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -2938,13 +2949,13 @@
                   isComposite="false">
                   <lowerValueInternal>
                     <literalString
-                      Id="5bf2c829-7838-4e8a-bf5e-6ff73f472d29"
+                      Id="280a911a-0a3d-4c74-9b53-8025726feae8"
                       name="Lower"
                       value="*" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
-                      Id="c2cd3dbd-4673-4cec-80e7-c19dba1469d6"
+                      Id="a7102b38-a4c1-4032-9383-94b7594c7b10"
                       name="Upper"
                       value="*" />
                   </upperValueInternal>
